@@ -51,6 +51,18 @@ ActiveRecord::Schema.define(version: 2022_06_21_122119) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["rider_id"], name: "index_results_on_rider_id"
     t.index ["stage_id"], name: "index_results_on_stage_id"
+    
+  create_table "bets", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "stage_id", null: false
+    t.bigint "rider_id", null: false
+    t.integer "score"
+    t.integer "position"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["rider_id"], name: "index_bets_on_rider_id"
+    t.index ["stage_id"], name: "index_bets_on_stage_id"
+    t.index ["user_id"], name: "index_bets_on_user_id"
   end
 
   create_table "riders", force: :cascade do |t|
@@ -94,4 +106,7 @@ ActiveRecord::Schema.define(version: 2022_06_21_122119) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "results", "riders"
   add_foreign_key "results", "stages"
+  add_foreign_key "bets", "riders"
+  add_foreign_key "bets", "stages"
+  add_foreign_key "bets", "users"
 end
