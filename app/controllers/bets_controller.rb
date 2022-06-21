@@ -5,7 +5,7 @@ class BetsController < ApplicationController
 
   def create
     @bet = Bet.new(bet_params)
-    @bet.user = current_user 
+    @bet.user = current_user
     @bet.stage = Stage.find(params[:stage_id])
   end
 
