@@ -2,3 +2,13 @@
 <p>Find me in app/views/stages/show.html.erb</p>
 
 
+<h2>Mon Prono</h2>
+  <%= simple_form_for [ @stage, @bet ] do |f| %>
+    <%= f.input :position, label: "N°", collection: Bet::POSITIONS, selected: 1 %>
+    <%= f.input :rider, label: "Coureur", collection: Bet::RIDERS %>
+    <%= f.input :position, label: "N°", collection: Bet::POSITIONS, selected: 2 %>
+    <%= f.input :rider, label: "Coureur", collection: Bet::RIDERS %>
+    <%= f.input :position, label: "N°", collection: Bet::POSITIONS, selected: 3 %>
+    <%= f.input :rider, label: "Coureur", collection: Bet::RIDERS %>
+    <%= f.submit "En selle!", class: "btn btn-primary" %>
+  <% end %>

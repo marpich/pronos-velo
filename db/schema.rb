@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 2022_06_21_104823) do
     t.index ["rider_id"], name: "index_bets_on_rider_id"
     t.index ["stage_id"], name: "index_bets_on_stage_id"
     t.index ["user_id"], name: "index_bets_on_user_id"
+  end
+  
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
