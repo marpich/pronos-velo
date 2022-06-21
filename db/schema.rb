@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_21_103345) do
+ActiveRecord::Schema.define(version: 2022_06_21_104823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,19 @@ ActiveRecord::Schema.define(version: 2022_06_21_103345) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "bets", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "stage_id", null: false
+    t.bigint "rider_id", null: false
+    t.integer "score"
+    t.integer "position"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["rider_id"], name: "index_bets_on_rider_id"
+    t.index ["stage_id"], name: "index_bets_on_stage_id"
+    t.index ["user_id"], name: "index_bets_on_user_id"
   end
 
   create_table "riders", force: :cascade do |t|
@@ -82,4 +95,7 @@ ActiveRecord::Schema.define(version: 2022_06_21_103345) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bets", "riders"
+  add_foreign_key "bets", "stages"
+  add_foreign_key "bets", "users"
 end
