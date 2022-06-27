@@ -2,12 +2,13 @@ class BetsController < ApplicationController
 
   def create
     raise
+    @stage = Stage.find(params[:stage_id])
+    @bet.user = current_user
+    @bet = Bet.new(position: number)
+    
     name = params["bet"]["rider"].split.first
     number = params["bet"]["position"].to_i
-    @stage = Stage.find(params[:stage_id])
     @rider = Rider.where(last_name: name).first
-    @bet = Bet.new(position: number)
-    @bet.user = current_user
     @bet.stage = @stage
     @bet.rider = @rider
     if @bet.save
