@@ -1,4 +1,5 @@
 class Rider < ApplicationRecord
+  has_many :bets
   has_many :results
 
   riders = []
