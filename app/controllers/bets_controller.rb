@@ -1,21 +1,31 @@
 class BetsController < ApplicationController
 
   def create
-    raise
     @stage = Stage.find(params[:stage_id])
-    @bet.user = current_user
-    @bet = Bet.new(position: number)
-    
-    name = params["bet"]["rider"].split.first
-    number = params["bet"]["position"].to_i
-    @rider = Rider.where(last_name: name).first
-    @bet.stage = @stage
-    @bet.rider = @rider
-    if @bet.save
-      redirect_to stage_path(@stage)
-    else
-      render 'stages/show'
-   end
+    # @user = current_user
+    # @bet.user = @user
+    stage_number = bet_params["stage"].to_i
+
+    #number one
+    last_name = bet_params["rider_1"].split.first
+    winner_rider = Bet.new(position: 1)
+    winner_rider.stage = @stage
+    winner_rider.rider = Rider.where(last_name: last_name).first
+    winner_rider.save
+
+    #second
+    last_name = bet_params["rider_2"].split.first
+    second_rider = Bet.new(position: 2)
+    second_rider.stage = @stage
+    second_rider.rider = Rider.where(last_name: last_name).first
+    second_rider.save
+
+    #third
+    last_name = bet_params["rider_3"].split.first
+    third_rider = Bet.new(position: 3)
+    third_rider.stage = @stage
+    third_rider.rider = Rider.where(last_name: last_name).first
+    third_rider.save
   end
 
   def index
@@ -24,7 +34,7 @@ class BetsController < ApplicationController
 
   private
   def bet_params
-    params.require(:bet).permit(:position, :rider, :position, :rider, :position, :rider)
+    params.permit(:rider_1, :rider_2, :rider_3)
   end
 
 end
