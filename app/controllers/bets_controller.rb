@@ -11,21 +11,21 @@ class BetsController < ApplicationController
     winner_rider = Bet.new(position: 1)
     winner_rider.stage = @stage
     winner_rider.rider = Rider.where(last_name: last_name).first
-    winner_rider.save
+    winner_rider.save!
 
     #second
     last_name = bet_params["rider_2"].split.first
     second_rider = Bet.new(position: 2)
     second_rider.stage = @stage
     second_rider.rider = Rider.where(last_name: last_name).first
-    second_rider.save
+    second_rider.save!
 
     #third
     last_name = bet_params["rider_3"].split.first
     third_rider = Bet.new(position: 3)
     third_rider.stage = @stage
     third_rider.rider = Rider.where(last_name: last_name).first
-    third_rider.save
+    third_rider.save!
   end
 
   def index

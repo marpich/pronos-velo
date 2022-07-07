@@ -1,2 +1,7 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+<%= link_to "Etapes", stages_path, class: "btn-main mx-auto" %>
+<%= link_to "Coureurs", riders_path, class: "btn-main mx-auto" %>
+<%= link_to "Mon Prono", results_path, class: "btn-main mx-auto" %>
+<%= link_to "Entrer le résultat de l'étape", new_result_path, class: "btn-main mx-auto" %>
