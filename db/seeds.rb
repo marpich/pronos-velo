@@ -4,10 +4,41 @@ require "open-uri"
 filepath = "db/fixtures/stages.csv"
 filepath_riders = "db/fixtures/riders.csv"
 
+puts "Cleaning the database"
+
+User.destroy_all
+Bet.destroy_all
+Result.destroy_all
 Rider.destroy_all
 Stage.destroy_all
 
-puts "Creating stages"
+puts "Creating the users"
+
+user1 = User.new(
+  first_name: 'Margaux',
+  last_name: 'Pichard',
+  username: 'marpich',
+  email: 'margaux@gmail.com',
+  password: 'margaux'
+)
+photomarpich = URI.open('https://res.cloudinary.com/dz21jxux5/image/upload/v1657199619/Photo_ID_Margaux_kv8adr.jpg')
+user1.photo.attach(io: photomarpich, filename: 'marpich.png', content_type: 'image/png')
+user1.save!
+
+user2 = User.new(
+  first_name: 'Cedric',
+  last_name: 'Le Brun',
+  username: 'cedleb',
+  email: 'cedric@gmail.com',
+  password: 'cedric'
+)
+photocedleb = URI.open('https://res.cloudinary.com/dz21jxux5/image/upload/v1657201107/cedric_lebrun_photo_d1sw55.jpg')
+user2.photo.attach(io: photocedleb, filename: 'cedleb.png', content_type: 'image/png')
+user2.save!
+
+puts "Creating users done"
+
+puts "Creating the stages"
 
 CSV.foreach(filepath, headers: :first_row) do |row|
   image_map = URI.open(row['image_map'])
@@ -25,7 +56,7 @@ end
 
 puts "Creating stages done"
 
-puts "Creating riders"
+puts "Creating the riders"
 
 CSV.foreach(filepath_riders, headers: :first_row) do |row|
   rider = Rider.new(

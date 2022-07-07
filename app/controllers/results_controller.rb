@@ -15,21 +15,21 @@ class ResultsController < ApplicationController
     winner_rider = Result.new(result_position: 1)
     winner_rider.stage = Stage.where(number: stage_number).first
     winner_rider.rider = Rider.where(last_name: last_name).first
-    winner_rider.save
+    winner_rider.save!
 
     # deuxième
     last_name = result_params["rider_2"].split.first
     second_rider = Result.new(result_position: 2)
     second_rider.stage = Stage.where(number: stage_number).first
     second_rider.rider = Rider.where(last_name: last_name).first
-    second_rider.save
+    second_rider.save!
 
     # troisième
     last_name = result_params["rider_3"].split.first
     third_rider = Result.new(result_position: 3)
     third_rider.stage = Stage.where(number: stage_number).first
     third_rider.rider = Rider.where(last_name: last_name).first
-    third_rider.save
+    third_rider.save!
   end
 
   private
