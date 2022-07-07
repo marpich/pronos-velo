@@ -10,3 +10,12 @@
   <%= f.select :rider_3, Rider::RIDERS, prompt: 'Troisième' %>
   <%= f.submit "En selle!", class: "btn btn-primary" %>
 <% end %>
+
+<% @bets.each do |bet| %>
+  <div class="d-flex justify-center items-center">
+    <p><%= bet.position %></p><br>
+    <p><%= bet.rider.first_name %></p>
+    <p> <%= bet.rider.last_name %></p>
+    <p> <%= bet.user.username %></p>
+  </div>
+<% end %>
