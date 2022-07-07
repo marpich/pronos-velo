@@ -2,6 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
+  get "/info", to: "pages#info"
+  get "info/profile", to: "pages#profile"
+  get "info/my_results", to: "pages#my_results"
+  get "info/rules", to: "pages#rules"
+  get "info/about", to: "pages#about"
+
   resources :riders, only: [:index]
   resources :bets, only: [:index, :create, :new,]
   resources :results, only: [:index, :create, :new]
