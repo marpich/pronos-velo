@@ -1,6 +1,38 @@
 <h1>Stages#index</h1>
-<p>Find me in app/views/stages/index.html.erb</p>
 
-<% @stages.each do |stage| %>
-  <%= cl_image_tag stage.image.key, crop: :fill %>
-<% end %>
+<div class="container">
+
+  <div class="d-flex justify-content-between my-2">
+    <%= link_to 'Etapes', stages_path %>
+    <%= link_to 'Coureurs', riders_path %>
+  </div>
+
+  <% @stages.sort.each do |stage| %>
+
+    <div class="stage-card">
+
+      <%= link_to stage_path(stage) do %>
+        <div class= "stage-info">
+          <p>Etape <%= stage.number %></p>
+          <% case stage.stage_type %>
+            <% when 'Montagne' %>
+            <p><i class="fas fa-mountain"></i></p>
+            <% when 'Accidentee' %>
+            <p><i class="fas fa-exclamation-triangle"></i></p>
+            <% when 'Chrono' %>
+            <p><i class="fas fa-stopwatch"></i></p>
+            <% when 'Plat' %>
+            <p><i class="fas fa-road"></i></p>
+          <% end %>
+          <%= stage.date %>
+        </div>
+        <div class="stage-map">
+          <img src="<%= cl_image_path stage.image.key%>" width = "100%" >
+        </div>
+      <% end %>
+
+    </div>
+
+  <% end %>
+
+</div>
