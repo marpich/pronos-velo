@@ -1,21 +1,48 @@
 <h1>Stages#show</h1>
-<p>Find me in app/views/stages/show.html.erb</p>
 
+<div class="container">
 
-<h2>Mon Prono</h2>
-
-<%= form_with url: stage_bets_path(@stage), method: :post do |f| %>
-  <%= f.select :rider_1, Rider::RIDERS, prompt: 'Vainqueur' %>
-  <%= f.select :rider_2, Rider::RIDERS, prompt: 'Deuxième' %>
-  <%= f.select :rider_3, Rider::RIDERS, prompt: 'Troisième' %>
-  <%= f.submit "En selle!", class: "btn btn-primary" %>
-<% end %>
-
-<% @bets.each do |bet| %>
-  <div class="d-flex justify-center items-center">
-    <p><%= bet.position %></p><br>
-    <p><%= bet.rider.first_name %></p>
-    <p> <%= bet.rider.last_name %></p>
-    <p> <%= bet.user.username %></p>
+  <div class="stage-card">
+    <div class= "stage-info">
+      <p>Etape <%= @stage.number %></p>
+        <% case @stage.stage_type %>
+          <% when 'Montagne' %>
+          <p><i class="fas fa-mountain"></i></p>
+          <% when 'Accidentee' %>
+          <p><i class="fas fa-exclamation-triangle"></i></p>
+          <% when 'Chrono' %>
+          <p><i class="fas fa-stopwatch"></i></p>
+          <% when 'Plat' %>
+          <p><i class="fas fa-road"></i></p>
+        <% end %>
+      <%= @stage.date %>
+    </div>
+    <div class="stage-map">
+      <img src="<%= cl_image_path @stage.image.key%>" width = "100%" >
+    </div>
   </div>
-<% end %>
+
+  <h2>Mon Prono</h2>
+
+  <%= form_with url: stage_bets_path(@stage), method: :post do |f| %>
+    <%= f.select :rider_1, Rider::RIDERS, prompt: 'Vainqueur' %>
+    <%= f.select :rider_2, Rider::RIDERS, prompt: 'Deuxième' %>
+    <%= f.select :rider_3, Rider::RIDERS, prompt: 'Troisième' %>
+    <%= f.submit "En selle!", class: "btn btn-primary" %>
+  <% end %>
+
+  <div class="bet-card">
+    <% @bets.each do |bet| %>
+      <div class="bet-user-info">
+        <p><%= cl_image_tag bet.user.photo.key, class: "avatar" %></p>
+        <p><%= bet.user.username %></p>
+      </div>
+      <div class="bet-details">
+        <p><%= bet.position %></p>
+        <p><%= bet.rider.first_name %></p>
+        <p><%= bet.rider.last_name %></p>
+      </div>
+    <% end %>
+  </div>
+
+</div>
