@@ -1,0 +1,68 @@
+.main-button {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  background-color: $yellow;
+  color: $blue;
+  padding: 10px;
+  margin: 5px auto;
+  font-size: 16px;
+  border-radius: 25px;
+  width: 70vw;
+  border: none;
+  font-family: $body-font;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.second-button {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  background-color: white;
+  color: $blue;
+  padding: 10px;
+  margin: 5px auto;
+  font-size: 16px;
+  border-radius: 25px;
+  width: 70vw;
+  border: none;
+  font-family: $body-font;
+  font-weight: 600;
+}
+
+.secondary-button {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  background-color: $green;
+  color: $light-gray;
+  padding: 5px;
+  margin: 5px auto;
+  font-size: 20px;
+  border-radius: 15px;
+  width: 40vw;
+  font-family: 'Comfortaa', cursive;
+  border: none;
+  text-decoration: none;
+}
+
+.third-button {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  background-color: $light-gray;
+  color: $green;
+  padding: 5px;
+  margin: 5px auto;
+  font-size: 20px;
+  border-radius: 15px;
+  width: 40vw;
+  font-family: 'Comfortaa', cursive;
+  border: none;
+  text-decoration: none;
+  a {
+    text-decoration: none;
+  }
+}

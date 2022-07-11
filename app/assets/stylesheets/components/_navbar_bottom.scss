@@ -1,0 +1,43 @@
+.navbar-bottom {
+  color: $blue;
+  background-color: white;
+  font-family: $body-font;
+  display: flex;
+  justify-content:space-around;
+  padding-bottom: 20px;
+  position: sticky;
+  width: 100%;
+  bottom: 0;
+  box-shadow: 4px 4px 10px $light-gray;
+  z-index: 10;
+  border-top: 1px solid $light-gray;
+  min-height: $navbar-bottom-height;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.navbar-bottom-icon {
+  color: $blue;
+  height: 75px;
+  width: 75px;
+  padding: 8px;
+  margin: 5px;
+  font-family: $body-font;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  i {
+    font-size: 25px;
+    margin-top: 10px;
+  }
+
+  p {
+    margin: 0;
+    // font-weight: bold;
+    font-size: 11px;
+  }
+}

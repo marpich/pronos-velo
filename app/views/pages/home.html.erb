@@ -1,7 +1,12 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="box-home">
+  <%= image_tag "la-fringale.png" %>
+  <p>Défie tes potes sur les plus grosses courses de vélo en pronostiquant le podium de chaque étape !</p>
 
-<%= link_to "Etapes", stages_path, class: "btn-main mx-auto" %>
-<%= link_to "Coureurs", riders_path, class: "btn-main mx-auto" %>
-<%= link_to "Mon Prono", results_path, class: "btn-main mx-auto" %>
-<%= link_to "Entrer le résultat de l'étape", new_result_path, class: "btn-main mx-auto" %>
+  <%= link_to "Connexion", new_user_session_path, class: "main-button" %>
+  <%= link_to "Inscription",  new_user_registration_path, class: "second-button mx-auto" %>
+
+  <%# <%= link_to "Etapes", stages_path, class: "btn-main mx-auto" %>
+  <%# <%= link_to "Coureurs", riders_path, class: "btn-main mx-auto" %>
+  <%# <%= link_to "Mon Prono", results_path, class: "btn-main mx-auto" %>
+  <%# <%= link_to "Entrer le résultat de l'étape", new_result_path, class: "btn-main mx-auto" %>
+</div>
