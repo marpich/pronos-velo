@@ -6,8 +6,8 @@ filepath_riders = "db/fixtures/riders.csv"
 
 puts "Cleaning the database"
 
-User.destroy_all
 Bet.destroy_all
+User.destroy_all
 Result.destroy_all
 Rider.destroy_all
 Stage.destroy_all
