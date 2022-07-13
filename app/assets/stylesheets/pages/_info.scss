@@ -1,0 +1,73 @@
+.box-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  height: 85vh;
+  padding: 20px;
+}
+
+.box-profile {
+  background-color: $blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  height: 100%;
+  p {
+    color: white;
+    text-decoration: none;
+    font-family: $body-font;
+    font-weight: 700;
+    font-size: 25px;
+  }
+}
+
+.box-results {
+  background-color: $pink;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  height: 100%;
+  p {
+    color: white;
+    text-decoration: none !important;
+    font-family: $body-font;
+    font-weight: 700;
+    font-size: 25px;
+  }
+}
+
+.box-rules {
+  background-color: $red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  height: 100%;
+  p {
+    color: white;
+    text-decoration: none;
+    font-family: $body-font;
+    font-weight: 700;
+    font-size: 25px;
+  }
+}
+
+.box-concept {
+  background-color: $yellow;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  height: 100%;
+  p {
+    color: $blue;
+    text-decoration: none;
+    font-family: $body-font;
+    font-weight: 700;
+    font-size: 25px;
+  }
+}
