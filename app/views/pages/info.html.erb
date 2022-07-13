@@ -1,4 +1,18 @@
-<%= link_to "Profil", info_profile_path %>
-<%= link_to "Résultats", info_my_results_path %>
-<%= link_to "Règles", info_rules_path %>
-<%= link_to "Concept", info_about_path %>
+<div class="box-wrapper">
+  <%= link_to info_profile_path do %>
+    <div class="box-profile"><p>Profil</p></div>
+  <% end %>
+    <%= link_to info_my_results_path do %>
+    <div class="box-results"><p>Résultats</p></div>
+  <% end %>
+    <%= link_to info_rules_path do %>
+    <div class="box-rules"><p>Règles</p></div>
+  <% end %>
+    <%= link_to info_about_path do %>
+    <div class="box-concept"><p>Concept</p></div>
+  <% end %>
+</div>
+
+  <%# <div class="box-results"><%= link_to "Résultats", info_my_results_path %>
+  <%# <div class="box-rules"><%= link_to "Règles", info_rules_path %>
+  <%# <div class="box-concept"><%= link_to "Concept", info_about_path %>
