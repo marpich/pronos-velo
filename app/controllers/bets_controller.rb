@@ -14,7 +14,7 @@ class BetsController < ApplicationController
 
     # third bet
     last_name = bet_params["rider_3"].split.first
-    create_bet(2, last_name)
+    create_bet(3, last_name)
     # third_rider = Bet.new(position: 3)
     # third_rider.user = current_user
     # third_rider.stage = @stage

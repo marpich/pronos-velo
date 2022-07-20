@@ -5,6 +5,7 @@ class StagesController < ApplicationController
 
   def show
     @stage = Stage.find(params[:id])
+    @stages = Stage.all
     @bet = Bet.new
     @bets = Bet.where(stage: @stage)
   end
