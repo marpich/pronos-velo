@@ -1,5 +1,9 @@
 require "csv"
 require "open-uri"
+require 'uri'
+require 'net/http'
+require 'openssl'
+require 'active_support/inflector'
 
 filepath = "db/fixtures/stages.csv"
 filepath_riders = "db/fixtures/riders.csv"
@@ -63,6 +67,22 @@ CSV.foreach(filepath_riders, headers: :first_row) do |row|
     last_name: row['last_name'],
     first_name: row['first_name']
   )
+
+  url = URI("https://pro-cycling-stats.p.rapidapi.com/riders/#{row['first_name'].parameterize}-#{row['last_name'].parameterize}")
+
+  http = Net::HTTP.new(url.host, url.port)
+  http.use_ssl = true
+  http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+  request = Net::HTTP::Get.new(url)
+  request["X-RapidAPI-Key"] = 'e64cc11d1fmsh5015c34868ba754p1634f4jsn091f39c99d98'
+  request["X-RapidAPI-Host"] = 'pro-cycling-stats.p.rapidapi.com'
+
+  response = http.request(request)
+  infos = response.read_body
+  rider.team = JSON.parse(infos).first["Main info"]["team"]
+  rider.nationality = JSON.parse(infos).first["Main info"]["countryFlag"]
+  rider.photo_url = JSON.parse(infos).first["Main info"]["riders photo url"]
   rider.save!
 end
 
