@@ -4,6 +4,7 @@ require 'uri'
 require 'net/http'
 require 'openssl'
 require 'active_support/inflector'
+Dotenv.load
 
 filepath = "db/fixtures/stages.csv"
 filepath_riders = "db/fixtures/riders.csv"
@@ -75,7 +76,7 @@ CSV.foreach(filepath_riders, headers: :first_row) do |row|
   http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
   request = Net::HTTP::Get.new(url)
-  request["X-RapidAPI-Key"] = 'e64cc11d1fmsh5015c34868ba754p1634f4jsn091f39c99d98'
+  request["X-RapidAPI-Key"] = ENV['API_KEY']
   request["X-RapidAPI-Host"] = 'pro-cycling-stats.p.rapidapi.com'
 
   response = http.request(request)
