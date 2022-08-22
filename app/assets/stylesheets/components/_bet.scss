@@ -1,12 +1,15 @@
+.prono {
+  display: flex;
+  justify-content: center;
+  p {
+    text-align: center;
+  }
+}
+
 .bet-card {
-
-}
-
-.bet-user-info {
-  display: flex;
-
-}
-
-.bet-details {
-  display: flex;
+  border: 2px solid $gray;
+  border-radius: 5px;
+  background-color: $light-gray;
+  padding: 5px 10px;
+  min-width: 20vh;
 }

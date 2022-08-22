@@ -1,26 +1,26 @@
 class BetsController < ApplicationController
-
   def create
     @stage = Stage.find(params[:stage_id])
-    stage_number = bet_params["stage"].to_i
 
     # first bet
     last_name = bet_params["rider_1"].split.first
-    create_bet(1, last_name)
+    first_bet = create_bet(1, last_name)
 
-    #second bet
+    # second bet
     last_name = bet_params["rider_2"].split.first
-    create_bet(2, last_name)
+    second_bet = create_bet(2, last_name)
 
     # third bet
     last_name = bet_params["rider_3"].split.first
-    create_bet(2, last_name)
-    # third_rider = Bet.new(position: 3)
-    # third_rider.user = current_user
-    # third_rider.stage = @stage
-    # third_rider.rider = Rider.where(last_name: last_name).first
-    # third_rider.save!
-    redirect_to stage_path(@stage)
+    third_bet = create_bet(3, last_name)
+
+    if first_bet && second_bet && third_bet
+      redirect_to stage_path(@stage), notice: 'Pari pris en compte !'
+    else
+      Bet.where(user: current_user, stage: @stage).destroy_all
+      flash[:alert] = "Vous ne pouvez choisir un coureur qu'une seule fois !"
+      render "stages/show"
+    end
   end
 
   def index
@@ -39,6 +39,6 @@ class BetsController < ApplicationController
     bet.user = current_user
     bet.stage = @stage
     bet.rider = Rider.where(last_name: last_name).first
-    bet.save!
+    bet.save
   end
 end
