@@ -1,4 +1,8 @@
-<h1>Etape du Jour</h1>
+<% if @stage.date == Date.current %>
+  <h1>Etape du Jour</h1>
+<% else %>
+  <h1>Etape n°<%= @stage.number %></h1>
+<% end %>
 
 <div class="container-wrapper">
 
