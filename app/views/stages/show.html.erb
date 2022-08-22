@@ -22,27 +22,30 @@
     </div>
   </div>
 
-  <h2>Mon Prono</h2>
+  <h2 class="text-center">Mon Prono</h2>
 
-  <%= form_with url: stage_bets_path(@stage), method: :post do |f| %>
-    <%= f.select :rider_1, Rider::RIDERS, prompt: 'Vainqueur' %>
-    <%= f.select :rider_2, Rider::RIDERS, prompt: 'Deuxième' %>
-    <%= f.select :rider_3, Rider::RIDERS, prompt: 'Troisième' %>
-    <%= f.submit "En selle!", class: "btn btn-primary" %>
+  <% if @bets.nil? && @bet.present? %>
+    <%= form_with url: stage_bets_path(@stage), method: :post do |f| %>
+      <%= f.select :rider_1, Rider::RIDERS, prompt: 'Vainqueur' %>
+      <%= f.select :rider_2, Rider::RIDERS, prompt: 'Deuxième' %>
+      <%= f.select :rider_3, Rider::RIDERS, prompt: 'Troisième' %>
+      <%= f.submit "En selle!", class: "btn btn-primary" %>
+    <% end %>
   <% end %>
 
-  <div class="bet-card">
-    <% @bets.each do |bet| %>
-      <div class="bet-user-info">
-        <p><%= cl_image_tag bet.user.photo.key, class: "avatar" %></p>
-        <p><%= bet.user.username %></p>
+  <% unless @bets.nil? %>
+  <div class="prono">
+      <div class="bet-card">
+        <div class="bet-user-info">
+          <p><%= cl_image_tag current_user.photo.key, class: "avatar" %> <%= current_user.username %></p>
+        </div>
+        <% @bets.each do |bet| %>
+          <div class="bet-details">
+            <p><%= bet.position %>. <%= bet.rider.first_name %> <%= bet.rider.last_name %></p>
+          </div>
+        <% end %>
       </div>
-      <div class="bet-details">
-        <p><%= bet.position %></p>
-        <p><%= bet.rider.first_name %></p>
-        <p><%= bet.rider.last_name %></p>
-      </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 
 </div>
