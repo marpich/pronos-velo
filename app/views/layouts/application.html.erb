@@ -13,13 +13,8 @@
   </head>
 
   <body>
-    <%= yield %>
-    <%# <%= render 'shared/navbar'
     <%= render 'shared/flashes' %>
-
-    <% unless params[:action] == "home" %>
-      <%= render 'shared/navbar_bottom' %>
-    <% end %>
-
+    <%= yield %>
+    <%= render 'shared/navbar_bottom' %>
   </body>
 </html>
