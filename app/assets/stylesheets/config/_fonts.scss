@@ -20,9 +20,16 @@ $navbar-bottom-height: 13vh;
 
 
 .container-wrapper {
-  min-height: 85vh;
+  min-height: 90vh;
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
+}
+
+h1 {
+  text-align: center;
+  font-family: $headers-font;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }

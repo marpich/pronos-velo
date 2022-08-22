@@ -1,12 +1,49 @@
-<div class="box-home">
-  <%= image_tag "la-fringale.png" %>
-  <p>Défie tes potes sur les plus grosses courses de vélo en pronostiquant le podium de chaque étape !</p>
+<div class="container-wrapper">
+  <div class="banner">
+    <%= image_tag "La Fringale_logo.png" %>
+    <p>Défie tes potes sur les plus grosses courses de vélo en pronostiquant le podium de chaque étape !</p>
+  </div>
 
-  <%= link_to "Connexion", new_user_session_path, class: "main-button" %>
-  <%= link_to "Inscription",  new_user_registration_path, class: "second-button mx-auto" %>
+  <h3>Les Courses de la Saison 2022</h3>
 
-  <%# <%= link_to "Etapes", stages_path, class: "btn-main mx-auto" %>
-  <%# <%= link_to "Coureurs", riders_path, class: "btn-main mx-auto" %>
-  <%# <%= link_to "Mon Prono", results_path, class: "btn-main mx-auto" %>
-  <%# <%= link_to "Entrer le résultat de l'étape", new_result_path, class: "btn-main mx-auto" %>
+  <div class= "courses-box">
+    <div class="course">
+      <div class="course-image">
+        <%= image_tag "Giro_d'Italia.svg.png" %>
+      </div>
+      <p>06/05 > 29/05</p>
+      <p>C'est fini!</p>
+    </div>
+
+    <div class="course">
+      <div class="course-image">
+        <%= image_tag "Tour_de_France.svg.png" %>
+      </div>
+      <p>01/07 > 24/07</p>
+      <p>C'est fini!</p>
+    </div>
+
+    <div class="course">
+      <div class="course-image">
+        <%= image_tag "La_Vuelta.svg.png" %>
+      </div>
+      <p>19/08 > 11/09</p>
+      <p><strong>C'est maintenant!</strong></p>
+    </div>
+  </div>
+
+  <% if user_signed_in? %>
+    <div class="user-connected">
+    <% if @stage.present? %>
+      <p>On attend ton prono avec impatience! Tu as jusqu'à midi pour le compléter.</p>
+      <%= link_to "Mon Prono du Jour", stage_path(@stage), class: "main-button" %>
+    <% else %>
+      <p>Il n'y a pas de courses pour le moment mais on se tient au courant ! RDV en 2023...</p>
+    <% end %>
+    </div>
+  <% else %>
+    <%= link_to "Connexion", new_user_session_path, class: "main-button" %>
+    <%= link_to "Inscription",  new_user_registration_path, class: "second-button mx-auto" %>
+  <% end %>
+
 </div>
