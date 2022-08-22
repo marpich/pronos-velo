@@ -5,7 +5,9 @@ class StagesController < ApplicationController
 
   def show
     @stage = Stage.find(params[:id])
-    @bet = Bet.new
-    @bets = Bet.where(stage: @stage)
+    if @stage.date == Time.now && Time.now < Time.now.middle_of_day
+      @bet = Bet.new
+    end
+    @bets = Bet.where(user: current_user, stage: @stage)
   end
 end
