@@ -2,9 +2,9 @@
 
 <% @riders.each do |rider| %>
   <div class="rider-infos d-flex mb-3">
-    <%= cl_image_tag rider.photo_url, height: 100, width: 100, crop: :fill %>
+    <%= image_tag rider.photo_url, height: 100, width: 100, crop: :fill %>
     <div class="rider-info px-3">
-      <p><strong><%= rider.first_name %> <%= rider.last_name %></strong> <%= cl_image_tag rider.nationality, height: 20, width: 20, crop: :fill %></p>
+      <p><strong><%= rider.first_name %> <%= rider.last_name %></strong> <%= image_tag rider.nationality, height: 20, width: 20, crop: :fill %></p>
       <p><%= rider.team %></p>
     </div>
   </div>
