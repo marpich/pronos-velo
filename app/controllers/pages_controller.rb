@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
-    @stage = Stage.where(date: Time.now).first
+    @stage = Stage.where(date: Date.current).first
   end
 
   def info
