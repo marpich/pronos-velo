@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_26_082924) do
+ActiveRecord::Schema.define(version: 2022_08_23_093326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 2022_07_26_082924) do
     t.bigint "user_id", null: false
     t.bigint "stage_id", null: false
     t.bigint "rider_id", null: false
-    t.integer "score"
     t.integer "position"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -75,6 +74,16 @@ ActiveRecord::Schema.define(version: 2022_07_26_082924) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "photo_url"
+  end
+
+  create_table "scores", force: :cascade do |t|
+    t.integer "points", default: 0
+    t.bigint "stage_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["stage_id"], name: "index_scores_on_stage_id"
+    t.index ["user_id"], name: "index_scores_on_user_id"
   end
 
   create_table "stages", force: :cascade do |t|
@@ -111,4 +120,6 @@ ActiveRecord::Schema.define(version: 2022_07_26_082924) do
   add_foreign_key "bets", "users"
   add_foreign_key "results", "riders"
   add_foreign_key "results", "stages"
+  add_foreign_key "scores", "stages"
+  add_foreign_key "scores", "users"
 end

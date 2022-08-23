@@ -9,5 +9,6 @@ class StagesController < ApplicationController
       @bet = Bet.new
     end
     @bets = Bet.where(user: current_user, stage: @stage)
+    @result = Result.new
   end
 end

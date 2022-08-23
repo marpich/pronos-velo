@@ -1,40 +1,52 @@
 class ResultsController < ApplicationController
-  def index
-    @results = Result.all
-  end
-
-  def new
-    @result = Result.new
-  end
-
   def create
+    @stage = Stage.find(params[:stage_id])
 
-    stage_number = result_params["stage"].to_i
-    # vainqueur
-    last_name = result_params["rider_1"].split.first
-    winner_rider = Result.new(result_position: 1)
-    winner_rider.stage = Stage.where(number: stage_number).first
-    winner_rider.rider = Rider.where(last_name: last_name).first
-    winner_rider.save!
+    # first result
+    bib = result_params["rider_1"].split.first.to_i
+    first_result = create_result(1, bib)
 
-    # deuxième
-    last_name = result_params["rider_2"].split.first
-    second_rider = Result.new(result_position: 2)
-    second_rider.stage = Stage.where(number: stage_number).first
-    second_rider.rider = Rider.where(last_name: last_name).first
-    second_rider.save!
+    # second result
+    bib = result_params["rider_2"].split.first.to_i
+    second_result = create_result(2, bib)
 
-    # troisième
-    last_name = result_params["rider_3"].split.first
-    third_rider = Result.new(result_position: 3)
-    third_rider.stage = Stage.where(number: stage_number).first
-    third_rider.rider = Rider.where(last_name: last_name).first
-    third_rider.save!
+    # third result
+    bib = result_params["rider_3"].split.first.to_i
+    third_result = create_result(3, bib)
+
+    if first_result && second_result && third_result
+      redirect_to stage_path(@stage), notice: 'Résultat pris en compte !'
+    else
+      result.where(user: current_user, stage: @stage).destroy_all
+      flash[:alert] = "Vous ne pouvez choisir un coureur qu'une seule fois !"
+      render "stages/show"
+    end
   end
 
   private
 
   def result_params
-    params.permit(:stage, :rider_1, :rider_2, :rider_3)
+    params.permit(:rider_1, :rider_2, :rider_3)
   end
+
+  def create_result(position, bib)
+    result = Result.new
+    result.result_position = position
+    result.stage = @stage
+    result.rider = Rider.where(bib: bib).first
+    result.save!
+  end
+
+  def score_result
+    score = Score.where(stage: @stage)
+    first_result_rider = Result.where(stage: @stage, result_position: 1).first.rider
+    second_result_rider = Result.where(stage: @stage, result_position: 2).first.rider
+    third_result_rider = Result.where(stage: @stage, result_position: 3).first.rider
+    first_bet_rider = Bet.where(stage: @stage, position: 1).first.rider
+    second_bet_rider = Bet.where(stage: @stage, position: 2).first.rider
+    third_bet_rider = Bet.where(stage: @stage, position: 3).first.rider
+
+    if (first_result_rider == first_bet_rider) && (second_result_rider == second_bet_rider) && (third_result_rider == third_bet_rider)
+      bet.score = 10
+    end
 end
