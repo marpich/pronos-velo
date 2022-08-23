@@ -3,8 +3,8 @@ class Rider < ApplicationRecord
   has_many :results
 
   riders = []
-  Rider.all.each do |rider|
-    riders << "#{rider.bib} #{rider.last_name} #{rider.first_name}"
+  Rider.all.sort_by(&:bib).each do |rider|
+    riders << "#{rider.bib} - #{rider.last_name} #{rider.first_name}"
   end
   RIDERS = riders
 end
