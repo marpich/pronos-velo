@@ -4,7 +4,7 @@ class Rider < ApplicationRecord
 
   riders = []
   Rider.all.each do |rider|
-    riders << "#{rider.last_name} #{rider.first_name}"
+    riders << "#{rider.bib} #{rider.last_name} #{rider.first_name}"
   end
   RIDERS = riders
 end

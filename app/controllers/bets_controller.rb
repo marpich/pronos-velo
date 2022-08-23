@@ -3,16 +3,16 @@ class BetsController < ApplicationController
     @stage = Stage.find(params[:stage_id])
 
     # first bet
-    last_name = bet_params["rider_1"].split.first
-    first_bet = create_bet(1, last_name)
+    bib = bet_params["rider_1"].split.first.to_i
+    first_bet = create_bet(1, bib)
 
     # second bet
-    last_name = bet_params["rider_2"].split.first
-    second_bet = create_bet(2, last_name)
+    bib = bet_params["rider_2"].split.first.to_i
+    second_bet = create_bet(2, bib)
 
     # third bet
-    last_name = bet_params["rider_3"].split.first
-    third_bet = create_bet(3, last_name)
+    bib = bet_params["rider_3"].split.first.to_i
+    third_bet = create_bet(3, bib)
 
     if first_bet && second_bet && third_bet
       redirect_to stage_path(@stage), notice: 'Pari pris en compte !'
@@ -33,12 +33,12 @@ class BetsController < ApplicationController
     params.permit(:rider_1, :rider_2, :rider_3)
   end
 
-  def create_bet(position, last_name)
+  def create_bet(position, bib)
     bet = Bet.new
     bet.position = position
     bet.user = current_user
     bet.stage = @stage
-    bet.rider = Rider.where(last_name: last_name).first
-    bet.save
+    bet.rider = Rider.where(bib: bib).first
+    bet.save!
   end
 end

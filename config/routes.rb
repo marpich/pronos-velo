@@ -10,10 +10,10 @@ Rails.application.routes.draw do
 
   resources :riders, only: [:index]
   resources :bets, only: [:index, :create, :new,]
-  resources :results, only: [:index, :create, :new]
 
   resources :stages, only: [:show, :index] do
     resources :bets, only: [:create, :new]
+    resources :results, only: [:create, :new]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

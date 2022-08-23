@@ -62,13 +62,14 @@ end
 puts "Creating stages done"
 
 puts "Creating the riders"
-
+i = 1
 CSV.foreach(filepath_riders, headers: :first_row) do |row|
   rider = Rider.new(
     last_name: row['last_name'],
-    first_name: row['first_name']
+    first_name: row['first_name'],
+    bib: i
   )
-
+  i += 1
   url = URI("https://pro-cycling-stats.p.rapidapi.com/riders/#{row['first_name'].parameterize}-#{row['last_name'].parameterize}")
 
   http = Net::HTTP.new(url.host, url.port)
