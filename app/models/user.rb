@@ -5,5 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :bets
+  has_many :scores
   has_one_attached :photo
+
+  def display_score(stage)
+    self.scores.where(stage: stage).first.points unless self.scores.where(stage: stage).empty?
+  end
 end

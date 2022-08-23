@@ -28,7 +28,7 @@
 
   <h2 class="text-center">Mon Prono</h2>
 
-  <% if (@bets.nil? || @bets.empty?) && @bet.present? %>
+  <% if (@my_bets.nil? || @my_bets.empty?) && @bet.present? %>
     <%= form_with url: stage_bets_path(@stage), method: :post do |f| %>
       <%= f.select :rider_1, Rider::RIDERS, prompt: 'Vainqueur' %>
       <%= f.select :rider_2, Rider::RIDERS, prompt: 'Deuxième' %>
@@ -37,17 +37,21 @@
     <% end %>
   <% end %>
 
-  <% unless (@bets.nil? || @bets.empty?) %>
+  <% unless (@players.nil? || @players.empty?) %>
   <div class="prono">
       <div class="bet-card">
-        <div class="bet-user-info">
-          <p><%= cl_image_tag current_user.photo.key, class: "avatar" %> <%= current_user.username %></p>
-        </div>
-        <% @bets.each do |bet| %>
+        <% @players.each do |player| %>
+          <div class="bet-user-info">
+            <p><%= cl_image_tag player.photo.key, class: "avatar" %> <%= player.username %></p>
+              <p><%= player.display_score(@stage) %></p>
+          </div>
           <div class="bet-details">
-            <p><%= bet.position %>. <%= bet.rider.first_name %> <%= bet.rider.last_name %></p>
+            <% player.bets.each do |bet| %>
+              <p><%= bet.position %>. <%= bet.rider.first_name %> <%= bet.rider.last_name %></p>
+            <% end %>
           </div>
         <% end %>
+
       </div>
     </div>
   <% end %>

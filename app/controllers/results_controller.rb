@@ -15,6 +15,7 @@ class ResultsController < ApplicationController
     third_result = create_result(3, bib)
 
     if first_result && second_result && third_result
+      score_calculation
       redirect_to stage_path(@stage), notice: 'Résultat pris en compte !'
     else
       result.where(user: current_user, stage: @stage).destroy_all
@@ -37,16 +38,20 @@ class ResultsController < ApplicationController
     result.save!
   end
 
-  def score_result
-    score = Score.where(stage: @stage)
+  def score_calculation
     first_result_rider = Result.where(stage: @stage, result_position: 1).first.rider
     second_result_rider = Result.where(stage: @stage, result_position: 2).first.rider
     third_result_rider = Result.where(stage: @stage, result_position: 3).first.rider
-    first_bet_rider = Bet.where(stage: @stage, position: 1).first.rider
-    second_bet_rider = Bet.where(stage: @stage, position: 2).first.rider
-    third_bet_rider = Bet.where(stage: @stage, position: 3).first.rider
 
-    if (first_result_rider == first_bet_rider) && (second_result_rider == second_bet_rider) && (third_result_rider == third_bet_rider)
-      bet.score = 10
+    players = User.includes(:bets).where(bets: {stage: @stage}).all
+
+    players.each do |player|
+      first_bet_rider = Bet.where(user: player, stage: @stage, position: 1).first.rider
+      second_bet_rider = Bet.where(user: player, stage: @stage, position: 2).first.rider
+      third_bet_rider = Bet.where(user: player, stage: @stage, position: 3).first.rider
+      score = Score.new(stage: @stage, user: player)
+      score.compute!(first_bet_rider, second_bet_rider, third_bet_rider, first_result_rider, second_result_rider, third_result_rider)
+      score.double!(@stage)
     end
+  end
 end
