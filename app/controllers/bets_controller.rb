@@ -24,7 +24,7 @@ class BetsController < ApplicationController
   end
 
   def index
-    @bets = Bet.all
+    @users = User.all
   end
 
   private
