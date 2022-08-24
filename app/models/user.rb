@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :bets
-  has_many :scores
+  has_many :bets, dependent: :destroy
+  has_many :scores, dependent: :destroy
   has_one_attached :photo
 
   def display_score(stage)
