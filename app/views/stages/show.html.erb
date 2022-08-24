@@ -1,32 +1,42 @@
-<% if @stage.date == Date.current %>
-  <h1>Etape du Jour</h1>
-<% else %>
-  <h1>Etape n°<%= @stage.number %></h1>
-<% end %>
+<div class="logo flex justify-center items-center">
+  <%= image_tag "La Fringale_logo_blue.png", class:"lafringale"%>
+  <h1>X</h1>
+  <%= image_tag "Tour_de_France.svg.png" %>
+</div>
 
 <div class="container-wrapper">
 
   <div class="stage-card">
     <div class= "stage-info">
-      <p>Etape <%= @stage.number %></p>
-        <% case @stage.stage_type %>
-          <% when 'Montagne' %>
-          <p><i class="fas fa-mountain"></i></p>
-          <% when 'Accidentee' %>
-          <p><i class="fas fa-exclamation-triangle"></i></p>
-          <% when 'Chrono' %>
-          <p><i class="fas fa-stopwatch"></i></p>
-          <% when 'Plat' %>
-          <p><i class="fas fa-road"></i></p>
-        <% end %>
-      <%= @stage.date %>
+      <div class="stage-info-left flex items-center">
+        <div class="stage-info-etape">
+          <p>ETAPE <%= @stage.number %></p>
+        </div>
+        <div class="stage-info-date underline underline-offset-0 decoration-8 decoration-[#FFFF00]">
+          <%= @stage.date.strftime("%d-%m-%Y") %>
+        </div>
+      </div>
+      <div class="stage-info-right">
+        <div class="stage-info-profil">
+          <% case @stage.stage_type %>
+            <% when 'Montagne' %>
+            <p><i class="fas fa-mountain"></i> Montagne</p>
+            <% when 'Accidentee' %>
+            <p><i class="fas fa-exclamation-triangle"></i> Accidenté</p>
+            <% when 'Chrono' %>
+            <p><i class="fas fa-stopwatch"></i> Contre la Montre</p>
+            <% when 'Plat' %>
+            <p><i class="fas fa-road"></i> Plat</p>
+          <% end %>
+        </div>
+      </div>
     </div>
     <div class="stage-map">
-      <img src="<%= cl_image_path @stage.image.key%>" width = "100%" >
+      <img src="<%= cl_image_path @stage.image.key%>", width=100%>
     </div>
   </div>
 
-  <h2 class="text-center">Mon Prono</h2>
+  <h2 class="underline underline-offset-0 decoration-8 decoration-[#FFFF00]">-- Les Pronos de l'étape --</h2>
 
   <% if (@my_bets.nil? || @my_bets.empty?) && @bet.present? %>
     <%= form_with url: stage_bets_path(@stage), method: :post do |f| %>
@@ -38,22 +48,27 @@
   <% end %>
 
   <% unless (@players.nil? || @players.empty?) %>
-  <div class="flex justify-center prono">
-      <div class="bet-card">
-        <% @players.each do |player| %>
-          <div class="bet-user-info">
-            <p><%= cl_image_tag player.photo.key, class: "avatar" %> <%= player.username %></p>
-              <p><%= player.display_score(@stage) %></p>
+    <% @players.each do |player| %>
+      <% if player == current_user %>
+        <div class="bet-card-host flex justify-between items-center">
+      <% else %>
+        <div class="bet-card flex justify-between items-center">
+      <% end %>
+          <div class="bet-card-user flex flex-col items-center">
+            <p><%= cl_image_tag player.photo.key, class: "avatar" %></p>
+            <p><%= player.username %></p>
           </div>
-          <div class="bet-details">
+          <div class="bet-card-riders ">
             <% player.bets.each do |bet| %>
               <p><%= bet.position %>. <%= bet.rider.first_name %> <%= bet.rider.last_name %></p>
             <% end %>
           </div>
-        <% end %>
-
-      </div>
-    </div>
+          <div class="bet-card-points flex flex-col items-center">
+            <p class="score"><%= player.display_score(@stage) %></p>
+            <p>pts</p>
+          </div>
+        </div>
+    <% end %>
   <% end %>
 
   <h1>Le résultat de l'étape</h1>

@@ -1,9 +1,7 @@
 .stage-card {
   width: 100%;
-  background-color: white;
-  border: 1px solid black;
   padding: 10px;
-  margin-bottom: 10px;
+  border-top: 1px solid black;
   a {
     text-decoration: none !important;
     color: black;
@@ -20,7 +18,35 @@
   }
 }
 
+.stage-info-etape {
+  background-color: $yellow;
+  padding: 5px;
+  font-family: $headers-font;
+  font-size: large;
+  font-weight: bold;
+}
+
+.stage-info-date {
+  font-family: $headers-font;
+  font-size: medium;
+  padding-left: 10px;
+  font-weight: bold;
+}
+
+.stage-info-profil {
+  font-family: $headers-font;
+  font-size: small;
+  font-weight: bold;
+  i {
+    background-color: black;
+    padding: 6px;
+    color: $yellow;
+    border-radius: 3px;
+    margin-right: 3px;
+  }
+}
+
 .stage-map img {
 height: auto;
-object-fit: contain;
+object-fit:cover;
 }
