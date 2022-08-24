@@ -1,26 +1,30 @@
 class ResultsController < ApplicationController
   def create
     @stage = Stage.find(params[:stage_id])
-
-    # first result
-    bib = result_params["rider_1"].split.first.to_i
-    first_result = create_result(1, bib)
-
-    # second result
-    bib = result_params["rider_2"].split.first.to_i
-    second_result = create_result(2, bib)
-
-    # third result
-    bib = result_params["rider_3"].split.first.to_i
-    third_result = create_result(3, bib)
-
-    if first_result && second_result && third_result
-      score_calculation
-      redirect_to stage_path(@stage), notice: 'Résultat pris en compte !'
+    if result_params['rider_1'] == '' || result_params['rider_2'] == '' || result_params['rider_3'] == ''
+      flash[:alert] = "Le résultat doit contenir trois coureurs"
+      render 'stages/show'
     else
-      result.where(user: current_user, stage: @stage).destroy_all
-      flash[:alert] = "Vous ne pouvez choisir un coureur qu'une seule fois !"
-      render "stages/show"
+      # first result
+      bib = result_params["rider_1"].split.first.to_i
+      first_result = create_result(1, bib)
+
+      # second result
+      bib = result_params["rider_2"].split.first.to_i
+      second_result = create_result(2, bib)
+
+      # third result
+      bib = result_params["rider_3"].split.first.to_i
+      third_result = create_result(3, bib)
+
+      if first_result && second_result && third_result
+        score_calculation
+        redirect_to stage_path(@stage), notice: 'Résultat pris en compte !'
+      else
+        result.where(user: current_user, stage: @stage).destroy_all
+        flash[:alert] = "Vous ne pouvez choisir un coureur qu'une seule fois !"
+        render "stages/show"
+      end
     end
   end
 
