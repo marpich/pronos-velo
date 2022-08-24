@@ -11,9 +11,7 @@ filepath_riders = "db/fixtures/riders.csv"
 
 puts "Cleaning the database"
 
-Bet.destroy_all
 User.destroy_all
-Result.destroy_all
 Rider.destroy_all
 Stage.destroy_all
 
@@ -89,3 +87,70 @@ CSV.foreach(filepath_riders, headers: :first_row) do |row|
 end
 
 puts "Creating riders done"
+
+puts "Creating the results"
+
+result11 = Result.new(
+  result_position: 1,
+  rider: Rider.first,
+  stage: Stage.first
+)
+result11.save!
+
+result12 = Result.new(
+  result_position: 2,
+  rider: Rider.second,
+  stage: Stage.first
+)
+result12.save!
+
+result13 = Result.new(
+  result_position: 3,
+  rider: Rider.third,
+  stage: Stage.first
+)
+result13.save!
+
+result21 = Result.new(
+  result_position: 1,
+  rider: Rider.third,
+  stage: Stage.second
+)
+result21.save!
+
+result22 = Result.new(
+  result_position: 2,
+  rider: Rider.second,
+  stage: Stage.second
+)
+result22.save!
+
+result23 = Result.new(
+  result_position: 3,
+  rider: Rider.first,
+  stage: Stage.second
+)
+result23.save!
+
+result31 = Result.new(
+  result_position: 1,
+  rider: Rider.second,
+  stage: Stage.third
+)
+result31.save!
+
+result32 = Result.new(
+  result_position: 2,
+  rider: Rider.third,
+  stage: Stage.third
+)
+result32.save!
+
+result33 = Result.new(
+  result_position: 3,
+  rider: Rider.first,
+  stage: Stage.third
+)
+result33.save!
+
+puts "Creating results done"
