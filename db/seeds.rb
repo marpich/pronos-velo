@@ -11,7 +11,6 @@ filepath_riders = "db/fixtures/riders.csv"
 
 puts "Cleaning the database"
 
-Bet.destroy_all
 User.destroy_all
 Result.destroy_all
 Rider.destroy_all
@@ -89,3 +88,151 @@ CSV.foreach(filepath_riders, headers: :first_row) do |row|
 end
 
 puts "Creating riders done"
+
+puts "Creating the bets"
+
+bet11 = Bet.new(
+  user: user1,
+  stage: Stage.first,
+  position: 1,
+  rider: Rider.first
+)
+bet11.save!
+
+bet12 = Bet.new(
+  user: user1,
+  stage: Stage.first,
+  position: 2,
+  rider: Rider.second
+)
+bet12.save!
+
+bet13 = Bet.new(
+  user: user1,
+  stage: Stage.first,
+  position: 3,
+  rider: Rider.third
+)
+bet13.save!
+
+bet21 = Bet.new(
+  user: user1,
+  stage: Stage.second,
+  position: 1,
+  rider: Rider.first
+)
+bet21.save!
+
+bet22 = Bet.new(
+  user: user1,
+  stage: Stage.second,
+  position: 2,
+  rider: Rider.second
+)
+bet22.save!
+
+bet23 = Bet.new(
+  user: user1,
+  stage: Stage.second,
+  position: 3,
+  rider: Rider.third
+)
+bet23.save!
+
+bet31 = Bet.new(
+  user: user1,
+  stage: Stage.third,
+  position: 1,
+  rider: Rider.first
+)
+bet31.save!
+
+bet32 = Bet.new(
+  user: user1,
+  stage: Stage.third,
+  position: 2,
+  rider: Rider.second
+)
+bet32.save!
+
+bet33 = Bet.new(
+  user: user1,
+  stage: Stage.third,
+  position: 3,
+  rider: Rider.third
+)
+bet33.save!
+
+bet41 = Bet.new(
+  user: user2,
+  stage: Stage.first,
+  position: 1,
+  rider: Rider.third
+)
+bet41.save!
+
+bet42 = Bet.new(
+  user: user2,
+  stage: Stage.first,
+  position: 2,
+  rider: Rider.second
+)
+bet42.save!
+
+bet43 = Bet.new(
+  user: user2,
+  stage: Stage.first,
+  position: 3,
+  rider: Rider.first
+)
+bet43.save!
+
+bet51 = Bet.new(
+  user: user2,
+  stage: Stage.second,
+  position: 1,
+  rider: Rider.third
+)
+bet51.save!
+
+bet52 = Bet.new(
+  user: user2,
+  stage: Stage.second,
+  position: 2,
+  rider: Rider.second
+)
+bet52.save!
+
+bet53 = Bet.new(
+  user: user2,
+  stage: Stage.second,
+  position: 3,
+  rider: Rider.first
+)
+bet53.save!
+
+bet61 = Bet.new(
+  user: user2,
+  stage: Stage.third,
+  position: 1,
+  rider: Rider.third
+)
+bet61.save!
+
+bet62 = Bet.new(
+  user: user2,
+  stage: Stage.third,
+  position: 2,
+  rider: Rider.second
+)
+bet62.save!
+
+bet63 = Bet.new(
+  user: user2,
+  stage: Stage.third,
+  position: 3,
+  rider: Rider.first
+)
+bet63.save!
+
+puts "Creating bets done"
