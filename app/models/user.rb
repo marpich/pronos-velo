@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :bets, dependent: :destroy
   has_many :scores, dependent: :destroy
+  has_many :admissions, dependent: :destroy
   has_one_attached :photo
 
   def display_score(stage)
