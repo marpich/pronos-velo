@@ -1,9 +1,24 @@
 <h2>Classement des Joueurs</h2>
 
-<h2>Maillot Jaune</h2>
-<h2>Maillot Vert</h2>
-<h2>Maillot à Pois</h2>
+<div class="flex justify-between mx-3">
+  <%= link_to "Maillot Jaune", bets_path(type: nil) %>
+  <%= link_to "Maillot Vert", bets_path(type: "Plat") %>
+  <%= link_to "Maillot à Pois", bets_path(type: "Montagne") %>
+</div>
 
 <% @users.each do |user| %>
- <p><%= user.username %> - <%= user.display_score_total %></p>
+  <% if user == current_user %>
+    <div class="ranking-card-host flex justify-between items-center">
+  <% else %>
+    <div class="ranking-card flex justify-between items-center">
+  <% end %>
+    <div class="bet-card-user flex flex-col items-center">
+      <p><%= cl_image_tag user.photo.key, class: "avatar" %></p>
+      <p><%= user.username %></p>
+    </div>
+    <div class="bet-card-points flex flex-col items-center">
+      <p class="score"><%= user.display_score_total(params[:type]) %></p>
+      <p>pts</p>
+    </div>
+  </div>
 <% end %>
