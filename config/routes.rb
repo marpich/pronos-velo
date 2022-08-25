@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :riders, only: [:index]
   resources :bets, only: [:index, :create, :new,]
+  resources :leagues
 
   resources :stages, only: [:show, :index] do
     resources :bets, only: [:create, :new]
