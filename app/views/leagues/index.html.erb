@@ -8,7 +8,11 @@
           <%= league.name %>
           <%= cl_image_tag league.logo.key, class: "avatar" %>
         </div>
-        <p class="text-center">Rejoindre</p>
+        <% if (league.admissions.where(user: current_user).first).present? %>
+          <%= link_to "Quitter", league_admission_path(league, league.admissions.where(user: current_user).first), method: :delete %>
+        <% elsif (league.user != current_user) %>
+          <%= link_to "Rejoindre", league_admissions_path(league), method: :post %>
+        <% end %>
       </div>
     <% end %>
   </div>

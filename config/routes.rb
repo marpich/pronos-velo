@@ -9,8 +9,10 @@ Rails.application.routes.draw do
   get "info/about", to: "pages#about"
 
   resources :riders, only: [:index]
-  resources :bets, only: [:index, :create, :new,]
-  resources :leagues
+  resources :bets, only: [:index, :create, :new]
+  resources :leagues do
+    resources :admissions, only: [:create, :destroy, :new]
+  end
 
   resources :stages, only: [:show, :index] do
     resources :bets, only: [:create, :new]
