@@ -16,11 +16,12 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 // }
 // $my-font: "Font Name";
 
-$navbar-bottom-height: 13vh;
+$navbar-bottom-height: 10vh;
 
 
 .container-wrapper {
   min-height: 90vh;
+  padding: 0 10px;
 }
 
 a {
