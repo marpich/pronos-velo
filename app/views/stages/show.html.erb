@@ -1,10 +1,34 @@
-<div class="logo flex justify-center items-center">
-  <%= image_tag "La Fringale_logo_blue.png", class:"lafringale"%>
-  <h1>X</h1>
-  <%= image_tag "Tour_de_France.svg.png" %>
-</div>
+<div class="container">
 
-<div class="container-wrapper">
+  <div class="top-stage flex justify-between items-center">
+
+    <div class="switch-stage">
+      <% if @previous_stage.nil? %>
+        <p></p>
+      <% else %>
+        <%= link_to stage_path(@previous_stage) do %>
+          <i class="fas fa-angle-left"></i>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="logo flex justify-center items-center">
+      <%= image_tag "La Fringale_logo_blue.png", class:"lafringale"%>
+      <h1>X</h1>
+      <%= image_tag "Tour_de_France.svg.png" %>
+    </div>
+
+    <div class="switch-stage">
+      <% if @next_stage.nil? %>
+        <p></p>
+      <% else %>
+        <%= link_to stage_path(@next_stage) do %>
+          <i class="fas fa-angle-right"></i>
+        <% end %>
+      <% end %>
+    </div>
+
+  </div>
 
   <div class="stage-card">
     <div class= "stage-info">
@@ -40,7 +64,7 @@
 
   <% if (@my_bets.nil? || @my_bets.empty?) && @bet.present? %>
     <%= form_with url: stage_bets_path(@stage), method: :post do |f| %>
-      <%= f.select :rider_1, Rider::RIDERS, prompt: 'Vainqueur' %>
+      <%= f.select :rider_1, Rider::RIDERS, prompt: 'Vainqueur', class: "bg-amber-500" %>
       <%= f.select :rider_2, Rider::RIDERS, prompt: 'Deuxième' %>
       <%= f.select :rider_3, Rider::RIDERS, prompt: 'Troisième' %>
       <%= f.submit "En selle!", class: "btn btn-primary" %>
