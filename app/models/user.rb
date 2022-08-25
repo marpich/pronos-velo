@@ -11,4 +11,17 @@ class User < ApplicationRecord
   def display_score(stage)
     self.scores.where(stage: stage).first.points unless self.scores.where(stage: stage).empty?
   end
+
+  def display_score_total(type = nil)
+    total_score = 0
+    self.scores.each do |score|
+      if type == nil
+        total_score += score.points
+      elsif score.stage.stage_type == type
+        total_score += score.points
+      end
+    end
+    return total_score
+  end
+
 end
