@@ -7,9 +7,14 @@
         <div class="league-card-info flex justify-between">
           <%= league.name %>
           <%= cl_image_tag league.logo.key, class: "avatar" %>
+          <p>created by <%= league.user.username %></p>
         </div>
-        <% if (league.admissions.where(user: current_user).first).present? %>
+        <% if (league.admissions.where(user: current_user, status: "accepted").first).present? %>
           <%= link_to "Quitter", league_admission_path(league, league.admissions.where(user: current_user).first), method: :delete %>
+        <% elsif (league.admissions.where(user: current_user, status: "pending").first).present? %>
+          <p>Demande en attente</p>
+        <% elsif (league.admissions.where(user: current_user, status: "rejected").first).present? %>
+          <p>Demande refusée</p>
         <% elsif (league.user != current_user) %>
           <%= link_to "Rejoindre", league_admissions_path(league), method: :post %>
         <% end %>

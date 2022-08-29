@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get "info/rules", to: "pages#rules"
   get "info/about", to: "pages#about"
 
+  patch "admissions/:id/accept", to: "admissions#accept", as: "admission/accept"
+  patch "admissions/:id/reject", to: "admissions#reject", as: "admission/reject"
+
   resources :riders, only: [:index]
   resources :bets, only: [:index, :create, :new]
   resources :leagues do

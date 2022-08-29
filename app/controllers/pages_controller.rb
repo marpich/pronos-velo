@@ -9,6 +9,9 @@ class PagesController < ApplicationController
   end
 
   def profile
+    @leagues = League.where(user: current_user)
+    @leagues_accepted = League.includes(:admissions).where(admissions: {status: "accepted", user: current_user})
+    @admissions = Admission.includes(:league).where(league: {user_id: current_user})
   end
 
   def my_results
