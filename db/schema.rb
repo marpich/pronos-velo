@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_25_125422) do
+ActiveRecord::Schema.define(version: 2022_08_29_121552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2022_08_25_125422) do
   end
 
   create_table "admissions", force: :cascade do |t|
-    t.string "status", default: "pending"
+    t.string "status"
     t.bigint "user_id", null: false
     t.bigint "league_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -71,6 +71,15 @@ ActiveRecord::Schema.define(version: 2022_08_25_125422) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_leagues_on_user_id"
+  end
+
+  create_table "races", force: :cascade do |t|
+    t.string "name"
+    t.integer "year"
+    t.date "starting_date"
+    t.date "ending_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "results", force: :cascade do |t|
@@ -113,6 +122,8 @@ ActiveRecord::Schema.define(version: 2022_08_25_125422) do
     t.string "arrival"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "race_id"
+    t.index ["race_id"], name: "index_stages_on_race_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -143,4 +154,5 @@ ActiveRecord::Schema.define(version: 2022_08_25_125422) do
   add_foreign_key "results", "stages"
   add_foreign_key "scores", "stages"
   add_foreign_key "scores", "users"
+  add_foreign_key "stages", "races"
 end
