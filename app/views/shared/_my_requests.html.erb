@@ -1,0 +1,10 @@
+<h2>Mes admissions</h2>
+  <% @admissions.each do |admission| %>
+    <% if admission.status == "pending" %>
+      <%= admission.league.name %>
+      <%= admission.user.username %>
+      <%= admission.status %>
+      <%= link_to "Accepter", admission_accept_path(admission), method: :patch, class: "second-button" %>
+      <%= link_to "Refuser", admission_reject_path(admission), method: :patch, class: "second-button" %>
+    <% end %>
+  <% end %>

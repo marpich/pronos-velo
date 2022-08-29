@@ -1,0 +1,10 @@
+<h2>Mes ligues</h2>
+  <ul>
+  <% @leagues.each do |league| %>
+    <li><%= league.name %></li>
+  <% end %>
+  </ul>
+  <ul><% @leagues_accepted.each do |league| %>
+    <li><%= league.name %></li>
+  <% end %>
+  </ul>
