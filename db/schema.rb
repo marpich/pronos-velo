@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2022_08_25_125422) do
   end
 
   create_table "admissions", force: :cascade do |t|
-    t.string "status", default: "pending"
+    t.string "status"
     t.bigint "user_id", null: false
     t.bigint "league_id", null: false
     t.datetime "created_at", precision: 6, null: false
