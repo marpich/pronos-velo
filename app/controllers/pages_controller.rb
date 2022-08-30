@@ -8,12 +8,6 @@ class PagesController < ApplicationController
   def profile
   end
 
-  def my_results
-  end
-
   def rules
-  end
-
-  def leagues
   end
 end
