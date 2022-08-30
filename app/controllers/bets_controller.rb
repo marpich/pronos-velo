@@ -1,6 +1,6 @@
 class BetsController < ApplicationController
   def index
-    @users = User.includes(:total_scores).where(total_scores: {race: Stage.first.race}).order("total_scores.#{params[:type]} DESC")
+    @bets = Bet.where(user: current_user)
   end
 
   def create

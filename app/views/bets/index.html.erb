@@ -1,31 +1,8 @@
-<h2>Classement des Joueurs</h2>
-
-<div class="flex justify-between mx-3">
-  <%= link_to "Maillot Jaune", bets_path(type: "yellow_jersey") %>
-  <%= link_to "Maillot Vert", bets_path(type: "green_jersey") %>
-  <%= link_to "Maillot à Pois", bets_path(type: "polka_dot_jersey") %>
-</div>
-
-<% @users.each do |user| %>
-  <% if user == current_user %>
-    <div class="ranking-card-host flex justify-between items-center">
-  <% else %>
-    <div class="ranking-card flex justify-between items-center">
-  <% end %>
-    <div class="bet-card-user flex flex-col items-center">
-      <p><%= cl_image_tag user.photo.key, class: "avatar" %></p>
-      <p><%= user.username %></p>
-    </div>
-    <div class="bet-card-points flex flex-col items-center">
-      <% case params[:type] %>
-      <% when "yellow_jersey" %>
-        <p class="score"><%= user.total_scores.first.yellow_jersey %></p>
-      <% when "green_jersey" %>
-        <p class="score"><%= user.total_scores.first.green_jersey %></p>
-      <% when "polka_dot_jersey" %>
-        <p class="score"><%= user.total_scores.first.polka_dot_jersey %></p>
-      <% end %>
-      <p>pts</p>
-    </div>
-  </div>
+<h2>Mes Pronos</h2>
+<% @bets.each do |bet| %>
+  <p>Etape n°<%= bet.stage.number %></p>
+  <%= bet.position %>
+  <%= bet.rider.first_name %>
+  <%= bet.rider.last_name %>
+  <%= bet.user.username %>
 <% end %>
