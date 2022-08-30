@@ -12,8 +12,8 @@ filepath_riders = "db/fixtures/riders.csv"
 puts "Cleaning the database"
 
 User.destroy_all
+Race.destroy_all
 Rider.destroy_all
-Stage.destroy_all
 
 puts "Creating the users"
 
@@ -41,6 +41,18 @@ user2.save!
 
 puts "Creating users done"
 
+puts "Creating the races"
+
+race1 = Race.new(
+  name: 'Tour de France',
+  year: 2022,
+  starting_date: '19/08/2022',
+  ending_date: '08/09/2022'
+)
+race1.save!
+
+puts "Creating races done"
+
 puts "Creating the stages"
 
 CSV.foreach(filepath, headers: :first_row) do |row|
@@ -54,6 +66,7 @@ CSV.foreach(filepath, headers: :first_row) do |row|
     arrival: row['arrival']
   )
   stage.image.attach(io: image_map, filename: "stage#{row['number']}.png", content_type: 'image/png')
+  stage.race = race1
   stage.save!
 end
 
@@ -235,3 +248,19 @@ bet63 = Bet.new(
 bet63.save!
 
 puts "Creating bets done"
+
+puts "Creating the total scores"
+
+total_score1 = TotalScore.new(
+  race: race1,
+  user: user1
+)
+total_score1.save!
+
+total_score2 = TotalScore.new(
+  race: race1,
+  user: user2
+)
+total_score2.save!
+
+puts "Creating total scores done"

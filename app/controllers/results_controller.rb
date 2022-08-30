@@ -56,6 +56,12 @@ class ResultsController < ApplicationController
       score = Score.new(stage: @stage, user: player)
       score.compute!(first_bet_rider, second_bet_rider, third_bet_rider, first_result_rider, second_result_rider, third_result_rider)
       score.double!(@stage)
+      player.total_scores.where(total_scores: {race_id: @stage.race}).first.update_yellow_jersey
+      if @stage.stage_type == "Plat"
+        player.total_scores.where(total_scores: {race_id: @stage.race}).first.update_green_jersey
+      elsif @stage.stage_type == "Montagne"
+        player.total_scores.where(total_scores: {race_id: @stage.race}).first.update_polka_dot_jersey
+      end
     end
   end
 end
