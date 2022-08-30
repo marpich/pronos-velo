@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/dashboard'
   devise_for :users
   root to: 'pages#home'
 
@@ -7,6 +8,9 @@ Rails.application.routes.draw do
   get "info/my_results", to: "pages#my_results"
   get "info/rules", to: "pages#rules"
   get "info/about", to: "pages#about"
+
+  patch "admissions/:id/accept", to: "admissions#accept", as: "admission/accept"
+  patch "admissions/:id/reject", to: "admissions#reject", as: "admission/reject"
 
   resources :riders, only: [:index]
   resources :bets, only: [:index, :create, :new]

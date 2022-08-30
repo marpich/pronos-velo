@@ -1,0 +1,30 @@
+<h2>Mes ligues</h2>
+<div class="leagues grid grid-cols-2 gap-4">
+  <% @leagues.each do |league| %>
+    <div class="league-card border-2 rounded border-black p-4">
+      <div class="league-card-info flex justify-between">
+        <%= league.name %>
+        <%= cl_image_tag league.logo.key, class: "avatar" %>
+        <p>created by <%= league.user.username %></p>
+      </div>
+    </div>
+  <% end %>
+
+  <% @leagues_requested.each do |league| %>
+    <div class="league-card border-2 rounded border-black p-4">
+      <div class="league-card-info flex justify-between">
+        <%= league.name %>
+        <%= cl_image_tag league.logo.key, class: "avatar" %>
+        <p>created by <%= league.user.username %></p>
+      </div>
+      <% case league.admissions.where(user: current_user).first.status %>
+      <% when "accepted" %>
+        <%= link_to "Quitter", league_admission_path(league, league.admissions.where(user: current_user).first), method: :delete %>
+      <% when "pending" %>
+        <p>Demande en attente</p>
+      <% when "rejected" %>
+        <p>Demande refusée</p>
+      <% end %>
+    </div>
+  <% end %>
+</div>

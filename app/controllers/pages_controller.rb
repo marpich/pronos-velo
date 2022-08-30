@@ -5,19 +5,9 @@ class PagesController < ApplicationController
     @stage = Stage.where(date: Date.current).first
   end
 
-  def info
-  end
-
   def profile
-  end
-
-  def my_results
   end
 
   def rules
   end
-
-  def about
-  end
-
 end

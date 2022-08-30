@@ -8,11 +8,9 @@
     <%= link_to info_rules_path do %>
     <div class="box-rules"><p>Règles</p></div>
   <% end %>
-    <%= link_to leagues_path do %>
+    <%= link_to users_dashboard_path, data: { turbolinks: false } do %>
     <div class="box-concept"><p>Ligues</p></div>
   <% end %>
 </div>
 
-  <%# <div class="box-results"><%= link_to "Résultats", info_my_results_path %>
-  <%# <div class="box-rules"><%= link_to "Règles", info_rules_path %>
-  <%# <div class="box-concept"><%= link_to "Concept", info_about_path %>
+ <%= link_to "Deconnexion", destroy_user_session_path, method: :delete, class: "main-button" %>

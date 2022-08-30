@@ -3,19 +3,17 @@
   <h1 class="font-bold text-4xl">Liste des Ligues</h1>
   <div class="leagues grid grid-cols-2 gap-4">
     <% @leagues.each do |league| %>
-      <div class="league-card border-2 rounded border-black p-4">
-        <div class="league-card-info flex justify-between">
-          <%= league.name %>
-          <%= cl_image_tag league.logo.key, class: "avatar" %>
+      <% unless (league.user == current_user) || (league.admissions.where(user: current_user).first).present? %>
+        <div class="league-card border-2 rounded border-black p-4">
+          <div class="league-card-info flex justify-between">
+            <%= league.name %>
+            <%= cl_image_tag league.logo.key, class: "avatar" %>
+            <p>created by <%= league.user.username %></p>
+          </div>
+            <%= link_to "Rejoindre", league_admissions_path(league), method: :post %>
         </div>
-        <% if (league.admissions.where(user: current_user).first).present? %>
-          <%= link_to "Quitter", league_admission_path(league, league.admissions.where(user: current_user).first), method: :delete %>
-        <% elsif (league.user != current_user) %>
-          <%= link_to "Rejoindre", league_admissions_path(league), method: :post %>
-        <% end %>
-      </div>
+      <% end %>
     <% end %>
   </div>
-  <%= link_to "Créer une ligue", new_league_path, class: "main-button" %>
-
+  
 </div>
