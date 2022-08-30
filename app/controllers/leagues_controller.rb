@@ -7,7 +7,7 @@ class LeaguesController < ApplicationController
     @league = League.new(league_params)
     @league.user = current_user
     if @league.save
-      redirect_to leagues_path
+      redirect_to info_profile_path
     else
       render :new
     end
@@ -34,7 +34,7 @@ class LeaguesController < ApplicationController
   def destroy
     @league = League.find(params[:id])
     @league.delete
-    redirect_to leagues_path
+    redirect_to info_profile_path
   end
 
   private
