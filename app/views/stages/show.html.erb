@@ -63,7 +63,7 @@
   <h2 class="underline underline-offset-0 decoration-8 decoration-[#FFFF00]">-- Les Pronos de l'étape --</h2>
 
   <% if (@my_bets.nil? || @my_bets.empty?) && @bet.present? %>
-    <%= form_with url: stage_bets_path(@stage), method: :post do |f| %>
+    <%= form_with url: stage_bets_path(@stage), autocomplete: "on", method: :post do |f| %>
       <%= f.select :rider_1, Rider::RIDERS, prompt: 'Vainqueur', class: "bg-amber-500" %>
       <%= f.select :rider_2, Rider::RIDERS, prompt: 'Deuxième' %>
       <%= f.select :rider_3, Rider::RIDERS, prompt: 'Troisième' %>

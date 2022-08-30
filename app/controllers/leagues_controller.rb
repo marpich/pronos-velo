@@ -7,7 +7,7 @@ class LeaguesController < ApplicationController
     @league = League.new(league_params)
     @league.user = current_user
     if @league.save
-      redirect_to users_dashboard-path
+      redirect_to users_dashboard_path
     else
       render :new
     end
@@ -18,7 +18,15 @@ class LeaguesController < ApplicationController
   end
 
   def index
-    @leagues = League.all
+    if params[:query].present?
+      sql_query = <<~SQL
+        leagues.name ILIKE :query
+        OR users.username ILIKE :query
+      SQL
+      @leagues = League.joins(:user).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @leagues = League.all
+    end
   end
 
   def edit
