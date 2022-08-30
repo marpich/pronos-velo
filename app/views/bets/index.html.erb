@@ -1,9 +1,9 @@
 <h2>Classement des Joueurs</h2>
 
 <div class="flex justify-between mx-3">
-  <%= link_to "Maillot Jaune", bets_path(type: nil) %>
-  <%= link_to "Maillot Vert", bets_path(type: "Plat") %>
-  <%= link_to "Maillot à Pois", bets_path(type: "Montagne") %>
+  <%= link_to "Maillot Jaune", bets_path(type: "yellow_jersey") %>
+  <%= link_to "Maillot Vert", bets_path(type: "green_jersey") %>
+  <%= link_to "Maillot à Pois", bets_path(type: "polka_dot_jersey") %>
 </div>
 
 <% @users.each do |user| %>
@@ -17,7 +17,14 @@
       <p><%= user.username %></p>
     </div>
     <div class="bet-card-points flex flex-col items-center">
-      <p class="score"><%= user.display_score_total(params[:type]) %></p>
+      <% case params[:type] %>
+      <% when "yellow_jersey" %>
+        <p class="score"><%= user.total_scores.first.yellow_jersey %></p>
+      <% when "green_jersey" %>
+        <p class="score"><%= user.total_scores.first.green_jersey %></p>
+      <% when "polka_dot_jersey" %>
+        <p class="score"><%= user.total_scores.first.polka_dot_jersey %></p>
+      <% end %>
       <p>pts</p>
     </div>
   </div>

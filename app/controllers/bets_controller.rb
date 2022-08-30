@@ -1,4 +1,8 @@
 class BetsController < ApplicationController
+  def index
+    @users = User.includes(:total_scores).where(total_scores: {race: Stage.first.race}).order("total_scores.#{params[:type]} DESC")
+  end
+
   def create
     @stage = Stage.find(params[:stage_id])
 
@@ -21,10 +25,6 @@ class BetsController < ApplicationController
       flash[:alert] = "Vous ne pouvez choisir un coureur qu'une seule fois !"
       render "stages/show"
     end
-  end
-
-  def index
-    @users = User.all
   end
 
   private
