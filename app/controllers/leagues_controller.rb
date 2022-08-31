@@ -15,6 +15,7 @@ class LeaguesController < ApplicationController
 
   def show
     @league = League.find(params[:id])
+    @users = User.includes(:total_scores).where(total_scores: {race: Stage.first.race}).order("total_scores.#{params[:type]} DESC")
   end
 
   def index
