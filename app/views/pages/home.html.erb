@@ -35,9 +35,26 @@
   <% if user_signed_in? %>
     <div class="user-connected">
     <% if @stage.present? %>
-      <p>On attend ton prono avec impatience! Tu as jusqu'à midi pour le compléter.</p>
-      <%= link_to "Mon Prono du Jour", stage_path(@stage), class: "main-button" %>
+      <% if (Time.now < Time.now.middle_of_day) %>
+        <p>Fin des pronos dans</p>
+      <% end %>
+      <div class="timer-card flex justify-center items-center">
+        <p><i class="fas fa-hourglass-half"></i></p>
+        <div class="pl-2 text-2xl" data-controller="countdown-stage" data-countdown-stage-date-value="<%= @date %> 12:00:00"></div>
+      </div>
+        <% if (Time.now > Time.now.middle_of_day) %>
+          <%= link_to "Voir les pronos", stage_path(@stage), class: "main-button" %>
+          <p>Prépare ton prono pour demain!</p>
+        <% else %>
+          <%= link_to "Je fais mon prono", stage_path(@stage), class: "main-button" %>
+          <p>On attend ton prono avec impatience! Tu as jusqu'à midi pour le compléter.</p>
+        <% end %>
     <% else %>
+      <div class="timer-card flex justify-center items-center">
+        <p><i class="fas fa-bell"></i></p>
+        <p>Prochain tour dans</p>
+        <div class="pl-2 text-2xl" data-controller="countdown-race" data-countdown-race-date-value="May 9, 2023 12:00:00"></div>
+      </div>
       <p>Il n'y a pas de courses pour le moment mais on se tient au courant ! RDV en 2023...</p>
     <% end %>
     </div>
