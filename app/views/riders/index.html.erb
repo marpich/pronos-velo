@@ -1,17 +1,22 @@
 <h1><strong>Coureurs engagés sur le Tour de France</strong></h1>
 
 <div class="container-wrapper">
-  <% @riders.each do |rider| %>
-   <div class="rider-card text-center">
-      <%= image_tag rider.photo_url, height: 150, width: 150, crop: :fill, class:"image-rider" %>
-      <div class="rider-info text-center">
-        <p><strong>N°<%= rider.bib %></strong></p>
-        <div class="flex place-content-center">
-          <%= image_tag rider.nationality, height: 25, width: 25, crop: :fill %>
-          <p class="pl-2"><strong><%= rider.first_name %> <%= rider.last_name %></strong></p>
+  <div class="teams grid grid-cols-4 gap-2">
+    <% @riders.each do |team| %>
+      <div>
+        <p class="text-center"><strong><%= team.first %></strong></p>
+        <div class="team-riders">
+          <% team.second.each do |rider| %>
+            <div class="rider-card text-center">
+              <div class="flex">
+                <p><strong><%= rider.bib %></strong></p>
+                <p class="pl-2"><%= rider.first_name %> <%= rider.last_name %></p>
+                <%= image_tag rider.nationality, height: 15, width: 20, crop: :fill, class: "ml-2" %>
+              </div>
+            </div>
+          <% end %>
         </div>
-        <p><%= rider.team %></p>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
