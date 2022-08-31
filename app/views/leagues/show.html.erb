@@ -1,31 +1,58 @@
-<h2>Classement des Joueurs</h2>
+<div class="container-wrapper relative">
 
-<div class="flex justify-between mx-3">
-  <%= link_to "Maillot Jaune", bets_path(type: "yellow_jersey") %>
-  <%= link_to "Maillot Vert", bets_path(type: "green_jersey") %>
-  <%= link_to "Maillot à Pois", bets_path(type: "polka_dot_jersey") %>
-</div>
+  <div class="grid place-items-end">
 
-<% @users.each do |user| %>
-  <% if user == current_user %>
-    <div class="ranking-card-host flex justify-between items-center">
-  <% else %>
-    <div class="ranking-card flex justify-between items-center">
-  <% end %>
-    <div class="bet-card-user flex flex-col items-center">
-      <p><%= cl_image_tag user.photo.key, class: "avatar" %></p>
-      <p><%= user.username %></p>
+    <!-- Dropdown menu -->
+    <button id="dropdownTopButton" data-dropdown-toggle="dropdownTop" data-dropdown-placement="top" class="mr-3 mb-3 md:mb-0 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm mt-3 px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Choisis ton peloton<i class="fas fa-angle-down pl-3"></i></button>
+
+    <div id="dropdownTop" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 block" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top" style="inset: auto auto 0px 0px; margin: 0px; transform: translate3d(65px, 170px, 0px);">
+      <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownTopButton">
+        <% @my_leagues.each do |league| %>
+          <li>
+            <%= link_to league.name, league_path(league, type: "yellow_jersey"), class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white", data: { turbolinks: false } %>
+          </li>
+        <% end %>
+      </ul>
     </div>
-    <div class="bet-card-points flex flex-col items-center">
-      <% case params[:type] %>
-      <% when "yellow_jersey" %>
-        <p class="score"><%= user.total_scores.first.yellow_jersey %></p>
-      <% when "green_jersey" %>
-        <p class="score"><%= user.total_scores.first.green_jersey %></p>
-      <% when "polka_dot_jersey" %>
-        <p class="score"><%= user.total_scores.first.polka_dot_jersey %></p>
-      <% end %>
-      <p>pts</p>
-    </div>
+
   </div>
-<% end %>
+
+  <h2>Classement des Joueurs</h2>
+
+  <div class="flex justify-around my-8 mx-3">
+    <%= link_to league_path(@league, type: "yellow_jersey"), data: { turbolinks: false } do %>
+      <p><i class="fas fa-medal" style="color: #FFFF00; font-size: 50px"></i></p>
+    <% end %>
+    <%= link_to league_path(@league, type: "green_jersey"), data: { turbolinks: false } do %>
+      <p><i class="fas fa-road" style="color: #38a849; font-size: 50px"></i></p>
+    <% end %>
+    <%= link_to league_path(@league, type: "polka_dot_jersey"), data: { turbolinks: false } do %>
+      <p><i class="fas fa-mountain" style="color: #D9291C; font-size: 50px"></i></p>
+    <% end %>
+  </div>
+
+  <% @users.each do |user| %>
+    <% if user == current_user %>
+      <div class="ranking-card-host flex justify-between items-center">
+    <% else %>
+      <div class="ranking-card flex justify-between items-center">
+    <% end %>
+      <div class="bet-card-user flex flex-col items-center">
+        <p><%= cl_image_tag user.photo.key, class: "avatar" %></p>
+        <p><%= user.username %></p>
+      </div>
+      <div class="bet-card-points flex flex-col items-center">
+        <% case params[:type] %>
+        <% when "yellow_jersey" %>
+          <p class="score"><%= user.total_scores.first.yellow_jersey %></p>
+        <% when "green_jersey" %>
+          <p class="score"><%= user.total_scores.first.green_jersey %></p>
+        <% when "polka_dot_jersey" %>
+          <p class="score"><%= user.total_scores.first.polka_dot_jersey %></p>
+        <% end %>
+        <p>pts</p>
+      </div>
+    </div>
+  <% end %>
+
+</div>
