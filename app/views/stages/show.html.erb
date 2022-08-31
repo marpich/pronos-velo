@@ -82,7 +82,7 @@
             <p><%= cl_image_tag player.photo.key, class: "avatar" %></p>
             <p><%= player.username %></p>
           </div>
-          <div class="bet-card-riders ">
+          <div class="bet-card-riders">
             <% player.bets.each do |bet| %>
               <p><%= bet.position %>. <%= bet.rider.first_name %> <%= bet.rider.last_name %></p>
             <% end %>

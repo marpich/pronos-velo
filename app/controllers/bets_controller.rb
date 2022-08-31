@@ -1,6 +1,6 @@
 class BetsController < ApplicationController
   def index
-    @bets = Bet.where(user: current_user)
+    @bets = Bet.where(user: current_user).group_by(&:stage)
   end
 
   def create
