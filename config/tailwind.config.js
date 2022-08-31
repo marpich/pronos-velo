@@ -22,6 +22,7 @@ module.exports = {
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/typography'),
     require('flowbite/plugin'),
+    require("/node_modules/flowbite/plugin.js")
   ]
 }
 }
