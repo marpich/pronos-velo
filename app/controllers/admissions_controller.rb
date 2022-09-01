@@ -20,8 +20,7 @@ class AdmissionsController < ApplicationController
 
   def accept
     @admission = Admission.find(params[:id])
-    @admission.status = "accepted"
-    if @admission.save
+    if @admission.accept!
       redirect_to users_dashboard_path(choice: "my_requests")
     else
       flash[:alert] = "Le peloton est complet!"

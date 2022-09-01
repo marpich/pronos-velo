@@ -15,22 +15,12 @@ class LeaguesController < ApplicationController
 
   def show
     @league = League.find(params[:id])
-    leagues = League.where(user: current_user)
-    leagues_requested = League.includes(:admissions).where(admissions: {user: current_user})
-    @my_leagues = leagues + leagues_requested
+    @my_leagues = League.where_am_i
     @users = User.includes(:total_scores).where(total_scores: {race: Stage.first.race}).order("total_scores.#{params[:type]} DESC")
   end
 
   def index
-    if params[:query].present?
-      sql_query = <<~SQL
-        leagues.name ILIKE :query
-        OR users.username ILIKE :query
-      SQL
-      @leagues = League.joins(:user).where(sql_query, query: "%#{params[:query]}%")
-    else
-      @leagues = League.all
-    end
+    @leagues = params[:query].present? ? League.where_name_or_username_is(params[:query]) : League.all
   end
 
   def edit
