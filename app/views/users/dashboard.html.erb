@@ -1,28 +1,60 @@
-<div class="container-wrapper relative">
-  <h1>Mes Compétitions</h1>
-  <div class="menu flex justify-between">
-    <%= link_to "Mes ligues", users_dashboard_path(choice: 'my_leagues'), data: { turbolinks: false } %>
-    <%= link_to "Mes demandes", users_dashboard_path(choice: 'my_requests'), data: { turbolinks: false } %>
+<div class="container-wrapper">
+  <div class="profile-header flex flex-col items-center shadow-xl py-3">
+    <div class="profile-header-top flex justify-between items-center px-3">
+      <div><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></div>
+      <div><i class="fas fa-cog"></i></div>
+    </div>
+    <p><%= cl_image_tag current_user.photo.key, class: "border-solid border-2 rounded-full w-20 h-20 object-cover" %></p>
+    <p class="font-thin text-sm"><%= current_user.username %></p>
+    <p class="font-light text-center">Bienvenue dans le tour <%= current_user.first_name %> !</p>
   </div>
 
-  <% if params[:choice] == 'my_leagues' || params[:choice].nil? %>
-    <%= render "shared/my_leagues" %>
-  <% elsif params[:choice] == 'my_requests' %>
-    <%= render "shared/my_requests" %>
-  <% end %>
+  <div class="leagues-card border border-1 mx-3 my-3 pb-3 px-3">
+    <h1>Mes Pelotons (<%= @my_leagues.count %>)</h1>
+    <div class="leagues-avatar grid grid-cols-4 gap-5">
+      <% @my_leagues.each do |league| %>
+        <% if league.user == current_user || league.admissions.where(user: current_user).first.status == "accepted" %>
+          <%= link_to league_path(league, type: "yellow_jersey"), data: { turbolinks: false } do %>
+            <%= cl_image_tag league.logo.key, class: "border-solid border-2 rounded-full w-16 h-16 object-cover m-auto" %>
+          <% end %>
+        <% elsif league.admissions.where(user: current_user).first.status == "pending" %>
+          <%= cl_image_tag league.logo.key, class: "border-solid border-2 rounded-full w-16 h-16 object-cover m-auto opacity-50" %>
+        <% else %>
+          <%= cl_image_tag league.logo.key, class: "border-solid border-2 rounded-full w-16 h-16 object-cover m-auto bg-sky-500/50" %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="dropdown-menu flex flex-row-reverse">
+      <!-- Dropdown menu -->
+      <button id="dropdownTopButton" data-dropdown-toggle="dropdownTop" data-dropdown-placement="top" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Nouvelle Ligue <i class="fas fa-plus pl-3"></i></button>
+      <div id="dropdownTop" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 block" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(65px, 170px, 0px);">
+          <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownTopButton">
+            <li>
+              <%= link_to "Ajouter", new_league_path, class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
+            </li>
+            <li>
+              <%= link_to "Rejoindre", leagues_path, class:"block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
+            </li>
+          </ul>
+      </div>
+    </div>
+  </div>
 
-  <button id="dropdownTopButton" data-dropdown-toggle="dropdownTop" data-dropdown-placement="top" class="mr-3 mb-3 md:mb-0 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 absolute bottom-0 right-0" type="button">Nouvelle Ligue <i class="fas fa-plus pl-3"></i></button>
-
-  <!-- Dropdown menu -->
-  <div id="dropdownTop" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 block" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(65px, 170px, 0px);">
-      <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownTopButton">
-        <li>
-          <%= link_to "Ajouter", new_league_path, class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
-        </li>
-        <li>
-          <%= link_to "Rejoindre", leagues_path, class:"block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
-        </li>
-      </ul>
+  <div class="admissions-card border border-1 mx-3 mt-3 pb-3 px-3">
+    <h1>Mes demandes d'Adhésions (<%= @my_admissions.count %>)</h1>
+    <% @my_admissions.each do |admission| %>
+      <div class="admission flex justify-between items-center">
+        <div class="admissions-info flex items-center">
+          <p><%= admission.user.username %> pour</p>
+          <%= cl_image_tag admission.league.logo.key, class: "border-solid border-2 rounded-full w-10 h-10 object-cover mx-2" %>
+          <p><%= admission.league.name %></p>
+        </div>
+        <div class="admissions-buttons flex justify-between">
+          <div><%= link_to "Accepter", admission_accept_path(admission), method: :patch, class: "pr-2 btn-ok" %></div>
+          <div><%= link_to "Refuser", admission_reject_path(admission), method: :patch, class: "pl-2 btn-ko" %></div>
+        </div>
+      </div>
+    <% end %>
   </div>
 
 </div>

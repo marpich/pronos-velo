@@ -21,7 +21,9 @@ $navbar-bottom-height: 10vh;
 
 .container-wrapper {
   min-height: 90vh;
-  padding: 0 10px;
+  // padding: 0 0px;
+  background-color: #f3f3f3;
+  padding-bottom: 10px;
 }
 
 a {
