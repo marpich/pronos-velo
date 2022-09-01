@@ -4,8 +4,12 @@ class AdmissionsController < ApplicationController
     @admission.user = current_user
     @admission.status = "pending"
     @admission.league = League.find(params[:league_id])
-    @admission.save!
-    redirect_to users_dashboard_path
+    if @admission.save
+      redirect_to users_dashboard_path
+    else
+      flash[:alert] = "Le peloton est complet!"
+      redirect_to leagues_path
+   end
   end
 
   def destroy
@@ -17,8 +21,12 @@ class AdmissionsController < ApplicationController
   def accept
     @admission = Admission.find(params[:id])
     @admission.status = "accepted"
-    @admission.save
-    redirect_to users_dashboard_path(choice: "my_requests")
+    if @admission.save
+      redirect_to users_dashboard_path(choice: "my_requests")
+    else
+      flash[:alert] = "Le peloton est complet!"
+      redirect_to leagues_path
+    end
   end
 
   def reject
