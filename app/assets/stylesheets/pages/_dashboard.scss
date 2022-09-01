@@ -1,0 +1,38 @@
+.profile-header {
+  background-color: $blue;
+  color: white;
+}
+
+.profile-header-top {
+  width: 100%;
+  text-decoration-line: underline;
+  font-weight: 300;
+}
+
+.leagues-card {
+  background-color: white;
+  border-radius: 15px;
+  h1 {
+    font-weight: 600;
+  }
+}
+
+.admissions-card {
+  background-color: white;
+  border-radius: 15px;
+  h1 {
+    font-weight: 600;
+  }
+}
+
+.admissions-buttons {
+  text-decoration-line: underline;
+}
+
+.btn-ok {
+  color: $green;
+}
+
+.btn-ko {
+  color: $red;
+}

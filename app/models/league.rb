@@ -15,9 +15,9 @@ class League < ApplicationRecord
     League.joins(:user).where(sql_query, query: "%#{name}%")
   end
 
-  def where_am_i
-    leagues = League.where(user: current_user)
-    leagues_requested = League.includes(:admissions).where(admissions: {user: current_user})
+  def self.where_am_i(user)
+    leagues = League.where(user: user)
+    leagues_requested = League.includes(:admissions).where(admissions: {user: user})
     leagues + leagues_requested
   end
 end
