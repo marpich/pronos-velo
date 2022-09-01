@@ -20,4 +20,8 @@ class League < ApplicationRecord
     leagues_requested = League.includes(:admissions).where(admissions: {user: user})
     leagues + leagues_requested
   end
+
+  def number_of_players
+    self.admissions.where(status: "accepted").count + 1
+  end
 end
