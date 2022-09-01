@@ -1,4 +1,4 @@
-<div class="container-wrapper relative">
+<div class="container-wrapper league-ranking relative">
 
   <div class="grid place-items-end">
 
@@ -17,42 +17,63 @@
 
   </div>
 
-  <h2>Classement des Joueurs</h2>
+  <!-- Card league info -->
 
-  <div class="flex justify-around my-8 mx-3">
-    <%= link_to league_path(@league, type: "yellow_jersey"), data: { turbolinks: false } do %>
-      <p><i class="fas fa-medal" style="color: #FFFF00; font-size: 50px"></i></p>
-    <% end %>
-    <%= link_to league_path(@league, type: "green_jersey"), data: { turbolinks: false } do %>
-      <p><i class="fas fa-road" style="color: #38a849; font-size: 50px"></i></p>
-    <% end %>
-    <%= link_to league_path(@league, type: "polka_dot_jersey"), data: { turbolinks: false } do %>
-      <p><i class="fas fa-mountain" style="color: #D9291C; font-size: 50px"></i></p>
+  <div class="card-league-info flex justify-between items-center">
+    <p class="w-40"><%= @league.number_of_players %>/20 joueurs</p>
+    <div>
+      <%= cl_image_tag @league.logo.key, class: "logo-league" %>
+      <p><%= @league.name %></p>
+    </div>
+    <% if @admission && @admission.accepted? %>
+      <p class="w-40"><%= link_to "Quitter", league_admission_path(@league, @admission), method: :delete %></p>
+    <% else %>
+      <p class="w-40"></p>
     <% end %>
   </div>
 
-  <% @users.each do |user| %>
-    <% if user == current_user %>
-      <div class="ranking-card-host flex justify-between items-center">
-    <% else %>
-      <div class="ranking-card flex justify-between items-center">
+  <h1><strong>CLASSEMENT</strong></h1>
+
+  <!-- Link to different jerseys -->
+
+  <div class="league-jerseys flex justify-around items-center mt-2 mb-8 mx-3">
+    <%= link_to league_path(@league, type: "yellow_jersey"), data: { turbolinks: false } do %>
+      <p><i class="fas fa-medal <%=(params[:type] == "yellow_jersey" ? "act" : "dis")%>" style="color: #FFFF00"></i></p>
     <% end %>
-      <div class="bet-card-user flex flex-col items-center">
-        <p><%= cl_image_tag user.photo.key, class: "avatar" %></p>
-        <p><%= user.username %></p>
+    <%= link_to league_path(@league, type: "green_jersey"), data: { turbolinks: false } do %>
+      <p><i class="fas fa-road <%=(params[:type] == "green_jersey" ? "act" : "dis")%>" style="color: #38a849"></i></p>
+    <% end %>
+    <%= link_to league_path(@league, type: "polka_dot_jersey"), data: { turbolinks: false } do %>
+      <p><i class="fas fa-mountain <%=(params[:type] == "polka_dot_jersey" ? "act" : "dis")%>" style="color: #D9291C"></i></p>
+    <% end %>
+  </div>
+
+
+  <div class="league-ranking-users">
+    <% @users.each_with_index do |user, index| %>
+      <% if user == current_user %>
+        <div class="ranking-card-host flex justify-between items-center">
+      <% else %>
+        <div class="ranking-card flex justify-between items-center">
+      <% end %>
+        <p><strong><%= index + 1 %></strong></p>
+        <div class="bet-card-user flex flex-col items-center">
+          <p><%= cl_image_tag user.photo.key, class: "avatar" %></p>
+          <p><%= user.username %></p>
+        </div>
+        <div class="bet-card-points flex flex-col items-center">
+          <% case params[:type] %>
+          <% when "yellow_jersey" %>
+            <p class="score"><%= user.total_scores.first.yellow_jersey %></p>
+          <% when "green_jersey" %>
+            <p class="score"><%= user.total_scores.first.green_jersey %></p>
+          <% when "polka_dot_jersey" %>
+            <p class="score"><%= user.total_scores.first.polka_dot_jersey %></p>
+          <% end %>
+          <p>pts</p>
+        </div>
       </div>
-      <div class="bet-card-points flex flex-col items-center">
-        <% case params[:type] %>
-        <% when "yellow_jersey" %>
-          <p class="score"><%= user.total_scores.first.yellow_jersey %></p>
-        <% when "green_jersey" %>
-          <p class="score"><%= user.total_scores.first.green_jersey %></p>
-        <% when "polka_dot_jersey" %>
-          <p class="score"><%= user.total_scores.first.polka_dot_jersey %></p>
-        <% end %>
-        <p>pts</p>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 
 </div>
