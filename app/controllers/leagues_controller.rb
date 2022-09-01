@@ -15,8 +15,11 @@ class LeaguesController < ApplicationController
 
   def show
     @league = League.find(params[:id])
-    @my_leagues = League.where_am_i
+    leagues = League.where(user: current_user)
+    leagues_requested = League.includes(:admissions).where(admissions: {user: current_user})
+    @my_leagues = League.where_am_i(current_user)
     @users = User.includes(:total_scores).where(total_scores: {race: Stage.first.race}).order("total_scores.#{params[:type]} DESC")
+    @admission = @league.admissions.where(user: current_user).first
   end
 
   def index

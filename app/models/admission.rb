@@ -5,7 +5,11 @@ class Admission < ApplicationRecord
   validate :restrict_number_of_players
 
   def accept!
-    update(status: accepted)
+    update(status: "accepted")
+  end
+  
+  def accepted?
+    status == "accepted"
   end
 
   private
@@ -15,4 +19,5 @@ class Admission < ApplicationRecord
       errors.add(:base, "The number of players for one league must be less than or equal to 20")
     end
   end
+
 end
