@@ -1,0 +1,95 @@
+<div class="container-wrapper">
+  <div class="title flex items-center pl-3">
+    <%= link_to users_dashboard_path, method: :get do %>
+      <i class="fas fa-chevron-circle-left"></i>
+    <% end %>
+    <h1 class="pl-5 text-xl">Préférences</h1>
+  </div>
+  <div class="account">
+
+      <%= link_to edit_user_registration_path, method: :get do %>
+    <div class="account-card-title py-1 px-3 flex flex justify-between items-center">
+      <div class="account-card-info">
+        <h2 class = "font-semibold" >Mes informations</h2>
+      </div>
+      <div class="account-card-button">
+        <i class="fas fa-chevron-right"></i>
+      </div>
+    </div>
+  <% end %>
+
+    <div class="account-card py-1 px-3 flex flex justify-between items-center">
+      <div class="account-card-info">
+        <p class = "" >Prénom</p>
+        <p class = "text-sm text-gray-500" ><%= current_user.first_name %></p>
+      </div>
+      <div class="account-card-button">
+        <i class="fas fa-chevron-right"></i>
+      </div>
+    </div>
+
+    <div class="account-card py-1 px-3 flex flex justify-between items-center">
+      <div class="account-card-info">
+        <p class = "" >Nom</p>
+        <p class = "text-sm text-gray-500" ><%= current_user.last_name %></p>
+      </div>
+      <div class="account-card-button">
+        <i class="fas fa-chevron-right"></i>
+      </div>
+    </div>
+
+    <div class="account-card py-1 px-3 flex flex justify-between items-center">
+      <div class="account-card-info">
+        <p class = "" >Pseudo</p>
+        <p class = "text-sm text-gray-500" ><%= current_user.username %></p>
+      </div>
+      <div class="account-card-button">
+        <i class="fas fa-chevron-right"></i>
+      </div>
+    </div>
+
+    <div class="account-card py-1 px-3 flex flex justify-between items-center">
+      <div class="account-card-info">
+        <div class="account-card-avatar flex items-center">
+          <p class = "pr-3" >Avatar</p>
+          <p><%= cl_image_tag current_user.photo.key, class: "border-solid border-2 rounded-full w-10 h-10 object-cover" %></p>
+        </div>
+      </div>
+      <div class="account-card-button">
+        <i class="fas fa-chevron-right"></i>
+      </div>
+    </div>
+
+    <%= link_to edit_user_registration_path, method: :get do %>
+      <div class="account-card-title py-1 px-3 flex flex justify-between items-center">
+        <div class="account-card-info">
+          <h2 class = "font-semibold" >Mon compte</h2>
+        </div>
+        <div class="account-card-button">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="account-card py-1 px-3 flex flex justify-between items-center">
+      <div class="account-card-info">
+        <p class = "" >E-mail</p>
+        <p class = "text-sm text-gray-500" ><%= current_user.email %></p>
+      </div>
+    </div>
+
+
+    <div class="account-card py-1 px-3 flex flex justify-between items-center">
+        <div class="account-card-info">
+          <p class = "" >Mot de Passe</p>
+          <p class = "text-sm text-gray-500" >******</p>
+        </div>
+    </div>
+
+
+    <div class="logout py-3 px-3 text-right">
+      <p><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></p>
+    </div>
+
+  </div>
+</div>
