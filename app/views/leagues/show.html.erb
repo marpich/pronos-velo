@@ -1,22 +1,4 @@
 <div class="container-wrapper league-ranking relative">
-
-  <div class="grid place-items-end">
-
-    <!-- Dropdown menu -->
-    <button id="dropdownTopButton" data-dropdown-toggle="dropdownTop" data-dropdown-placement="top" class="mr-3 mb-3 md:mb-0 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm mt-3 px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Choisis ton peloton<i class="fas fa-angle-down pl-3"></i></button>
-
-    <div id="dropdownTop" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 block" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top" style="inset: auto auto 0px 0px; margin: 0px; transform: translate3d(65px, 170px, 0px);">
-      <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownTopButton">
-        <% @my_leagues.each do |league| %>
-          <li>
-            <%= link_to league.name, league_path(league, type: "yellow_jersey"), class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white", data: { turbolinks: false } %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-
-  </div>
-
   <!-- Card league info -->
 
   <div class="card-league-info flex justify-between items-center">
@@ -32,18 +14,43 @@
     <% end %>
   </div>
 
+  <% if @my_leagues.count > 1 %>
+    <div class="grid place-items-end">
+
+      <div class="dropdown-button flex flex-row-reverse">
+        <!-- Dropdown Menu -->
+        <div class="relative inline-block text-left" data-controller="dropdown-button">
+          <div>
+            <button type="button" class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50" data-action="click->dropdown-button#dropdown" >
+            Choisis ton peloton <i class="fas fa-angle-down pl-3"></i>
+            </button>
+          </div>
+
+          <div class="hidden absolute right-0 z-10 mt-2 w-36 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5" data-dropdown-button-target="link">
+            <div class="py-1">
+              <% @my_leagues.each do |league| %>
+                <%= link_to league.name, league_path(league, type: "yellow_jersey"), class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  <% end %>
+
   <h1><strong>CLASSEMENT</strong></h1>
 
   <!-- Link to different jerseys -->
 
   <div class="league-jerseys flex justify-around items-center mt-2 mb-8 mx-3">
-    <%= link_to league_path(@league, type: "yellow_jersey"), data: { turbolinks: false } do %>
+    <%= link_to league_path(@league, type: "yellow_jersey") do %>
       <p><i class="fas fa-medal <%=(params[:type] == "yellow_jersey" ? "act" : "dis")%>" style="color: #FFFF00"></i></p>
     <% end %>
-    <%= link_to league_path(@league, type: "green_jersey"), data: { turbolinks: false } do %>
+    <%= link_to league_path(@league, type: "green_jersey")do %>
       <p><i class="fas fa-road <%=(params[:type] == "green_jersey" ? "act" : "dis")%>" style="color: #38a849"></i></p>
     <% end %>
-    <%= link_to league_path(@league, type: "polka_dot_jersey"), data: { turbolinks: false } do %>
+    <%= link_to league_path(@league, type: "polka_dot_jersey")do %>
       <p><i class="fas fa-mountain <%=(params[:type] == "polka_dot_jersey" ? "act" : "dis")%>" style="color: #D9291C"></i></p>
     <% end %>
   </div>
