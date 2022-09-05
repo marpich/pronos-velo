@@ -4,7 +4,7 @@ require 'uri'
 require 'net/http'
 require 'openssl'
 require 'active_support/inflector'
-Dotenv.load
+# Dotenv.load
 
 filepath = "db/fixtures/stages.csv"
 filepath_riders = "db/fixtures/riders.csv"
