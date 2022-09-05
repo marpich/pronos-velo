@@ -1,0 +1,16 @@
+.rider-button {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  background-color: $blue;
+  color: white;
+  padding: 10px 30px;
+  margin: 5px auto;
+  font-size: 16px;
+  border-radius: 25px;
+  border: 2px solid $blue;
+  font-family: $body-font;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
