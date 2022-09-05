@@ -5,7 +5,7 @@
       <p>Accueil</p>
     </div>
   <% end %>
-  <%= link_to users_dashboard_path, data: { turbolinks: false } do %>
+  <%= link_to league_path(League.where_am_i(current_user).first, type: "yellow_jersey"), data: { turbolinks: false } do %>
     <div class="navbar-bottom-icon">
       <i class="fas fa-trophy"></i>
       <p>Classement</p>
