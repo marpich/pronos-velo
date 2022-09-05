@@ -1,6 +1,14 @@
-<h1><strong>Coureurs engagés sur le Tour de France</strong></h1>
-
 <div class="container-wrapper">
+
+  <div class="title">
+    <h1>La course</h1>
+  </div>
+
+  <div class="flex justify-between my-2">
+    <%= link_to 'Etapes', stages_path, class: "stage-button" %>
+    <%= link_to 'Coureurs', riders_path, class: "rider-button" %>
+  </div>
+
   <div class="teams grid grid-cols-4 gap-2">
     <% @riders.each do |team| %>
       <div>
