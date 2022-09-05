@@ -1,10 +1,12 @@
-<h1>Stages#index</h1>
-
 <div class="container-wrapper">
 
-  <div class="d-flex justify-content-between my-2">
-    <%= link_to 'Etapes', stages_path %>
-    <%= link_to 'Coureurs', riders_path %>
+  <div class="title">
+    <h1>La course</h1>
+  </div>
+
+  <div class="flex justify-between my-2">
+    <%= link_to 'Etapes', stages_path, class: "stage-button" %>
+    <%= link_to 'Coureurs', riders_path, class: "rider-button" %>
   </div>
 
   <% @stages.sort.each do |stage| %>
@@ -13,21 +15,23 @@
 
       <%= link_to stage_path(stage) do %>
         <div class= "stage-info">
-          <p>Etape <%= stage.number %></p>
-          <% case stage.stage_type %>
-            <% when 'Montagne' %>
-            <p><i class="fas fa-mountain"></i></p>
-            <% when 'Accidentee' %>
-            <p><i class="fas fa-exclamation-triangle"></i></p>
-            <% when 'Chrono' %>
-            <p><i class="fas fa-stopwatch"></i></p>
-            <% when 'Plat' %>
-            <p><i class="fas fa-road"></i></p>
-          <% end %>
-          <%= stage.date %>
-        </div>
-        <div class="stage-map">
-          <img src="<%= cl_image_path stage.image.key%>" width = "100%" >
+          <div class="stage-info-first flex justify-between">
+            <p><strong>Etape <%= stage.number %></strong></p>
+            <% case stage.stage_type %>
+              <% when 'Montagne' %>
+              <p><i class="fas fa-mountain"></i></p>
+              <% when 'Accidentee' %>
+              <p><i class="fas fa-exclamation-triangle"></i></p>
+              <% when 'Chrono' %>
+              <p><i class="fas fa-stopwatch"></i></p>
+              <% when 'Plat' %>
+              <p><i class="fas fa-road"></i></p>
+            <% end %>
+            <p><%= stage.date.strftime("%d / %m") %></p>
+          </div>
+          <div class="stage-info-last flex justify-between">
+            <p><%= stage.departure  %> > <%= stage.arrival %></p>
+          </div>
         </div>
       <% end %>
 
