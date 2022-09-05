@@ -2,11 +2,15 @@
   <div class="profile-header flex flex-col items-center shadow-xl py-3">
     <div class="profile-header-top flex justify-between items-center px-3">
       <div><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></div>
-      <div><i class="fas fa-cog"></i></div>
+      <div>
+        <%= link_to users_account_path do %>
+          <i class="fas fa-cog text-xl"></i>
+        <% end %>
+      </div>
     </div>
     <p><%= cl_image_tag current_user.photo.key, class: "border-solid border-2 rounded-full w-20 h-20 object-cover" %></p>
     <p class="font-thin text-sm"><%= current_user.username %></p>
-    <p class="font-light text-center">Bienvenue dans le tour <%= current_user.first_name %> !</p>
+    <p class="font-light text-center">Un petit coup de Fringale <%= current_user.first_name %> ?</p>
   </div>
 
   <div class="leagues-card border border-1 mx-3 my-3 pb-3 px-3">
@@ -40,21 +44,33 @@
     </div>
   </div>
 
-  <div class="admissions-card border border-1 mx-3 mt-3 pb-3 px-3">
-    <h1>Mes demandes d'Adhésions (<%= @my_admissions.count %>)</h1>
+  <div class="admissions-card border border-1 mx-3 my-3 pb-3 px-3">
+    <h1>Demandes d'adhésions à mes Pelotons (<%= @my_admissions.count %>)</h1>
     <% @my_admissions.each do |admission| %>
       <div class="admission flex justify-between items-center">
         <div class="admissions-info flex items-center">
-          <p><%= admission.user.username %> pour</p>
+          <p class="text-sm"><%= admission.user.username %> pour</p>
           <%= cl_image_tag admission.league.logo.key, class: "border-solid border-2 rounded-full w-10 h-10 object-cover mx-2" %>
-          <p><%= admission.league.name %></p>
+          <p class="text-sm"><%= admission.league.name %></p>
         </div>
         <div class="admissions-buttons flex justify-between">
-          <div><%= link_to "Accepter", admission_accept_path(admission), method: :patch, class: "pr-2 btn-ok" %></div>
-          <div><%= link_to "Refuser", admission_reject_path(admission), method: :patch, class: "pl-2 btn-ko" %></div>
+          <div>
+            <%= link_to admission_accept_path(admission), method: :patch, class: "pr-2 btn-ok text-xl" do %>
+              <i class="fas fa-check-circle"></i>
+            <% end %>
+          </div>
+          <div>
+            <%= link_to admission_reject_path(admission), method: :patch, class: "pl-2 btn-ko text-xl" do %>
+              <i class="fas fa-times-circle"></i>
+            <% end %>
+          </div>
         </div>
       </div>
     <% end %>
   </div>
 
+  <div class="races-card border border-1 mx-3 my-3 pb-3 px-3">
+    <h1>Mes Tours</h1>
+    <p><%= link_to "Voir mes Pronos", bets_path(current_user) %></p>
+  </div>
 </div>

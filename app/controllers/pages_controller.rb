@@ -6,9 +6,6 @@ class PagesController < ApplicationController
     @date = "#{@stage.date.strftime('%b')} #{@stage.date.strftime('%d')}, #{@stage.date.strftime('%Y')}"
   end
 
-  def profile
-  end
-
   def rules
   end
 end
