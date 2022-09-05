@@ -23,9 +23,6 @@
         <p class = "" >Prénom</p>
         <p class = "text-sm text-gray-500" ><%= current_user.first_name %></p>
       </div>
-      <div class="account-card-button">
-        <i class="fas fa-chevron-right"></i>
-      </div>
     </div>
 
     <div class="account-card py-1 px-3 flex flex justify-between items-center">
@@ -33,18 +30,12 @@
         <p class = "" >Nom</p>
         <p class = "text-sm text-gray-500" ><%= current_user.last_name %></p>
       </div>
-      <div class="account-card-button">
-        <i class="fas fa-chevron-right"></i>
-      </div>
     </div>
 
     <div class="account-card py-1 px-3 flex flex justify-between items-center">
       <div class="account-card-info">
         <p class = "" >Pseudo</p>
         <p class = "text-sm text-gray-500" ><%= current_user.username %></p>
-      </div>
-      <div class="account-card-button">
-        <i class="fas fa-chevron-right"></i>
       </div>
     </div>
 
@@ -54,9 +45,6 @@
           <p class = "pr-3" >Avatar</p>
           <p><%= cl_image_tag current_user.photo.key, class: "border-solid border-2 rounded-full w-10 h-10 object-cover" %></p>
         </div>
-      </div>
-      <div class="account-card-button">
-        <i class="fas fa-chevron-right"></i>
       </div>
     </div>
 
