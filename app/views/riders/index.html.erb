@@ -1,22 +1,30 @@
-<h1><strong>Coureurs engagés sur le Tour de France</strong></h1>
-
 <div class="container-wrapper">
-  <div class="teams grid grid-cols-4 gap-2">
-    <% @riders.each do |team| %>
-      <div>
-        <p class="text-center"><strong><%= team.first %></strong></p>
-        <div class="team-riders">
+
+  <div class="title">
+    <h1>La course</h1>
+  </div>
+
+  <div class="flex justify-between my-2">
+    <%= link_to 'Etapes', stages_path, class: "stage-button" %>
+    <%= link_to 'Coureurs', riders_path, class: "rider-button" %>
+  </div>
+
+  <% @riders.each do |team| %>
+    <div class="teams-card border border-1 mx-3 my-5 pb-3 px-3 rounded-md relative">
+      <div class="absolute w-full -top-4 -left-0 flex justify-center">
+        <div><h1 class="text-center bg-white px-3 py-1 border border-1 rounded-md"><%= team.first %></h1></div>
+      </div>
+        <div class="team-card grid grid-rows-4 grid-flow-col gap-2 pt-8">
           <% team.second.each do |rider| %>
-            <div class="rider-card text-center">
-              <div class="flex">
-                <p><strong><%= rider.bib %></strong></p>
-                <p class="pl-2"><%= rider.first_name %> <%= rider.last_name %></p>
-                <%= image_tag rider.nationality, height: 15, width: 20, crop: :fill, class: "ml-2" %>
+            <div class="riders-info flex items-center">
+              <div class="flex justify-between items-center w-12">
+                <div><p class="text-xs"><%= rider.bib %></p></div>
+                <div><%= image_tag rider.nationality, class: "ml-2 object-cover w-5" %></div>
               </div>
+              <p class="pl-2 text-xs"><%= rider.first_name %> <%= rider.last_name %></p>
             </div>
           <% end %>
         </div>
       </div>
-    <% end %>
-  </div>
+  <% end %>
 </div>
