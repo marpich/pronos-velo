@@ -28,20 +28,26 @@
         <% end %>
       <% end %>
     </div>
+
     <div class="dropdown-menu flex flex-row-reverse">
-      <!-- Dropdown menu -->
-      <button id="dropdownTopButton" data-dropdown-toggle="dropdownTop" data-dropdown-placement="top" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Nouvelle Ligue <i class="fas fa-plus pl-3"></i></button>
-      <div id="dropdownTop" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 block" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(65px, 170px, 0px);">
-          <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownTopButton">
-            <li>
-              <%= link_to "Ajouter", new_league_path, class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
-            </li>
-            <li>
-              <%= link_to "Rejoindre", leagues_path, class:"block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
-            </li>
-          </ul>
+      <!-- Dropdown Menu -->
+      <div class="relative inline-block text-left">
+        <div>
+          <button type="button" class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100" id="menu-button" aria-expanded="true" aria-haspopup="true">
+          Nouveau Peloton <i class="fas fa-plus pl-3"></i>
+          </button>
+        </div>
+
+        <div class="absolute right-0 z-10 mt-2 w-36 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+          <div class="py-1" role="none">
+            <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+            <%= link_to "Ajouter", new_league_path, class: "text-gray-700 block px-4 py-2 text-sm text-right", role: "menuitem", tabindex: "-1", id: "menu-item-0" %>
+            <%= link_to "Rejoindre", leagues_path, class:"text-gray-700 block px-4 py-2 text-sm text-right" %>
+          </div>
+        </div>
       </div>
     </div>
+
   </div>
 
   <div class="admissions-card border border-1 mx-3 my-3 pb-3 px-3">
