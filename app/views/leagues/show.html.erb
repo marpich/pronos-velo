@@ -58,25 +58,18 @@
 
   <div class="league-ranking-users">
     <% @users.each_with_index do |user, index| %>
-      <% if user == current_user %>
+      <% if user.first == current_user %>
         <div class="ranking-card-host flex justify-between items-center">
       <% else %>
         <div class="ranking-card flex justify-between items-center">
       <% end %>
         <p><strong><%= index + 1 %></strong></p>
         <div class="bet-card-user flex flex-col items-center">
-          <p><%= cl_image_tag user.photo.key, class: "avatar" %></p>
-          <p><%= user.username %></p>
+          <p><%= cl_image_tag user.first.photo.key, class: "avatar" %></p>
+          <p><%= user.first.username %></p>
         </div>
         <div class="bet-card-points flex flex-col items-center">
-          <% case params[:type] %>
-          <% when "yellow_jersey" %>
-            <p class="score"><%= user.total_scores.first.yellow_jersey %></p>
-          <% when "green_jersey" %>
-            <p class="score"><%= user.total_scores.first.green_jersey %></p>
-          <% when "polka_dot_jersey" %>
-            <p class="score"><%= user.total_scores.first.polka_dot_jersey %></p>
-          <% end %>
+          <p class="score"><%= user.last %></p>
           <p>pts</p>
         </div>
       </div>
