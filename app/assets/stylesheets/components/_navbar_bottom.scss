@@ -1,5 +1,4 @@
 .navbar-bottom {
-  color: $blue;
   background-color: white;
   font-family: $body-font;
   display: flex;
@@ -19,7 +18,7 @@
 }
 
 .navbar-bottom-icon {
-  color: $blue;
+  color: $gray;
   height: 50px;
   width: 75px;
   font-family: $body-font;
@@ -35,5 +34,14 @@
 
   p {
     font-size: 11px;
+  }
+}
+
+.active {
+  .fas {
+    color: $blue;
+  }
+  p {
+    color: $blue;
   }
 }
