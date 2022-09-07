@@ -1,6 +1,33 @@
 .title {
   width: 100%;
   background-color: $blue;
-  color: white;
-  font-size: 30px;
+  border-radius: 0 0 25px 25px;
+  h1 {
+    color: white;
+    font-size: 20px;
+    padding-bottom: 0px;
+  }
+  p {
+    color: $light-gray;
+    font-size: 10px;
+    font-style: italic;
+    text-align: center;
+    padding-bottom: 5px;
+  }
+}
+
+.menu-disactive {
+  font-size: 13px;
+  font-weight: bold;
+  padding-bottom: 5px;
+  // border-bottom: 4px solid $gray;
+  color: $gray;
+}
+
+.menu-active {
+  font-size: 13px;
+  font-weight: bold;
+  padding-bottom: 5px;
+  border-bottom: 4px solid $blue;
+  color: $blue;
 }
