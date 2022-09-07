@@ -13,7 +13,7 @@
   <% @riders.each do |team| %>
     <div class="teams-card border border-1 mx-3 my-5 pb-3 px-3 rounded-md relative">
       <div class="absolute w-full -top-4 -left-0 flex justify-center">
-        <div><h1 class="text-center bg-white px-3 py-1 border border-1 rounded-md"><%= team.first %></h1></div>
+        <div><h2 class="text-center bg-white px-3 py-1 border border-1 rounded-md text-sm"><%= team.first %></h2></div>
       </div>
         <div class="team-card grid grid-rows-4 grid-flow-col gap-2 pt-8">
           <% team.second.each do |rider| %>

@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container-wrapper">
 
-  <div class="top-stage flex justify-between items-center">
-
+  <!-- En-tête avec la Stage -->
+  <div class="title flex justify-between items-center">
     <div class="switch-stage">
       <% if @previous_stage.nil? %>
         <p></p>
@@ -11,13 +11,10 @@
         <% end %>
       <% end %>
     </div>
-
-    <div class="logo flex justify-center items-center">
-      <%= image_tag "La Fringale_logo_blue.png", class:"lafringale"%>
-      <h1>X</h1>
-      <%= image_tag "Tour_de_France.svg.png" %>
+    <div class="flex flex-col">
+      <h1>Pronos</h1>
+      <p>Tour de France 2022</p>
     </div>
-
     <div class="switch-stage">
       <% if @next_stage.nil? %>
         <p></p>
@@ -27,40 +24,36 @@
         <% end %>
       <% end %>
     </div>
-
   </div>
 
-  <div class="stage-card">
-    <div class= "stage-info">
-      <div class="stage-info-left flex items-center">
-        <div class="stage-info-etape">
-          <p>ETAPE <%= @stage.number %></p>
-        </div>
-        <div class="stage-info-date underline underline-offset-0 decoration-8 decoration-[#FFFF00]">
-          <%= @stage.date.strftime("%d-%m-%Y") %>
-        </div>
-      </div>
-      <div class="stage-info-right">
-        <div class="stage-info-profil">
-          <% case @stage.stage_type %>
-            <% when 'Montagne' %>
-            <p><i class="fas fa-mountain"></i> Montagne</p>
-            <% when 'Accidentee' %>
-            <p><i class="fas fa-exclamation-triangle"></i> Accidenté</p>
-            <% when 'Chrono' %>
-            <p><i class="fas fa-stopwatch"></i> Contre la Montre</p>
-            <% when 'Plat' %>
-            <p><i class="fas fa-road"></i> Plat</p>
-          <% end %>
-        </div>
-      </div>
+  <!-- Infos de la Stage -->
+  <div class= "stage-info flex justify-center my-2">
+    <div class="stage-info-icon">
+      <p><i class="fas fa-flag"></i> Etape <%= @stage.number %></p>
     </div>
-    <div class="stage-map">
-      <img src="<%= cl_image_path @stage.image.key%>", width=100%>
+    <div class="stage-info-icon">
+      <i class="fas fa-calendar"></i>
+      <%= @stage.date.strftime("%d / %m") %>
+    </div>
+    <div class="stage-info-icon">
+      <% case @stage.stage_type %>
+        <% when 'Montagne' %>
+        <p><i class="fas fa-mountain"></i> Montagne</p>
+        <% when 'Accidentee' %>
+        <p><i class="fas fa-exclamation-triangle"></i> Accidenté</p>
+        <% when 'Chrono' %>
+        <p><i class="fas fa-stopwatch"></i> Contre la Montre</p>
+        <% when 'Plat' %>
+        <p><i class="fas fa-road"></i> Plat</p>
+      <% end %>
     </div>
   </div>
 
-  <h2 class="underline underline-offset-0 decoration-8 decoration-[#FFFF00]">-- Les Pronos de l'étape --</h2>
+  <div class="stage-map my-3">
+    <img src="<%= cl_image_path @stage.image.key%>", width=90%>
+  </div>
+
+  <h2 class="underline underline-offset-0 decoration-8 decoration-[#2660A4]">-- Les Pronos de l'étape --</h2>
 
   <% if (@my_bets.nil? || @my_bets.empty?) && @bet.present? %>
     <%= form_with url: stage_bets_path(@stage), autocomplete: "on", method: :post do |f| %>
@@ -79,8 +72,8 @@
         <div class="bet-card flex justify-between items-center">
       <% end %>
           <div class="bet-card-user flex flex-col items-center">
-            <p><%= cl_image_tag player.photo.key, class: "avatar" %></p>
-            <p><%= player.username %></p>
+            <p><%= cl_image_tag player.photo.key, class: "logo-avatar" %></p>
+            <p><strong><%= player.username %></strong></p>
           </div>
           <div class="bet-card-riders">
             <% player.bets.each do |bet| %>
