@@ -1,12 +1,15 @@
-<div class="container-wrapper league-ranking relative">
-  <!-- Card league info -->
+<div class="container-wrapper">
 
+  <!-- En-tête avec la Ligue -->
+  <div class="title flex flex-col items-center relative">
+    <h1>Classement Général</h1>
+    <p class="mb-3"><%= @league.name %></p>
+    <%= cl_image_tag @league.logo.key, class: "logo-league" %>
+  </div>
+
+  <!-- Card league info -->
   <div class="card-league-info flex justify-between items-center">
-    <p class="w-40"><%= @league.number_of_players %>/20 joueurs</p>
-    <div>
-      <%= cl_image_tag @league.logo.key, class: "logo-league" %>
-      <p><%= @league.name %></p>
-    </div>
+    <%# <p class="w-40"><%= @league.number_of_players/20 joueurs</p> %>
     <% if @admission && @admission.accepted? %>
       <p class="w-40"><%= link_to "Quitter", league_admission_path(@league, @admission), method: :delete %></p>
     <% else %>
@@ -14,15 +17,50 @@
     <% end %>
   </div>
 
+  <!-- Link to different jerseys -->
+    <div class="flex justify-around mt-9 mb-6">
+    <%= link_to league_path(@league, type: "yellow_jersey"), class: (params[:type] == "yellow_jersey" ? "menu-active" : "menu-disactive") do %>
+      <p><i class="fas fa-tshirt pr-1" style="color: #FFF000"></i>INDIVIDUEL</p>
+    <% end %>
+    <%= link_to league_path(@league, type: "green_jersey"), class: (params[:type] == "green_jersey" ? "menu-active" : "menu-disactive") do %>
+      <p><i class="fas fa-tshirt pr-1" style="color: #38a849"></i>POINTS</p>
+    <% end %>
+    <%= link_to league_path(@league, type: "polka_dot_jersey"), class: (params[:type] == "polka_dot_jersey" ? "menu-active" : "menu-disactive") do %>
+      <p><i class="fas fa-tshirt pr-1" style="color: #D9291C"></i>GRIMPEUR</p>
+    <% end %>
+  </div>
+
+   <!-- Ranking -->
+    <% @users.each_with_index do |user, index| %>
+    <div class="flex items-center justify-between mx-4">
+      <p><strong><%= index + 1 %></strong></p>
+      <% if user.first == current_user %>
+        <div class="ranking-card-host grow flex justify-between items-center">
+      <% else %>
+        <div class="ranking-card grow flex justify-between items-center">
+      <% end %>
+        <div class="ranking-card-user flex flex-start items-center">
+          <p><%= cl_image_tag user.first.photo.key, class: "logo-avatar mr-3" %></p>
+          <p><%= user.first.username %></p>
+        </div>
+        <div class="ranking-card-points flex items-center">
+          <p class="score"><%= user.last %></p>
+          <p>pts</p>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+  <!-- Bouton Sélection du Peloton -->
   <% if @my_leagues.count > 1 %>
     <div class="grid place-items-end">
-
       <div class="dropdown-button flex flex-row-reverse">
         <!-- Dropdown Menu -->
         <div class="relative inline-block text-left" data-controller="dropdown-button">
           <div>
             <button type="button" class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50" data-action="click->dropdown-button#dropdown" >
-            Choisis ton peloton <i class="fas fa-angle-down pl-3"></i>
+            Peloton <i class="fas fa-angle-down pl-3"></i>
             </button>
           </div>
 
@@ -35,45 +73,6 @@
           </div>
         </div>
       </div>
-
     </div>
   <% end %>
-
-  <h1><strong>CLASSEMENT</strong></h1>
-
-  <!-- Link to different jerseys -->
-
-  <div class="league-jerseys flex justify-around items-center mt-2 mb-8 mx-3">
-    <%= link_to league_path(@league, type: "yellow_jersey") do %>
-      <p><i class="fas fa-medal <%=(params[:type] == "yellow_jersey" ? "act" : "dis")%>" style="color: #FFFF00"></i></p>
-    <% end %>
-    <%= link_to league_path(@league, type: "green_jersey")do %>
-      <p><i class="fas fa-road <%=(params[:type] == "green_jersey" ? "act" : "dis")%>" style="color: #38a849"></i></p>
-    <% end %>
-    <%= link_to league_path(@league, type: "polka_dot_jersey")do %>
-      <p><i class="fas fa-mountain <%=(params[:type] == "polka_dot_jersey" ? "act" : "dis")%>" style="color: #D9291C"></i></p>
-    <% end %>
-  </div>
-
-
-  <div class="league-ranking-users">
-    <% @users.each_with_index do |user, index| %>
-      <% if user.first == current_user %>
-        <div class="ranking-card-host flex justify-between items-center">
-      <% else %>
-        <div class="ranking-card flex justify-between items-center">
-      <% end %>
-        <p><strong><%= index + 1 %></strong></p>
-        <div class="bet-card-user flex flex-col items-center">
-          <p><%= cl_image_tag user.first.photo.key, class: "avatar" %></p>
-          <p><%= user.first.username %></p>
-        </div>
-        <div class="bet-card-points flex flex-col items-center">
-          <p class="score"><%= user.last %></p>
-          <p>pts</p>
-        </div>
-      </div>
-    <% end %>
-  </div>
-
 </div>

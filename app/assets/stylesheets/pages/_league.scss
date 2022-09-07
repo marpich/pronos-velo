@@ -2,17 +2,6 @@
   background-color: $light-gray;
 }
 
-.card-league-info {
-  background-color: $blue;
-  height: 100px;
-  text-align: center;
-  color: white;
-  font-size: 10px;
-  img {
-    margin: auto;
-  }
-}
-
 .league-jerseys {
   margin: 5px auto 5px auto;
   margin-bottom: 5px;
@@ -20,22 +9,4 @@
   background-color: white;
   padding: 5px 20px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-}
-
-.league-ranking-users {
-  background-color: white;
-  padding: 20px 0;
-  width: 50vw;
-  margin: auto;
-}
-
-.act {
-  font-weight: bold;
-  font-size: 50px;
-}
-
-.dis {
-  font-weight: light;
-  font-size: 30px;
-  opacity: 50%;
 }
