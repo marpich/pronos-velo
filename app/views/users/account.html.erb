@@ -1,10 +1,14 @@
 <div class="container-wrapper">
-  <div class="title flex items-center pl-3">
+
+  <div class="title relative">
     <%= link_to users_dashboard_path, method: :get do %>
-      <i class="fas fa-chevron-circle-left"></i>
+      <i class="fas fa-chevron-circle-left absolute left-5 top-5" style="color: #ffffff"></i>
     <% end %>
-    <h1 class="pl-5 text-xl">Préférences</h1>
+    <h1>Préférences</h1>
+    <p></p>
   </div>
+
+
   <div class="account">
 
       <%= link_to edit_user_registration_path, method: :get do %>
