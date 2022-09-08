@@ -49,22 +49,43 @@
     </div>
   </div>
 
+  <!-- Map de la Stage -->
   <div class="stage-map my-3">
     <img src="<%= cl_image_path @stage.image.key%>", width=90%>
   </div>
 
-  <h2 class="underline underline-offset-0 decoration-8 decoration-[#2660A4]">-- Les Pronos de l'étape --</h2>
-
+  <!-- Formulaire Mon Prono à faire avant 12h -->
   <% if (@my_bets.nil? || @my_bets.empty?) && @bet.present? %>
-    <%= form_with url: stage_bets_path(@stage), autocomplete: "on", method: :post do |f| %>
-      <%= f.select :rider_1, Rider::RIDERS, prompt: 'Vainqueur', class: "bg-amber-500" %>
-      <%= f.select :rider_2, Rider::RIDERS, prompt: 'Deuxième' %>
-      <%= f.select :rider_3, Rider::RIDERS, prompt: 'Troisième' %>
-      <%= f.submit "En selle!", class: "btn btn-primary" %>
-    <% end %>
+    <h3 class="sub-title">C'est l'heure des pronos!</h3>
+      <div class="form-mon-prono">
+        <%= form_with url: stage_bets_path(@stage), autocomplete: "on", method: :post do |f| %>
+          <div class="form-select">
+            <div class="form-input">
+              <div class="number"><p>1</p></div>
+              <div class="rider-select"><%= f.select :rider_1, Rider::RIDERS, prompt: 'Vainqueur' %></div>
+            </div>
+            <div class="form-input">
+              <div class="number"><p>2</p></div>
+              <div class="rider-select"><%= f.select :rider_2, Rider::RIDERS, prompt: 'Deuxième' %></div>
+            </div>
+            <div class="form-input">
+              <div class="number"><p>3</p></div>
+              <div class="rider-select"><%= f.select :rider_3, Rider::RIDERS, prompt: 'Troisième' %></div>
+            </div>
+          </div>
+          <div class="form-button">
+            <%= f.submit "Ca part !", class: "main-button" %>
+          </div>
+        <% end %>
+    </div>
   <% end %>
 
+  <!-- Affichage de Mon Prono entre 12h et 17h -->
+
+
+  <!-- Affichage des pronos + résultats de tous après 17h -->
   <% unless (@players.nil? || @players.empty?) %>
+    <h3 class="sub-title">Les Pronos de l'étape</h3>
     <% @players.each do |player| %>
       <% if player == current_user %>
         <div class="bet-card-host flex justify-between items-center">
@@ -88,6 +109,7 @@
     <% end %>
   <% end %>
 
+  <!-- Formulaire Admin pour compléter le résultat de l'étape -->
   <h1>Le résultat de l'étape</h1>
   <%= form_with url: stage_results_path(@stage), method: :post do |f| %>
     <%= f.select :rider_1, Rider::RIDERS, prompt: 'Vainqueur' %>

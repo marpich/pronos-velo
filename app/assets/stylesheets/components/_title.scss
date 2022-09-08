@@ -31,3 +31,15 @@
   border-bottom: 4px solid $blue;
   color: $blue;
 }
+
+.sub-title {
+  font-size: 15px;
+  font-family: $headers-font;
+  border-bottom: 2px $blue solid;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  text-align: left;
+  font-weight: bold;
+  width: 90%;
+  margin: 0 20px;
+}
