@@ -1,14 +1,21 @@
 <div class="container-wrapper">
-  <h1>Results#index</h1>
+  <div class="title">
+    <h1>Les Résultats</h1>
+    <p>Tour de France 2022</p>
+  </div>
 
   <% @results.each do |result| %>
-    <%= result.first.number %>
-    <% result.last.each do |result| %>
-      <%= result.result_position %>
-      <%= result.rider.first_name %>
-      <%= result.rider.last_name %>
-     <% end %>
+    <div class="bet-card flex justify-between items-center">
+      <div class="bet-card-stage flex flex-col items-center">
+        <p>Etape</p>
+        <%= result.first.number %>
+      </div>
+      <div class="bet-card-riders flex flex-col items-center w-full">
+        <% result.last.each do |result| %>
+          <p><%= result.result_position %>. <%= result.rider.first_name %> <%= result.rider.last_name %></p>
+        <% end %>
+      </div>
+    </div>
   <% end %>
-
 
 </div>
