@@ -13,6 +13,10 @@
     <p class="font-light text-center">Un petit coup de Fringale <%= current_user.first_name %> ?</p>
   </div>
 
+  <!-- Bouton Admin Résultat de l'Etape -->
+  <%= link_to "Résultat de l'étape", new_stage_result_path(@stage, stage: @stage) %>
+
+  <!-- Card 'Mes Pelotons' -->
   <div class="leagues-card border border-1 mx-3 my-3 pb-3 px-3">
     <h1>Mes Pelotons (<%= @my_leagues.count %>)</h1>
     <div class="leagues-avatar grid grid-cols-4 gap-5">
