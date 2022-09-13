@@ -1,10 +1,6 @@
 class ResultsController < ApplicationController
 before_action :authenticate_admin, only: [:new, :create]
 
-  # def new
-  #   @stage = Stage.where(date: Date.current).first
-  # end
-
   def index
     @results = Result.all.group_by(&:stage)
   end
