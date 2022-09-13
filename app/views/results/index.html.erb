@@ -1,4 +1,14 @@
 <div class="container-wrapper">
   <h1>Results#index</h1>
-  <p>Find me in app/views/results/index.html.erb</p>
+
+  <% @results.each do |result| %>
+    <%= result.first.number %>
+    <% result.last.each do |result| %>
+      <%= result.result_position %>
+      <%= result.rider.first_name %>
+      <%= result.rider.last_name %>
+     <% end %>
+  <% end %>
+
+
 </div>

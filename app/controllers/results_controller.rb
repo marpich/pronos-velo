@@ -1,4 +1,14 @@
 class ResultsController < ApplicationController
+before_action :authenticate_admin, only: [:new, :create]
+
+  # def new
+  #   @stage = Stage.where(date: Date.current).first
+  # end
+
+  def index
+    @results = Result.all.group_by(&:stage)
+  end
+
   def create
     @stage = Stage.find(params[:stage_id])
     if result_params['rider_1'] == '' || result_params['rider_2'] == '' || result_params['rider_3'] == ''
@@ -29,6 +39,11 @@ class ResultsController < ApplicationController
   end
 
   private
+
+  def authenticate_admin
+    redirect_to root_path, alert: "Accès refusé" unless
+    current_user.admin?
+  end
 
   def result_params
     params.permit(:rider_1, :rider_2, :rider_3)

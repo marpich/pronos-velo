@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     resources :admissions, only: [:create, :destroy, :new]
   end
 
+  resources :results, only: [:index]
+  
   resources :stages, only: [:show, :index] do
     resources :bets, only: [:create, :new]
     resources :results, only: [:create, :new]

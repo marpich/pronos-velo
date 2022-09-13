@@ -1,12 +1,12 @@
 <div class="container-wrapper">
-  <h1>Results#new</h1>
-  <p>Find me in app/views/results/new.html.erb</p>
 
-  <%= form_with url: "/results", method: :post do |f| %>
-    <%= f.select :stage, 1..21, prompt: 'Etape' %>
+  <!-- Formulaire Admin pour compléter le résultat de l'étape -->
+  <h1>Le résultat de l'étape</h1>
+  <%= form_with url: stage_results_path(params[:stage]), method: :post do |f| %>
     <%= f.select :rider_1, Rider::RIDERS, prompt: 'Vainqueur' %>
     <%= f.select :rider_2, Rider::RIDERS, prompt: 'Deuxième' %>
     <%= f.select :rider_3, Rider::RIDERS, prompt: 'Troisième' %>
-    <%= f.submit "Ajouter", class: "main-button" %>
+    <%= f.submit "Ajouter", class: "btn btn-primary" %>
   <% end %>
+
 </div>
