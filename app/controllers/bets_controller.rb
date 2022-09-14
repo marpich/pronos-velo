@@ -19,7 +19,7 @@ class BetsController < ApplicationController
     third_bet = create_bet(3, bib)
 
     if first_bet && second_bet && third_bet
-      redirect_to stage_path(@stage), notice: 'Pari pris en compte !'
+      redirect_to stage_path(@stage, prono: true)
     else
       Bet.where(user: current_user, stage: @stage).destroy_all
       flash[:alert] = "Vous ne pouvez choisir un coureur qu'une seule fois !"
