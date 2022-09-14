@@ -1,5 +1,13 @@
 <div class="container-wrapper">
+
+  <!-- Sweet Alert 2 -->
+  <% if params[:popup] %>
+    <div data-controller="peloton-popup" data-peloton-popup-league-value="<%= params[:league] %>">
+    </div>
+  <% end %>
+
   <div class="profile-header flex flex-col items-center shadow-xl py-3 mb-3">
+
     <div class="profile-header-top flex justify-between items-center px-3">
       <div><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></div>
       <div>
