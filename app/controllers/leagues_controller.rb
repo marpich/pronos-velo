@@ -7,7 +7,7 @@ class LeaguesController < ApplicationController
     @league = League.new(league_params)
     @league.user = current_user
     if @league.save
-      redirect_to users_dashboard_path
+      redirect_to users_dashboard_path(popup: true, league: @league.name)
     else
       render :new
     end
