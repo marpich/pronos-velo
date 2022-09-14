@@ -1,12 +1,33 @@
 <div class="container-wrapper">
 
+  <div class="title">
+    <h1>Le Podium de l'Etape</h1>
+    <p>Tour de France 2022</p>
+  </div>
+
   <!-- Formulaire Admin pour compléter le résultat de l'étape -->
-  <h1>Le résultat de l'étape</h1>
-  <%= form_with url: stage_results_path(params[:stage]), method: :post do |f| %>
-    <%= f.select :rider_1, Rider::RIDERS, prompt: 'Vainqueur' %>
-    <%= f.select :rider_2, Rider::RIDERS, prompt: 'Deuxième' %>
-    <%= f.select :rider_3, Rider::RIDERS, prompt: 'Troisième' %>
-    <%= f.submit "Ajouter", class: "btn btn-primary" %>
-  <% end %>
+  <p class="text-center my-2 mx-2 text-sm">L'étape du jour est terminée ! C'est l'heure de compléter le résultat réel des coureurs pour que les calculs automatiques des scores se fassent... 🤓 </p>
+
+  <div class="form-mon-prono">
+    <%= form_with url: stage_results_path(params[:stage]), method: :post do |f| %>
+      <div class="form-select">
+        <div class="form-input">
+          <div class="number"><p>1</p></div>
+          <div class="rider-select"><%= f.select :rider_1, Rider::RIDERS, prompt: 'Vainqueur' %></div>
+        </div>
+        <div class="form-input">
+          <div class="number"><p>2</p></div>
+          <div class="rider-select"><%= f.select :rider_2, Rider::RIDERS, prompt: 'Deuxième' %></div>
+        </div>
+        <div class="form-input">
+          <div class="number"><p>3</p></div>
+          <div class="rider-select"><%= f.select :rider_3, Rider::RIDERS, prompt: 'Troisième' %></div>
+        </div>
+      </div>
+      <div class="form-button">
+        <%= f.submit "Ajouter", class: "main-button" %>
+      </div>
+    <% end %>
+  </div>
 
 </div>

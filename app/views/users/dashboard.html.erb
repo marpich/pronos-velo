@@ -1,11 +1,13 @@
 <div class="container-wrapper">
+
   <!-- Sweet Alert 2 -->
   <% if params[:popup] %>
     <div data-controller="peloton-popup" data-peloton-popup-league-value="<%= params[:league] %>">
     </div>
   <% end %>
 
-  <div class="profile-header flex flex-col items-center shadow-xl py-3">
+  <div class="profile-header flex flex-col items-center shadow-xl py-3 mb-3">
+
     <div class="profile-header-top flex justify-between items-center px-3">
       <div><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></div>
       <div>
@@ -18,9 +20,6 @@
     <p class="font-thin text-sm"><%= current_user.username %></p>
     <p class="font-light text-center">Un petit coup de Fringale <%= current_user.first_name %> ?</p>
   </div>
-
-  <!-- Bouton Admin Résultat de l'Etape -->
-  <%= link_to "Résultat de l'étape", new_stage_result_path(@stage, stage: @stage) %>
 
   <!-- Card 'Mes Pelotons' -->
   <div class="leagues-card border border-1 mx-3 my-3 pb-3 px-3">
