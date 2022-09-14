@@ -37,15 +37,17 @@
 .third-button {
   display: flex;
   justify-content: center;
+  align-items: center;
   text-decoration: none;
-  background-color: $blue;
-  color: white;
+  color: $dark-gray;
   padding: 10px;
   margin: 5px auto;
-  font-size: 16px;
-  border-radius: 25px;
+  font-size: 11px;
+  border-radius: 5px;
   width: 100%;
-  border: none;
+  border: 1px solid $dark-gray;
   font-family: $body-font;
-  font-weight: 600;
+  i {
+    padding-right: 5px;
+  }
 }

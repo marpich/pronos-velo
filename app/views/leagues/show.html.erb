@@ -50,6 +50,13 @@
       </div>
     </div>
     <% end %>
+
+  <!-- Clipboard pour partager la ligue -->
+  <div class="clipboard relative flex justify-center">
+    <div data-controller="clipboard" data-clipboard-feedback-text-value="Copied!" class ="fixed bottom-20">
+      <input data-clipboard-target="input" type="text" value="<%= @league.name %>" readonly class="hidden">
+      <button class="third-button" data-action="click->clipboard#copy"><i class="fas fa-paste"></i> Partage ton peloton avec tes amis</button>
+    </div>
   </div>
 
   <!-- Bouton Sélection du Peloton -->

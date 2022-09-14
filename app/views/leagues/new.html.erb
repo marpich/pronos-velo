@@ -1,14 +1,17 @@
-<div>
-  <h1 class="font-bold text-4xl">Leagues#new</h1>
-  <p>Find me in app/views/leagues/new.html.erb</p>
+<div class="container-wrapper">
+  <div class="title">
+    <h1>Nouveau Peloton</h1>
+    <p>Formulaire de création</p>
+  </div>
 
-  <div>
+  <!-- Formulaire de création de Peloton -->
+  <div class="px-3 py-3">
     <%= simple_form_for (@league) do |f| %>
-        <%= f.input :name, label: "Nom de ta Ligue"%>
-        <%= f.input :logo, label: "Logo", as: :file %>
-        <button class="main-button" type="submit">
-          Ajouter
-        </button>
+      <%= f.input :name, label: "Nom du Peloton"%>
+      <%= f.input :logo, label: "Logo", as: :file %>
+      <button class="main-button" type="submit">
+        Ajouter
+      </button>
     <% end %>
   </div>
 </div>
