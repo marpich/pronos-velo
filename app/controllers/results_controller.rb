@@ -3,6 +3,7 @@ before_action :authenticate_admin, only: [:new, :create]
 
   def index
     @results = Result.all.group_by(&:stage)
+    @stage = Stage.where(date: Date.current).first
   end
 
   def create

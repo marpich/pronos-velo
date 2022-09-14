@@ -5,11 +5,14 @@
     <p>Tour de France 2022</p>
   </div>
 
+  <!-- Menu Etapes/Coureurs/Resultats -->
   <div class="flex justify-around mt-1 mb-6">
     <p><%= link_to 'ETAPES', stages_path, class: (controller_name == "stages" ? "menu-active" : "menu-disactive") %></p>
     <p><%= link_to 'COUREURS', riders_path, class: (controller_name == "riders" ? "menu-active" : "menu-disactive") %></p>
+    <p><%= link_to 'RESULTATS', results_path, class: (controller_name == "results" ? "menu-active" : "menu-disactive") %></p>
   </div>
 
+  <!-- Index des Riders -->
   <% @riders.each do |team| %>
     <div class="teams-card border border-1 mx-3 my-5 pb-3 px-3 rounded-md relative">
       <div class="absolute w-full -top-4 -left-0 flex justify-center">
@@ -28,4 +31,5 @@
         </div>
       </div>
   <% end %>
+  
 </div>

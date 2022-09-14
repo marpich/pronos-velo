@@ -4,6 +4,14 @@
     <p>Tour de France 2022</p>
   </div>
 
+  <!-- Menu Etapes/Coureurs/Resultats -->
+  <div class="flex justify-around mt-1 mb-6">
+    <p><%= link_to 'ETAPES', stages_path, class: (controller_name == "stages" ? "menu-active" : "menu-disactive") %></p>
+    <p><%= link_to 'COUREURS', riders_path, class: (controller_name == "riders" ? "menu-active" : "menu-disactive") %></p>
+    <p><%= link_to 'RESULTATS', results_path, class: (controller_name == "results" ? "menu-active" : "menu-disactive") %></p>
+  </div>
+
+  <!-- Index des Results -->
   <% @results.each do |result| %>
     <div class="bet-card flex justify-between items-center">
       <div class="bet-card-stage flex flex-col items-center">
@@ -16,6 +24,11 @@
         <% end %>
       </div>
     </div>
+  <% end %>
+
+    <!-- Bouton Admin Only - Résultat de l'Etape -->
+  <% if current_user.admin? %>
+    <%= link_to "Résultat de l'étape", new_stage_result_path(@stage, stage: @stage), class: "main-button" %>
   <% end %>
 
 </div>
