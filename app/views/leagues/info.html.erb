@@ -19,13 +19,13 @@
     <h1>Les Membres du Peloton</h1>
     <% @accepted_admissions.each do |admission| %>
       <div class="flex justify-between items-center">
-        <%= cl_image_tag admission.user.photo.key, class: "class: border-solid border-2 rounded-full w-10 h-10 object-cover mx-2" %>
-        <%= admission.user.username %>
+        <div><%= cl_image_tag admission.user.photo.key, class: "class: border-solid border-2 rounded-full w-10 h-10 object-cover mx-2" %></div>
+        <div class= "flex justify-start w-full"><%= admission.user.username %></div>
       </div>
     <% end %>
   </div>
 
-  <%= link_to league_path(@league, type: "yellow_jersey"), data: { turbolinks: false } do %>
+  <%= link_to league_path(@league, type: "yellow_jersey"), data: { turbolinks: false }, class: "main-button" do %>
     <p>Voir le classement</p>
   <% end %>
 
