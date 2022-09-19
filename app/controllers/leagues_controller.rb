@@ -1,4 +1,10 @@
 class LeaguesController < ApplicationController
+
+  def info
+    @league = League.find(params[:id])
+    @accepted_admissions = Admission.includes(:league).where(status: "accepted")
+  end
+
   def new
     @league = League.new
   end
