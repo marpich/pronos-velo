@@ -1,5 +1,15 @@
 <div class="container-wrapper">
-  <h1>Règles du Jeu</h1>
+
+  <!-- En-tête -->
+  <div class="title relative">
+    <%= link_to root_path do %>
+      <i class="fas fa-chevron-left absolute left-5 top-5" style="color: #ffffff"></i>
+    <% end %>
+    <h1>Règles du Jeu</h1>
+    <p> - </p>
+  </div>
+
+  <!-- Card Règles du Jeu -->
   <ul>
     <li>10 points si le tiercé est dans l'ordre</li>
     <li>7 points si le vainqueur est trouvé avec le 2e et 3e inversés</li>
