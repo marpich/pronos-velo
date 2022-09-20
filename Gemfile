@@ -37,6 +37,8 @@ gem 'font-awesome-sass', '~> 5.6.1'
 gem 'simple_form-tailwind'
 gem 'simple_form', github: 'heartcombo/simple_form'
 
+gem 'net-smtp'
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
