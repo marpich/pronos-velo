@@ -4,7 +4,7 @@
   <div class="profile-header flex flex-col items-center shadow-xl py-3 mb-3">
     <div class="profile-header-top flex justify-between items-center px-3">
       <%= link_to users_dashboard_path, method: :get do %>
-        <i class="fas fa-chevron-circle-left absolute left-5 top-5" style="color: #ffffff"></i>
+        <i class="fas fa-chevron-left absolute left-5 top-5" style="color: #ffffff"></i>
       <% end %>
     </div>
     <p><%= cl_image_tag @league.logo.key, class: "border-solid border-2 rounded-full w-20 h-20 object-cover bg-white" %></p>
