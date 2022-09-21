@@ -49,3 +49,18 @@
     padding-right: 5px;
   }
 }
+
+.last-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: underline !important;
+  text-underline-offset: 4px;
+  color: $blue;
+  font-size: 0.875rem;
+  border: none;
+  font-family: $body-font;
+  font-weight: bold;
+  padding-bottom: 5px;
+  padding-right: 5px;
+}

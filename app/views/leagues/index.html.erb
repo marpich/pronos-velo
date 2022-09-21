@@ -1,35 +1,42 @@
 <div class= "container-wrapper">
 
-  <h1 class="font-bold text-4xl">Liste des Ligues</h1>
+  <div class="title">
+    <h1>Liste des Pelotons</h1>
+    <p>A rejoindre</p>
+  </div>
 
-  <%= form_with url: leagues_path, method: :get, class: "flex items-center" do %>
+  <!-- Search Bar -->
+  <%= form_with url: leagues_path, method: :get, class: "flex items-center m-3" do %>
     <%= text_field_tag :query,
       params[:query],
-      class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500",
+      class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500",
       placeholder: "Ton futur peloton"
     %>
-    <button name="button" type="submit" class="p-2.5 ml-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+    <button name="button" type="submit" class="p-2.5 ml-2 text-sm font-medium text-white bg-gray-700 rounded-lg border border-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
       <i class="fas fa-search fa-lg"></i>
     </button>
   <% end %>
 
-  <div class="leagues grid grid-cols-2 gap-4 my-3">
-    <% @leagues.each do |league| %>
-      <% unless (league.user == current_user) || (league.admissions.where(user: current_user).first).present? %>
-        <div class="league-card border-2 rounded border-black p-4">
-          <div class="league-card-info flex justify-between">
-            <%= league.name %>
-            <%= cl_image_tag league.logo.key, class: "avatar" %>
-            <p>created by <%= league.user.username %></p>
+  <!-- Card des Ligues -->
+  <% @leagues.each do |league| %>
+    <% unless (league.user == current_user) || (league.admissions.where(user: current_user).first).present? %>
+      <div class="leagues-card border border-1 mx-3 my-3 p-2">
+        <div class="leagues-card justify-between items-center">
+          <div class="leagues-card-info flex items-center">
+            <p class="text-sm"><%= league.name %></p>
+            <%= cl_image_tag league.logo.key, class: "border-solid border-2 rounded-full w-10 h-10 object-cover mx-2" %>
+            <p class="text-sm">par <%= league.user.username %></p>
           </div>
+          <div class="league-button flex justify-end">
             <% if league.admissions.where(status: "accepted").count < 20 %>
-              <%= link_to "Rejoindre", league_admissions_path(league), method: :post %>
+              <%= link_to "Rejoindre", league_admissions_path(league), method: :post, class: "last-button" %>
             <% else %>
               <p><i class="fas fa-times-circle"></i> Le peloton est complet!</p>
             <% end %>
+          </div>
         </div>
-      <% end %>
+      </div>
     <% end %>
-  </div>
+  <% end %>
 
 </div>
