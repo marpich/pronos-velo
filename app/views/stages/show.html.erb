@@ -59,10 +59,28 @@
     <img src="<%= cl_image_path @stage.image.key%>", width=90%>
   </div>
 
-  <!-- Formulaire Mon Prono à faire avant 12h -->
-  <% if (@my_bets.nil? || @my_bets.empty?) && @bet.present? %>
-    <h3 class="sub-title">C'est l'heure des pronos!</h3>
-      <div class="form-mon-prono">
+  <!-- Affichage du Résultat après 17h -->
+  <% if @result.present? && Time.now.hour > 17 %>
+    <h3 class="sub-title">Le Résultat de l'étape</h3>
+      <div class="bet-card flex justify-between items-center">
+      <div class="bet-card-stage flex flex-col items-center">
+        <p>Etape</p>
+        <%= @result.first.stage.number %>
+      </div>
+      <div class="bet-card-riders flex flex-col items-center w-full">
+        <% @result.each do |result| %>
+          <p><%= result.result_position %>. <%= result.rider.first_name %> <%= result.rider.last_name %></p>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <!-- Card Mon Prono -->
+  <h3 class="sub-title">Mon Prono</h3>
+  <div class="form-mon-prono">
+    <!-- Formulaire à compléter avant 12h -->
+    <% if Time.now.hour < 12 %>
+      <% if (@my_bets.nil? || @my_bets.empty?) && @bet.present? %>
         <%= form_with url: stage_bets_path(@stage), autocomplete: "on", method: :post do |f| %>
           <div class="form-select">
             <div class="form-input">
@@ -82,13 +100,18 @@
             <%= f.submit "Ca part !", class: "main-button" %>
           </div>
         <% end %>
-    </div>
-  <% end %>
+      <% end %>
+    <!-- Après 12h, il n'est plus possible de faire le prono -->
+    <% else %>
+      <p class="text-sm"> ❌ Il est trop tard pour rentrer ton pronostic ❌ </p>
+      <p class="text-sm"> 😳 Tu obtiens 0 point automatiquement 😳 </p>
+    <% end %>
+  </div>
 
   <!-- Affichage de Mon Prono entre 12h et 17h -->
 
 
-  <!-- Affichage des pronos + résultats de tous après 17h -->
+  <!-- Affichage des pronos de tous après 17h -->
   <% unless (@players.nil? || @players.empty?) %>
     <h3 class="sub-title">Les Pronos de l'étape</h3>
     <% @players.each do |player| %>

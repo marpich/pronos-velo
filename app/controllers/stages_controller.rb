@@ -13,6 +13,6 @@ class StagesController < ApplicationController
     end
     @my_bets = Bet.where(user: current_user, stage: @stage)
     @players = User.includes(:bets).where(bets: {stage: @stage}).order(position: :asc)
-    @result = Result.new
+    @result = Result.where(stage: @stage)
   end
 end
