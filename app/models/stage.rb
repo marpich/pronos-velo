@@ -4,6 +4,4 @@ class Stage < ApplicationRecord
   has_many :results, dependent: :destroy
   has_many :scores, dependent: :destroy
   has_one_attached :image
-
-  validates :bets, length: { maximum: 3 }
 end

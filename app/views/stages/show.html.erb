@@ -60,7 +60,7 @@
   </div>
 
   <!-- Affichage du Résultat après 17h -->
-  <% if @result.present? && Time.now.hour > 17 %>
+  <% if @result.present? %>
     <h3 class="sub-title">Le Résultat de l'étape</h3>
       <div class="bet-card flex justify-between items-center">
       <div class="bet-card-stage flex flex-col items-center">

@@ -3,6 +3,10 @@ class League < ApplicationRecord
   has_one_attached :logo
   has_many :admissions, dependent: :destroy
 
+  validates :name, :logo, presence: true
+  validates :name, uniqueness: true
+  validates :name, length: { in: 3..30 }
+
   def accept_admissions?
     self.admissions.where(status: "accepted").count < 20
   end

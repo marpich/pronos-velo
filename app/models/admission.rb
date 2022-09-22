@@ -7,7 +7,7 @@ class Admission < ApplicationRecord
   def accept!
     update(status: "accepted")
   end
-  
+
   def accepted?
     status == "accepted"
   end

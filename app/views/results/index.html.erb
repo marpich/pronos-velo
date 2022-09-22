@@ -27,8 +27,8 @@
   <% end %>
 
     <!-- Bouton Admin Only - Résultat de l'Etape -->
-  <% if current_user.admin? %>
-    <%= link_to "Résultat de l'étape", new_stage_result_path(@stage, stage: @stage), class: "main-button" %>
+  <% if current_user.admin? && !@result.present? %>
+    <%= link_to "Résultat de l'étape", new_stage_result_path(@stage), class: "main-button" %>
   <% end %>
 
 </div>
