@@ -5,6 +5,11 @@
     <h1>Classement Général</h1>
     <p class="mb-3"><%= @league.name %></p>
     <%= cl_image_tag @league.logo.key, class: "logo-league" %>
+    <!-- Bouton Sélection du Peloton -->
+    <div class="button-league" data-action="click->show-league-button#show">
+      <p><i class="fas fa-chevron-up"></i></p>
+      <p><i class="fas fa-chevron-down"></i></p>
+    </div>
   </div>
 
   <!-- Card league info -->
@@ -59,21 +64,25 @@
     </div>
   </div>
 
-  <div  data-show-league-button-target="button">
-  <!-- Bouton Sélection du Peloton -->
-    <div class="relative inline-block text-right">
-      <button type="button" class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50" data-action="click->show-league-button#show" >
-      <i class="fas fa-chevron-up"></i> <i class="fas fa-chevron-down"></i>
-      </button>
-    </div>
+  <div data-show-league-button-target="button">
     <!-- Choix du Peloton -->
     <% if @my_leagues.count > 1 %>
-      <div class="hidden grid grid-cols-3 gap-4 place-content-center h-48" data-show-league-button-target="link">
-        <% @my_leagues.each do |league| %>
-          <%= link_to league_path(league, type: "yellow_jersey") do %>
-            <%= cl_image_tag league.logo.key, class: "logo-league-bis" %>
+      <div class="hidden choice-leagues w-full" style="background-color: white" data-show-league-button-target="link">
+        <div class="pr-3" data-action="click->show-league-button#show">
+          <p class="text-end"><i class="fas fa-times"></i></p>
+        </div>
+        <div>
+          <% @my_leagues.each do |league| %>
+            <%= link_to league_path(league, type: "yellow_jersey") do %>
+              <div class="flex place-content-center">
+                <div class="flex items-center justify-around my-2">
+                  <%= cl_image_tag league.logo.key, class: "logo-league-bis" %>
+                  <p class="pl-3"><%= league.name %></p>
+                </div>
+              </div>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     <% end %>
   </div>

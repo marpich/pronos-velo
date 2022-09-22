@@ -21,3 +21,18 @@
   place-content: center;
   align-items: center;
 }
+
+.choice-leagues {
+  position: absolute;
+  bottom: 0;
+}
+
+.button-league {
+  position: absolute;
+  top: 59px;
+  right: 40%;
+  i {
+    color: black;
+    font-size: small;
+  }
+}
