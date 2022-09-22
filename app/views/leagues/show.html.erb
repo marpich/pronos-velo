@@ -1,10 +1,15 @@
-<div class="container-wrapper">
+<div class="container-wrapper" data-controller="show-league-button">
 
   <!-- En-tête avec la Ligue -->
   <div class="title flex flex-col items-center relative">
     <h1>Classement Général</h1>
     <p class="mb-3"><%= @league.name %></p>
     <%= cl_image_tag @league.logo.key, class: "logo-league" %>
+    <!-- Bouton Sélection du Peloton -->
+    <div class="button-league" data-action="click->show-league-button#show">
+      <p><i class="fas fa-chevron-up"></i></p>
+      <p><i class="fas fa-chevron-down"></i></p>
+    </div>
   </div>
 
   <!-- Card league info -->
@@ -51,27 +56,26 @@
     </div>
     <% end %>
 
-  <!-- Bouton Sélection du Peloton -->
-  <% if @my_leagues.count > 1 %>
-    <div class="grid place-items-end">
-      <div class="dropdown-button flex flex-row-reverse">
-        <!-- Dropdown Menu -->
-        <div class="relative inline-block text-left" data-controller="dropdown-button">
-          <div>
-            <button type="button" class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50" data-action="click->dropdown-button#dropdown" >
-            Peloton <i class="fas fa-angle-down pl-3"></i>
-            </button>
-          </div>
-
-          <div class="hidden absolute right-0 z-10 mt-2 w-36 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5" data-dropdown-button-target="link">
-            <div class="py-1">
-              <% @my_leagues.each do |league| %>
-                <%= link_to league.name, league_path(league, type: "yellow_jersey"), class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
-              <% end %>
-            </div>
-          </div>
+  <div data-show-league-button-target="button">
+    <!-- Choix du Peloton -->
+    <% if @my_leagues.count > 1 %>
+      <div class="hidden choice-leagues w-full" style="background-color: white" data-show-league-button-target="link">
+        <div class="pr-3" data-action="click->show-league-button#show">
+          <p class="text-end"><i class="fas fa-times"></i></p>
+        </div>
+        <div>
+          <% @my_leagues.each do |league| %>
+            <%= link_to league_path(league, type: "yellow_jersey") do %>
+              <div class="flex place-content-center">
+                <div class="flex items-center justify-around my-2">
+                  <%= cl_image_tag league.logo.key, class: "logo-league-bis" %>
+                  <p class="pl-3"><%= league.name %></p>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
