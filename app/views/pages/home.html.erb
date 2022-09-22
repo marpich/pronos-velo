@@ -63,4 +63,15 @@
     <%= link_to "Inscription",  new_user_registration_path, class: "second-button mx-auto" %>
   <% end %>
 
+  <div class="footer flex w-full justify-around py-4">
+    <%= link_to info_rules_path, class:"rules flex flex-col items-center" do %>
+      <i class="fas fa-dice text-2xl"></i>
+      <p class="text-sm">Règles</p>
+    <% end %>
+
+    <%= link_to info_faq_path, class:"faq flex flex-col items-center" do %>
+      <i class="fas fa-question text-2xl"></i>
+      <p class="text-sm">FAQ</p>
+    <% end %>
+  </div>
 </div>

@@ -1,0 +1,55 @@
+<div class="container-wrapper">
+
+  <!-- En-tête avec la Ligue -->
+  <div class="profile-header flex flex-col items-center shadow-xl py-3 mb-3">
+    <div class="profile-header-top flex justify-between items-center px-3">
+      <%= link_to users_dashboard_path, method: :get do %>
+        <i class="fas fa-chevron-left absolute left-5 top-5" style="color: #ffffff"></i>
+      <% end %>
+    </div>
+    <p><%= cl_image_tag @league.logo.key, class: "border-solid border-2 rounded-full w-20 h-20 object-cover bg-white" %></p>
+    <p class="font-thin text-sm">Informations Peloton</p>
+    <p class="font-light text-center"><%= @league.name %></p>
+  </div>
+
+  <!-- Icone-Infos de la Ligue -->
+  <div class= "league-info flex justify-center my-2">
+    <div class="league-info-icon">
+      <i class="fas fa-users"></i>
+      <%= @accepted_admissions.count + 1 %>
+    </div>
+    <div class="league-info-icon">
+      <i class="fas fa-key"></i>
+      <%= @league.user.username %>
+    </div>
+  </div>
+
+  <!-- Card des membres du Peloton -->
+  <div class="leagues-info-card border border-1 mx-3 my-3 pb-3 px-3">
+    <h1>Les Membres du Peloton</h1>
+    <div class="flex justify-between items-center">
+        <div><%= cl_image_tag @league.user.photo.key, class: "class: border-solid border-2 rounded-full w-10 h-10 object-cover mx-2 mb-1" %></div>
+        <div class= "flex justify-start w-full pl-3 text-sm"><%= @league.user.username %> (Moi) </div>
+      </div>
+    <% @accepted_admissions.each do |admission| %>
+      <div class="flex justify-between items-center">
+        <div><%= cl_image_tag admission.user.photo.key, class: "class: border-solid border-2 rounded-full w-10 h-10 object-cover mx-2 mb-1" %></div>
+        <div class= "flex justify-start w-full pl-3 text-sm"><%= admission.user.username %></div>
+      </div>
+    <% end %>
+  <!-- Clipboard pour partager la ligue -->
+  <div class="clipboard flex justify-center">
+    <div data-controller="clipboard" data-clipboard-feedback-text-value="Copied!">
+      <input data-clipboard-target="input" type="text" value="<%= @league.name %>" readonly class="hidden">
+      <button class="third-button" data-action="click->clipboard#copy"><i class="fas fa-paste"></i> Invite tes potes à rejoindre le peloton</button>
+    </div>
+  </div>
+  </div>
+
+
+
+  <%= link_to league_path(@league, type: "yellow_jersey"), data: { turbolinks: false }, class: "main-button" do %>
+    <p>Voir le classement</p>
+  <% end %>
+
+</div>

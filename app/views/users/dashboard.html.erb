@@ -27,13 +27,14 @@
     <div class="leagues-avatar grid grid-cols-4 gap-5">
       <% @my_leagues.each do |league| %>
         <% if league.user == current_user || league.admissions.where(user: current_user).first.status == "accepted" %>
-          <%= link_to league_path(league, type: "yellow_jersey"), data: { turbolinks: false } do %>
-            <%= cl_image_tag league.logo.key, class: "border-solid border-2 rounded-full w-16 h-16 object-cover m-auto" %>
+          <%# <%= link_to league_path(league, type: "yellow_jersey"), data: { turbolinks: false } do %>
+          <%= link_to info_league_path(league) do %>
+            <%= cl_image_tag league.logo.key, class: "border-solid border-2 rounded-full w-16 h-16 max-w-none object-cover m-auto" %>
           <% end %>
         <% elsif league.admissions.where(user: current_user).first.status == "pending" %>
-          <%= cl_image_tag league.logo.key, class: "border-solid border-2 rounded-full w-16 h-16 object-cover m-auto opacity-50" %>
+          <%= cl_image_tag league.logo.key, class: "border-solid border-2 rounded-full w-16 h-16 max-w-none object-cover m-auto opacity-50" %>
         <% else %>
-          <%= cl_image_tag league.logo.key, class: "border-solid border-2 rounded-full w-16 h-16 object-cover m-auto bg-sky-500/50" %>
+          <%= cl_image_tag league.logo.key, class: "border-solid border-2 rounded-full w-16 h-16 max-w-none object-cover m-auto bg-sky-500/50" %>
         <% end %>
       <% end %>
     </div>
@@ -57,7 +58,7 @@
     </div>
 
   </div>
-
+  <!-- Card 'Mes Demandes d'Admissions' -->
   <div class="admissions-card border border-1 mx-3 my-3 pb-3 px-3">
     <h1>Demandes d'adhésions à mes Pelotons (<%= @my_admissions.count %>)</h1>
     <% @my_admissions.each do |admission| %>
@@ -83,6 +84,7 @@
     <% end %>
   </div>
 
+  <!-- Card 'Mes Courses/Pronos' -->
   <div class="races-card border border-1 mx-3 my-3 pb-3 px-3">
     <h1>Mes Tours</h1>
     <p><%= link_to "Voir mes Pronos", bets_path(current_user) %></p>
