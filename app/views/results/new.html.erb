@@ -9,7 +9,7 @@
   <p class="text-center my-2 mx-2 text-sm">L'étape du jour est terminée ! C'est l'heure de compléter le résultat réel des coureurs pour que les calculs automatiques des scores se fassent... 🤓 </p>
 
   <div class="form-mon-prono">
-    <%= form_with url: stage_results_path(params[:stage]), method: :post do |f| %>
+    <%= form_with url: stage_results_path(@stage), method: :post do |f| %>
       <div class="form-select">
         <div class="form-input">
           <div class="number"><p>1</p></div>

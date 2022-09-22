@@ -12,4 +12,9 @@ class Bet < ApplicationRecord
   validates :user_id, uniqueness: { scope: [:stage_id, :rider_id],
     message: "Vous ne pouvez choisir un coureur qu'une seule fois pour la même étape"
   }
+
+  # validates :user_id, length: { maximum: 3}, { scope: :stage_id,
+  #   message: "Vous ne pouvez parier que 3 fois pour une étape"
+  # }
+
 end
