@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get "info/rules", to: "pages#rules"
   get "info/faq", to: "pages#faq"
+  get "info/manifest", to: "pages#manifest"
 
   patch "admissions/:id/accept", to: "admissions#accept", as: "admission/accept"
   patch "admissions/:id/reject", to: "admissions#reject", as: "admission/reject"

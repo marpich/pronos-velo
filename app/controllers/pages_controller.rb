@@ -11,4 +11,8 @@ class PagesController < ApplicationController
 
   def faq
   end
+
+  def manifest
+  end
+
 end
