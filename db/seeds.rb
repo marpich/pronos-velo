@@ -21,7 +21,8 @@ user1 = User.new(
   last_name: 'Pichard',
   username: 'marpich',
   email: 'margaux@gmail.com',
-  password: 'margaux'
+  password: 'margaux',
+  admin: true,
 )
 photomarpich = URI.open('https://res.cloudinary.com/dz21jxux5/image/upload/v1657199619/Photo_ID_Margaux_kv8adr.jpg')
 user1.photo.attach(io: photomarpich, filename: 'marpich.png', content_type: 'image/png')
@@ -102,77 +103,77 @@ puts "Creating riders done"
 
 puts "Creating the bets"
 
-bet11 = Bet.new(
-  user: user1,
-  stage: Stage.first,
-  position: 1,
-  rider: Rider.first
-)
-bet11.save!
+# bet11 = Bet.new(
+#   user: user1,
+#   stage: Stage.first,
+#   position: 1,
+#   rider: Rider.first
+# )
+# bet11.save!
 
-bet12 = Bet.new(
-  user: user1,
-  stage: Stage.first,
-  position: 2,
-  rider: Rider.second
-)
-bet12.save!
+# bet12 = Bet.new(
+#   user: user1,
+#   stage: Stage.first,
+#   position: 2,
+#   rider: Rider.second
+# )
+# bet12.save!
 
-bet13 = Bet.new(
-  user: user1,
-  stage: Stage.first,
-  position: 3,
-  rider: Rider.third
-)
-bet13.save!
+# bet13 = Bet.new(
+#   user: user1,
+#   stage: Stage.first,
+#   position: 3,
+#   rider: Rider.third
+# )
+# bet13.save!
 
-bet21 = Bet.new(
-  user: user1,
-  stage: Stage.second,
-  position: 1,
-  rider: Rider.first
-)
-bet21.save!
+# bet21 = Bet.new(
+#   user: user1,
+#   stage: Stage.second,
+#   position: 1,
+#   rider: Rider.first
+# )
+# bet21.save!
 
-bet22 = Bet.new(
-  user: user1,
-  stage: Stage.second,
-  position: 2,
-  rider: Rider.second
-)
-bet22.save!
+# bet22 = Bet.new(
+#   user: user1,
+#   stage: Stage.second,
+#   position: 2,
+#   rider: Rider.second
+# )
+# bet22.save!
 
-bet23 = Bet.new(
-  user: user1,
-  stage: Stage.second,
-  position: 3,
-  rider: Rider.third
-)
-bet23.save!
+# bet23 = Bet.new(
+#   user: user1,
+#   stage: Stage.second,
+#   position: 3,
+#   rider: Rider.third
+# )
+# bet23.save!
 
-bet31 = Bet.new(
-  user: user1,
-  stage: Stage.third,
-  position: 1,
-  rider: Rider.first
-)
-bet31.save!
+# bet31 = Bet.new(
+#   user: user1,
+#   stage: Stage.third,
+#   position: 1,
+#   rider: Rider.first
+# )
+# bet31.save!
 
-bet32 = Bet.new(
-  user: user1,
-  stage: Stage.third,
-  position: 2,
-  rider: Rider.second
-)
-bet32.save!
+# bet32 = Bet.new(
+#   user: user1,
+#   stage: Stage.third,
+#   position: 2,
+#   rider: Rider.second
+# )
+# bet32.save!
 
-bet33 = Bet.new(
-  user: user1,
-  stage: Stage.third,
-  position: 3,
-  rider: Rider.third
-)
-bet33.save!
+# bet33 = Bet.new(
+#   user: user1,
+#   stage: Stage.third,
+#   position: 3,
+#   rider: Rider.third
+# )
+# bet33.save!
 
 bet41 = Bet.new(
   user: user2,

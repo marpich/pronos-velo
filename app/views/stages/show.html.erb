@@ -77,29 +77,8 @@
 
   <!-- Card Mon Prono -->
   <h3 class="sub-title">Mon Prono</h3>
-  <!-- if 'mes paris sont faits' : affichage mon prono -->
-  <% if @my_bets.present? %>
-    <div class="bet-card-host flex justify-between items-center">
-      <div class="bet-card-user flex flex-col items-center">
-        <p><%= cl_image_tag current_user.photo.key, class: "logo-avatar" %></p>
-        <p><strong><%= current_user.username %></strong></p>
-      </div>
-      <div class="bet-card-riders">
-        <% @my_bets.each do |bet| %>
-          <p><%= bet.position %>. <%= bet.rider.first_name %> <%= bet.rider.last_name %></p>
-        <% end %>
-      </div>
-      <div class="bet-card-points flex flex-col items-center">
-        <% if @result.present? %>
-          <p class="score"><%= current_user.display_score(@stage) %></p>
-        <% else %>
-          <p><i class="fas fa-question"></i></p>
-        <% end %>
-          <p>pts</p>
-      </div>
-    </div>
   <!-- if 'pari ouvert pour l'étape du jour < 12h' : affichage formulaire -->
-  <% elsif @bet.present? %>
+  <% if @bet.present? %>
     <div class="form-mon-prono">
       <%= form_with url: stage_bets_path(@stage), autocomplete: "on", method: :post do |f| %>
         <div class="form-select">
@@ -121,6 +100,28 @@
         </div>
       <% end %>
     </div>
+  <!-- if 'mes paris sont faits' : affichage mon prono -->
+  <% elsif @my_bets.present? %>
+    <div class="bet-card-host flex justify-between items-center">
+      <div class="bet-card-user flex flex-col items-center">
+        <p><%= cl_image_tag current_user.photo.key, class: "logo-avatar" %></p>
+        <p><strong><%= current_user.username %></strong></p>
+      </div>
+      <div class="bet-card-riders">
+        <% @my_bets.each do |bet| %>
+          <p><%= bet.position %>. <%= bet.rider.first_name %> <%= bet.rider.last_name %></p>
+        <% end %>
+      </div>
+      <div class="bet-card-points flex flex-col items-center">
+        <% if @result.present? %>
+          <p class="score"><%= current_user.display_score(@stage) %></p>
+        <% else %>
+          <p><i class="fas fa-question"></i></p>
+        <% end %>
+          <p>pts</p>
+      </div>
+    </div>
+
   <!-- if 'date du jour >= date de l'étape' : affichage trop tard pour parier ajd -->
   <% elsif @stage.date <= Date.current %>
     <p class="text-sm text-center pt-2"> ❌ Il est trop tard pour rentrer ton pronostic ❌ </p>
