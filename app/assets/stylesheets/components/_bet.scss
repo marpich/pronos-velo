@@ -10,7 +10,7 @@
 
 .bet-card-host {
   margin: 10px;
-  // border: 1px solid $blue;
+  // border: 1px solid $green;
   border-radius: 15px;
   background-color: #002ab661;
   padding: 5px 15px;
@@ -28,7 +28,7 @@
 
 .bet-card-points {
   font-size: x-small;
-  color: $blue;
+  color: $green;
   font-weight: 500;
   .score {
     font-size: x-large;
@@ -41,8 +41,8 @@
 }
 
 .bet-card-stage {
-  border: 1px solid $blue;
-  background-color: $blue;
+  border: 1px solid $green;
+  background-color: $green;
   border-radius: 30%;
   padding: 5px;
   font-size: small;

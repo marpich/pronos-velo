@@ -1,0 +1,14 @@
+.navbar-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid $green;
+  margin-bottom: 5px;
+  img {
+    width: 50%;
+  }
+}
+
+.subtitle {
+  padding-right: 7px;
+}
