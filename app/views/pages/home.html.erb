@@ -1,54 +1,49 @@
 <div class="container-wrapper">
-  <div class="banner">
-    <%= image_tag "La Fringale_logo.png" %>
-    <p>Défie tes potes sur les plus grosses courses de vélo en pronostiquant le podium de chaque étape !</p>
-  </div>
 
-  <h3>Les Courses de la Saison 2022</h3>
-
-  <div class= "courses-box">
-    <div class="course">
-      <div class="course-image">
-        <%= image_tag "Giro_d'Italia.svg.png" %>
-      </div>
-      <p>06/05 > 29/05</p>
-      <p>C'est fini!</p>
-    </div>
-
-    <div class="course">
-      <div class="course-image">
-        <%= image_tag "Tour_de_France.svg.png" %>
-      </div>
-      <p>01/07 > 24/07</p>
-      <p>C'est fini!</p>
-    </div>
-
-    <div class="course">
-      <div class="course-image">
-        <%= image_tag "La_Vuelta.svg.png" %>
-      </div>
-      <p>19/08 > 11/09</p>
-      <p><strong>C'est maintenant!</strong></p>
+ <!-- Navbar top -->
+  <div class="navbar-top">
+    <%= link_to root_path do %>
+      <%= image_tag "221010_LA FRINGALE Identité graphique-05.png" %>
+    <% end %>
+    <div class="subtitle">
+      <p>Accueil</p>
     </div>
   </div>
 
+  <!-- Current Race Card -->
+  <div class="currently-card">
+    <div class="stage-info-icon">
+      <p><i class="fas fa-flag"></i> Etape <%= @stage.number %></p>
+    </div>
+    <h3>Tour de France</h3>
+    <h4>2022</h4>
+  </div>
+
+  <!-- Countdown -->
   <% if user_signed_in? %>
-    <div class="user-connected">
+    <div class="">
     <% if @stage.present? %>
       <% if (Time.now < Time.now.middle_of_day) %>
-        <p>Fin des pronos dans</p>
+        <div class="text-countdown-card">
+          <strong>Fermeture des pronos à 12h00</strong><br>
+          <em>Ne loupe pas le départ!</em>
+        </div>
+        <div class="timer-card flex justify-center items-center">
+          <p><i class="fas fa-hourglass-half"></i></p>
+          <div class="pl-2 text-2xl" data-controller="countdown-stage" data-countdown-stage-date-value="<%= @date %> 12:00:00"></div>
+        </div>
+        <%= link_to "Je fais mon prono", stage_path(@stage), class: "main-button" %>
+      <% elsif (Time.now > Time.now.middle_of_day) %>
+        <div class="text-countdown-card">
+          <strong>Fermeture des pronos à 12h00</strong><br>
+          <em>Prépare ton prono pour demain!</em>
+        </div>
+        <div class="timer-card flex justify-center items-center">
+          <p><i class="fas fa-hourglass-half"></i></p>
+          <div class="pl-2 text-2xl" data-controller="countdown-stage" data-countdown-stage-date-value="<%= @date %> 12:00:00"></div>
+        </div>
+        <%= link_to "Voir les pronos", stage_path(@stage), class: "main-button" %>
       <% end %>
-      <div class="timer-card flex justify-center items-center">
-        <p><i class="fas fa-hourglass-half"></i></p>
-        <div class="pl-2 text-2xl" data-controller="countdown-stage" data-countdown-stage-date-value="<%= @date %> 12:00:00"></div>
-      </div>
-        <% if (Time.now > Time.now.middle_of_day) %>
-          <%= link_to "Voir les pronos", stage_path(@stage), class: "main-button" %>
-          <p>Prépare ton prono pour demain!</p>
-        <% else %>
-          <%= link_to "Je fais mon prono", stage_path(@stage), class: "main-button" %>
-          <p>On attend ton prono avec impatience! Tu as jusqu'à midi pour le compléter.</p>
-        <% end %>
     <% else %>
       <div class="timer-card flex justify-center items-center">
         <p><i class="fas fa-bell"></i></p>
@@ -62,6 +57,11 @@
     <%= link_to "Connexion", new_user_session_path, class: "main-button" %>
     <%= link_to "Inscription",  new_user_registration_path, class: "second-button mx-auto" %>
   <% end %>
+
+  <!-- FAQ / Concept -->
+  <div class="big-title">
+    <p>Si tu ne veux pas être largué</p>
+  </div>
 
   <div class="footer flex w-full justify-around py-4">
     <%= link_to info_rules_path, class:"rules flex flex-col items-center" do %>

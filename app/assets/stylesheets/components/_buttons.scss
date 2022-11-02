@@ -3,16 +3,14 @@
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  background-color: $blue;
+  background-color: $green;
   color: white;
   padding: 5px;
-  font-size: 15px;
+  font-size: 14px;
   border-radius: 5px;
   width: 90vw;
   border: none;
-  font-family: $body-font;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  font-family: $headers-font;
   margin: auto;
 }
 
@@ -21,12 +19,12 @@
   justify-content: center;
   text-decoration: none;
   background-color: white;
-  color: $blue;
+  color: $green;
   padding: 5px;
   font-size: 15px;
   border-radius: 5px;
   width: 90vw;
-  border: 1px solid $blue;
+  border: 1px solid $green;
   font-family: $body-font;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -56,7 +54,7 @@
   align-items: center;
   text-decoration: underline !important;
   text-underline-offset: 4px;
-  color: $blue;
+  color: $green;
   font-size: 0.875rem;
   border: none;
   font-family: $body-font;
