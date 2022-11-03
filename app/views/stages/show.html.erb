@@ -5,42 +5,35 @@
     </div>
   <% end %>
 
-  <!-- En-tête avec la Stage -->
-  <div class="title flex justify-between items-center">
+  <!-- Navbar top -->
+  <div class="navbar-top sticky top-O">
+    <%= link_to root_path do %>
+      <%= image_tag "221010_LA FRINGALE Identité graphique-05.png" %>
+    <% end %>
+    <div class="menu">
+      <p>Pronos</p>
+    </div>
+  </div>
+
+  <!-- Infos de la Stage -->
+  <div class= "stage-info flex justify-center my-2">
     <div class="switch-stage">
       <% if @previous_stage.nil? %>
-        <i class="fas fa-angle-left" style="color: #2660A4"></i>
+        <i class="fas fa-angle-left"></i>
       <% else %>
         <%= link_to stage_path(@previous_stage) do %>
           <i class="fas fa-angle-left"></i>
         <% end %>
       <% end %>
     </div>
-    <div class="flex flex-col">
-      <h1>Pronos</h1>
-      <p>Tour de France 2022</p>
-    </div>
-    <div class="switch-stage">
-      <% if @next_stage.nil? %>
-        <i class="fas fa-angle-left" style="color: #2660A4"></i>
-      <% else %>
-        <%= link_to stage_path(@next_stage) do %>
-          <i class="fas fa-angle-right"></i>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-
-  <!-- Infos de la Stage -->
-  <div class= "stage-info flex justify-center my-2">
-    <div class="stage-info-icon">
+    <div class="stage-info-number">
       <p><i class="fas fa-flag"></i> Etape <%= @stage.number %></p>
     </div>
-    <div class="stage-info-icon">
-      <i class="fas fa-calendar"></i>
-      <%= @stage.date.strftime("%d / %m") %>
+    <div class="stage-info-date">
+      <p><i class="fas fa-calendar"></i>
+      <%= @stage.date.strftime("%d / %m") %></p>
     </div>
-    <div class="stage-info-icon">
+    <div class="stage-info-profile">
       <% case @stage.stage_type %>
         <% when 'Montagne' %>
         <p><i class="fas fa-mountain"></i> Montagne</p>
@@ -52,6 +45,15 @@
         <p><i class="fas fa-road"></i> Plat</p>
       <% end %>
     </div>
+    <div class="switch-stage">
+      <% if @next_stage.nil? %>
+        <i class="fas fa-angle-left"></i>
+      <% else %>
+        <%= link_to stage_path(@next_stage) do %>
+          <i class="fas fa-angle-right"></i>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 
   <!-- Map de la Stage -->
@@ -61,22 +63,22 @@
 
   <!-- Affichage du Résultat après 17h -->
   <% if @result.present? %>
-    <h3 class="sub-title">Le Résultat de l'étape</h3>
-      <div class="bet-card flex justify-between items-center">
-      <div class="bet-card-stage flex flex-col items-center">
-        <p>Etape</p>
-        <%= @result.first.stage.number %>
-      </div>
-      <div class="bet-card-riders flex flex-col items-center w-full">
-        <% @result.each do |result| %>
-          <p><%= result.result_position %>. <%= result.rider.first_name %> <%= result.rider.last_name %></p>
-        <% end %>
-      </div>
+    <p class="sub-title">Le Résultat de l'étape</p>
+      <div class="result-bet-card flex justify-between items-center">
+        <div class="bet-card-stage flex flex-col items-center">
+          <p>Etape</p>
+          <%= @result.first.stage.number %>
+        </div>
+        <div class="bet-card-riders flex flex-col items-center w-full">
+          <% @result.each do |result| %>
+            <p><%= result.result_position %>. <%= result.rider.first_name %> <%= result.rider.last_name %></p>
+          <% end %>
+        </div>
     </div>
   <% end %>
 
   <!-- Card Mon Prono -->
-  <h3 class="sub-title">Mon Prono</h3>
+  <p class="sub-title">Mon Prono</p>
   <!-- if 'pari ouvert pour l'étape du jour < 12h' : affichage formulaire -->
   <% if @bet.present? %>
     <div class="form-mon-prono">
@@ -134,7 +136,7 @@
   <!-- Affichage des pronos de tous une fois le résultat sorti -->
   <% if @result.present? %>
     <% unless @players.empty? %>
-      <h3 class="sub-title">Les Pronos de l'étape</h3>
+      <p class="sub-title">Les Pronos de l'étape</p>
       <% @players.each do |player| %>
         <% if player == current_user %>
           <div class="bet-card-host flex justify-between items-center">

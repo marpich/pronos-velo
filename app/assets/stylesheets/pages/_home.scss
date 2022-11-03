@@ -5,6 +5,7 @@
   color: white;
   background-color: $green;
   font-family: $headers-font;
+  margin-top: 10px;
   margin-right: 15px;
   margin-left: 15px;
   border-radius: 15px;
@@ -26,33 +27,22 @@
   margin: 20px;
 }
 
-.courses-box {
-  display: flex;
-  justify-content: space-around;
+.concept {
 }
 
-.course {
-  width: 30vw;
-  height: 200px;
-  text-align: center;
-  border: 2px solid $light-gray;
+.concept-card {
+  display: flex;
+  align-items: center;
+  border: 1px solid $green;
+  padding: 10px 10px;
+  margin: 5px;
   border-radius: 15px;
-  background-color: $light-gray;
-  img {
-    max-height: 10vh;
-    max-width: 15vw;
-    object-fit:fill;
+  i {
+    color: $green;
+    font-size: 30px;
+    padding-right: 10px;
   }
   p {
-    margin-bottom: 0;
+    font-weight: 400;
   }
-}
-
-.course-image {
-height: 100px;
-display: flex;
-align-items: center;
-justify-content: center;
-margin-top: 10px;
-margin-bottom: 10px;
 }
