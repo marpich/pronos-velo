@@ -1,45 +1,46 @@
 <div class="container-wrapper">
 
-  <div class="title relative">
-    <%= link_to users_dashboard_path, method: :get do %>
-      <i class="fas fa-chevron-left absolute left-5 top-5" style="color: #ffffff"></i>
+  <!-- Navbar top -->
+  <div class="navbar-top sticky top-O">
+    <%= link_to root_path do %>
+      <%= image_tag "221010_LA FRINGALE Identité graphique-05.png" %>
     <% end %>
-    <h1>Préférences</h1>
-    <p> - </p>
+    <div class="menu">
+      <p>Préférences</p>
+    </div>
   </div>
 
 
   <div class="account">
-
-      <%= link_to edit_user_registration_path, method: :get do %>
-    <div class="account-card-title py-1 px-3 flex flex justify-between items-center">
-      <div class="account-card-info">
-        <h2 class = "font-semibold" >Mes informations</h2>
+    <%= link_to edit_user_registration_path, method: :get do %>
+      <div class="account-card-title py-1 px-3 flex flex justify-between items-center">
+        <div class="account-card-info">
+          <p class = "font-semibold" >Mes informations</p>
+        </div>
+        <div class="account-card-button">
+          <i class="fas fa-chevron-right"></i>
+        </div>
       </div>
-      <div class="account-card-button">
-        <i class="fas fa-chevron-right"></i>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
 
     <div class="account-card py-1 px-3 flex flex justify-between items-center">
       <div class="account-card-info">
         <p class = "" >Prénom</p>
-        <p class = "text-sm text-gray-500" ><%= current_user.first_name %></p>
+        <p class = "text-gray-500" ><%= current_user.first_name %></p>
       </div>
     </div>
 
     <div class="account-card py-1 px-3 flex flex justify-between items-center">
       <div class="account-card-info">
         <p class = "" >Nom</p>
-        <p class = "text-sm text-gray-500" ><%= current_user.last_name %></p>
+        <p class = "text-gray-500" ><%= current_user.last_name %></p>
       </div>
     </div>
 
     <div class="account-card py-1 px-3 flex flex justify-between items-center">
       <div class="account-card-info">
         <p class = "" >Pseudo</p>
-        <p class = "text-sm text-gray-500" ><%= current_user.username %></p>
+        <p class = "text-gray-500" ><%= current_user.username %></p>
       </div>
     </div>
 
@@ -55,7 +56,7 @@
     <%= link_to edit_user_registration_path, method: :get do %>
       <div class="account-card-title py-1 px-3 flex flex justify-between items-center">
         <div class="account-card-info">
-          <h2 class = "font-semibold" >Mon compte</h2>
+          <p class = "font-semibold" >Mon compte</p>
         </div>
         <div class="account-card-button">
           <i class="fas fa-chevron-right"></i>
@@ -66,7 +67,7 @@
     <div class="account-card py-1 px-3 flex flex justify-between items-center">
       <div class="account-card-info">
         <p class = "" >E-mail</p>
-        <p class = "text-sm text-gray-500" ><%= current_user.email %></p>
+        <p class = "text-gray-500" ><%= current_user.email %></p>
       </div>
     </div>
 
@@ -74,7 +75,7 @@
     <div class="account-card py-1 px-3 flex flex justify-between items-center">
         <div class="account-card-info">
           <p class = "" >Mot de Passe</p>
-          <p class = "text-sm text-gray-500" >******</p>
+          <p class = "text-gray-500" >******</p>
         </div>
     </div>
 

@@ -10,7 +10,12 @@
   box-shadow: 4px 4px 10px $light-gray;
   z-index: 10;
   border-top: 1px solid $light-gray;
-  min-height: $navbar-bottom-height;
+  width: 100vw;
+  margin: auto;
+  @media (min-width: 768px) {
+    width: 50vw;
+  }
+  // min-height: $navbar-bottom-height;
 
   a {
     text-decoration: none;

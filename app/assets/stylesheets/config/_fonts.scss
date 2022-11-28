@@ -22,9 +22,13 @@ $navbar-bottom-height: 10vh;
 .container-wrapper {
   width: 100vw;
   min-height: 90vh;
+  margin: auto;
   // padding: 0 0px;
   // background-color: #f3f3f3;
   // padding-bottom: 10px;
+  @media (min-width: 768px) {
+    width: 50vw;
+  }
 }
 
 a {

@@ -5,6 +5,10 @@
 .account-card {
   border-bottom: 1px solid lightgray;
 
+  p {
+    font-size: 12px;
+  }
+
   i {
     color: $green;
   }

@@ -1,38 +1,61 @@
 .switch-stage i {
-  color: white;
+  color: black;
   font-size: 15px;
-  margin-top: 10px;
+  margin-top: 5px;
   padding: 0 10px;
 }
 
-
-.stage-info-icon {
+.stage-info-number {
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  padding-right: 5px;
   background-color: $green;
   border-radius: 25px;
-  padding: 3px;
   margin: 0;
   font-family: $headers-font;
-  font-size: small;
+  font-size: 10px;
   font-weight: bold;
   // box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   i {
     padding-right: 5px;
     color: white;
   }
+  p {
+    color: white;
+    text-transform: uppercase;
+  }
 }
 
-.stage-info-profil {
+.stage-info-date {
   background-color: white;
   border-radius: 25px;
   padding: 5px;
   margin: 0 5px;
   font-family: $headers-font;
-  font-size: small;
+  font-size: 11px;
   font-weight: bold;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   i {
-    color: $green;
+    color: black;
   }
+}
+
+.stage-info-profile {
+  background-color: white;
+  border-radius: 25px;
+  padding: 5px;
+  margin: 0 5px;
+  font-family: $headers-font;
+  font-size: 11px;
+  font-weight: bold;
+  i {
+    color: black;
+  }
+}
+
+.stage-info-destination {
+  font-size: 12px;
+  padding-top: 5px;
 }
 
 .stage-map img {
@@ -42,26 +65,15 @@
 }
 
 .stage-card {
-  width: 100%;
-  padding: 10px;
+  margin: 10px;
+  border-radius: 15px;
   background-color: white;
-  border-top: 1px solid lightgray;
-  a {
-    text-decoration: none !important;
-    color: black;
-  }
-  p {
-    font-size: 12px;
-  }
+  padding: 5px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
-
 
 .stage-info-first {
   width: 40%;
-}
-
-.stage-info-last {
-  width: 50%;
 }
 
 .stage-info {

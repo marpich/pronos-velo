@@ -1,15 +1,23 @@
 <div class="container-wrapper" data-controller="show-league-button">
 
-  <!-- En-tête avec la Ligue -->
-  <div class="title flex flex-col items-center relative">
-    <h1>Classement Général</h1>
-    <p class="mb-3"><%= @league.name %></p>
-    <%= cl_image_tag @league.logo.key, class: "logo-league" %>
-    <!-- Bouton Sélection du Peloton -->
-    <div class="button-league" data-action="click->show-league-button#show">
-      <p><i class="fas fa-chevron-up"></i></p>
-      <p><i class="fas fa-chevron-down"></i></p>
+  <!-- Navbar top -->
+  <div class="navbar-top sticky top-O">
+    <%= link_to root_path do %>
+      <%= image_tag "221010_LA FRINGALE Identité graphique-05.png" %>
+    <% end %>
+    <div class="menu">
+      <p>Classement</p>
     </div>
+  </div>
+
+  <!-- Banner Peloton -->
+  <div class="banner">
+    <div class="button-league" data-action="click->show-league-button#show">
+      <i class="fas fa-chevron-left"></i>
+      <%= cl_image_tag @league.logo.key, class: "logo-league" %>
+      <i class="fas fa-chevron-right"></i>
+    </div>
+    <p><%= @league.name %></p>
   </div>
 
   <!-- Card league info -->
@@ -23,15 +31,15 @@
   </div>
 
   <!-- Link to different jerseys -->
-    <div class="flex justify-around mt-9 mb-6">
+    <div class="flex justify-around mt-3 mb-5">
     <%= link_to league_path(@league, type: "yellow_jersey"), class: (params[:type] == "yellow_jersey" ? "menu-active" : "menu-disactive") do %>
-      <p><i class="fas fa-tshirt pr-1" style="color: #FFF000"></i>INDIVIDUEL</p>
+      <h3><i class="fas fa-tshirt pr-1" style="color: #FFF000"></i>INDIVIDUEL</h3>
     <% end %>
     <%= link_to league_path(@league, type: "green_jersey"), class: (params[:type] == "green_jersey" ? "menu-active" : "menu-disactive") do %>
-      <p><i class="fas fa-tshirt pr-1" style="color: #38a849"></i>POINTS</p>
+      <h3><i class="fas fa-tshirt pr-1" style="color: #38a849"></i>POINTS</h3>
     <% end %>
     <%= link_to league_path(@league, type: "polka_dot_jersey"), class: (params[:type] == "polka_dot_jersey" ? "menu-active" : "menu-disactive") do %>
-      <p><i class="fas fa-tshirt pr-1" style="color: #D9291C"></i>GRIMPEUR</p>
+      <h3><i class="fas fa-tshirt pr-1" style="color: #D9291C"></i>GRIMPEUR</h3>
     <% end %>
   </div>
 
@@ -46,7 +54,7 @@
       <% end %>
         <div class="ranking-card-user flex flex-start items-center">
           <p><%= cl_image_tag user.first.photo.key, class: "logo-avatar mr-3" %></p>
-          <p><%= user.first.username %></p>
+          <h3><%= user.first.username %></h3>
         </div>
         <div class="ranking-card-points flex items-center">
           <p class="score"><%= user.last %></p>

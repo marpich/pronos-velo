@@ -1,8 +1,13 @@
 <div class="container-wrapper">
 
-  <div class="title">
-    <h1>Course</h1>
-    <p>Tour de France 2022</p>
+  <!-- Navbar top -->
+  <div class="navbar-top sticky top-O">
+    <%= link_to root_path do %>
+      <%= image_tag "221010_LA FRINGALE Identité graphique-05.png" %>
+    <% end %>
+    <div class="menu">
+      <p>Course</p>
+    </div>
   </div>
 
   <!-- Menu Etapes/Coureurs/Resultats -->
@@ -15,30 +20,32 @@
   <!-- Index des Stages -->
   <% @stages.sort.each do |stage| %>
 
-    <div class="stage-card">
-      <%= link_to stage_path(stage) do %>
-        <div class= "stage-info flex justify-between items-center">
-          <div class="stage-info-first flex justify-between">
-            <p><strong>Etape <%= stage.number %></strong></p>
-            <% case stage.stage_type %>
-              <% when 'Montagne' %>
-              <p><i class="fas fa-mountain"></i></p>
-              <% when 'Accidentee' %>
-              <p><i class="fas fa-exclamation-triangle"></i></p>
-              <% when 'Chrono' %>
-              <p><i class="fas fa-stopwatch"></i></p>
-              <% when 'Plat' %>
-              <p><i class="fas fa-road"></i></p>
-            <% end %>
-            <p><%= stage.date.strftime("%d / %m") %></p>
-          </div>
-          <div class="stage-info-last flex justify-between">
-            <p><%= stage.departure  %> > <%= stage.arrival %></p>
-          </div>
+    <%= link_to stage_path(stage) do %>
+    <div class="stage-card my-2">
+      <div class="flex justify-between" >
+        <div class="stage-info-number">
+          <p><i class="fas fa-flag"></i> Etape <%= stage.number %></p>
         </div>
-      <% end %>
-    </div>
+        <div class="stage-info-profile">
+          <% case stage.stage_type %>
+            <% when 'Montagne' %>
+            <p><i class="fas fa-mountain"></i> Montagne</p>
+            <% when 'Accidentee' %>
+            <p><i class="fas fa-exclamation-triangle"></i> Accidenté</p>
+            <% when 'Chrono' %>
+            <p><i class="fas fa-stopwatch"></i> Contre la Montre</p>
+            <% when 'Plat' %>
+            <p><i class="fas fa-road"></i> Plat</p>
+          <% end %>
+        </div>
+      </div>
+        <div class="stage-info-destination text-center">
+          <p><%= stage.departure  %> > <%= stage.arrival %></p>
+        </div>
+      </div>
+    <% end %>
 
   <% end %>
+
 
 </div>

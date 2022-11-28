@@ -6,24 +6,33 @@
     </div>
   <% end %>
 
-  <div class="profile-header flex flex-col items-center shadow-xl py-3 mb-3">
+  <!-- Navbar top -->
+  <div class="navbar-top sticky top-O">
+    <%= link_to root_path do %>
+      <%= image_tag "221010_LA FRINGALE Identité graphique-05.png" %>
+    <% end %>
+    <div class="menu">
+      <p>Compte</p>
+    </div>
+  </div>
 
-    <div class="profile-header-top flex justify-between items-center px-3">
-      <div><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></div>
-      <div>
+  <!-- Banner Profil -->
+  <div class="banner">
+    <div class="settings">
         <%= link_to users_account_path do %>
-          <i class="fas fa-cog text-xl"></i>
+          <i class="fas fa-cog"></i>
         <% end %>
       </div>
-    </div>
-    <p><%= cl_image_tag current_user.photo.key, class: "border-solid border-2 rounded-full w-20 h-20 object-cover" %></p>
-    <p class="font-thin text-sm"><%= current_user.username %></p>
-    <p class="font-light text-center">Un petit coup de Fringale <%= current_user.first_name %> ?</p>
+    <%= cl_image_tag current_user.photo.key, class: "logo-avatar" %>
+    <p><%= current_user.username %></p>
   </div>
 
   <!-- Card 'Mes Pelotons' -->
+  <div class="sub-title">
+    <p>Mes Pelotons (<%= @my_leagues.count %>)</p>
+  </div>
+
   <div class="leagues-card border border-1 mx-3 my-3 pb-3 px-3">
-    <h1>Mes Pelotons (<%= @my_leagues.count %>)</h1>
     <div class="leagues-avatar grid grid-cols-4 gap-5">
       <% @my_leagues.each do |league| %>
         <% if league.user == current_user || league.admissions.where(user: current_user).first.status == "accepted" %>
@@ -58,9 +67,13 @@
     </div>
 
   </div>
+
   <!-- Card 'Mes Demandes d'Admissions' -->
+  <div class="sub-title">
+    <p>Demandes d'adhésions à mes Pelotons (<%= @my_admissions.count %>)</p>
+  </div>
+
   <div class="admissions-card border border-1 mx-3 my-3 pb-3 px-3">
-    <h1>Demandes d'adhésions à mes Pelotons (<%= @my_admissions.count %>)</h1>
     <% @my_admissions.each do |admission| %>
       <div class="admission flex justify-between items-center">
         <div class="admissions-info flex items-center">
@@ -85,8 +98,10 @@
   </div>
 
   <!-- Card 'Mes Courses/Pronos' -->
+  <div class="sub-title">
+    <p>Mes Tours</p>
+  </div>
   <div class="races-card border border-1 mx-3 my-3 pb-3 px-3">
-    <h1>Mes Tours</h1>
     <p><%= link_to "Voir mes Pronos", bets_path(current_user) %></p>
   </div>
 </div>
