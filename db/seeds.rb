@@ -22,7 +22,7 @@ user1 = User.new(
   username: 'marpich',
   email: 'margaux@gmail.com',
   password: 'margaux',
-  admin: true,
+  admin: true
 )
 photomarpich = URI.open('https://res.cloudinary.com/dz21jxux5/image/upload/v1657199619/Photo_ID_Margaux_kv8adr.jpg')
 user1.photo.attach(io: photomarpich, filename: 'marpich.png', content_type: 'image/png')
@@ -46,8 +46,8 @@ puts "Creating the races"
 race1 = Race.new(
   name: 'Tour de France',
   year: 2022,
-  starting_date: '19/08/2022',
-  ending_date: '08/09/2022'
+  starting_date: '28/11/2022',
+  ending_date: '18/12/2022'
 )
 race1.save!
 
