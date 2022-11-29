@@ -1,17 +1,54 @@
 // Specific CSS for your home-page
 
+// Home visitor
+
+.home-visitor {
+  height: 95vh;
+  background-color: $green;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .img-logo {
+    background-color: white;
+    margin-bottom: 30px;
+  }
+}
+
+.home-visitor-title {
+  padding: 30px;
+}
+
+.home-visitor-text {
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+// Home Player
+
+.home-player {
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: $light-gray;
+}
+
 .currently-card {
   padding: 10px;
   color: white;
   background-color: $green;
   font-family: $headers-font;
   margin-top: 10px;
-  margin-right: 15px;
-  margin-left: 15px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 30px;
   border-radius: 15px;
   line-height: 1;
   h3 {
     font-size:30px;
+    text-align: center;
+    padding: 10px 0;
   }
   h4 {
     font-size: 25px;
@@ -20,29 +57,87 @@
   }
 }
 
+.stage-info-number {
+  p {
+    font-size: 15px;
+  }
+}
+
+.countdown {
+  i {
+    color: white;
+    border: 2px solid white;
+    font-size: 30px;
+  }
+}
+
 .text-countdown-card {
   text-align: center;
-  font-size: 15px;
+  font-size: 18px;
   font-family: $body-font;
-  margin: 20px;
+  p {
+    padding: 15px 0;
+  }
+}
+
+.timer-card {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.timer-card-countdown {
+  font-family: $body-font;
+  color: white;
+  font-weight: bold;
 }
 
 .concept {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+  text-align: center;
 }
 
 .concept-card {
-  display: flex;
-  align-items: center;
+  background-color: white;
   border: 1px solid $green;
   padding: 10px 10px;
   margin: 5px;
   border-radius: 15px;
   i {
     color: $green;
-    font-size: 30px;
-    padding-right: 10px;
+    font-size: 50px;
+    padding: 15px;
   }
   p {
     font-weight: 400;
+    font-weight: bold;
   }
+}
+
+.bubble {
+  position: relative;
+  font-size: 18px;
+  line-height: 20px;
+  width: 300px;
+  background: #fff;
+  border-radius: 40px;
+  padding: 20px;
+  text-align: center;
+  color: #000;
+  margin: auto;
+}
+
+.bubble-bottom-left:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 24px solid #fff;
+  border-right: 12px solid transparent;
+  border-top: 12px solid #fff;
+  border-bottom: 20px solid transparent;
+  right: 32px;
+  bottom: -24px;
 }

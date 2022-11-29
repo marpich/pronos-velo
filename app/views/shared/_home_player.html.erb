@@ -1,0 +1,84 @@
+<!-- Navbar top -->
+  <div class="navbar-top">
+    <%= link_to root_path do %>
+      <%= image_tag "LA FRINGALE.png" %>
+    <% end %>
+    <div class="menu">
+      <p>Accueil</p>
+    </div>
+  </div>
+
+<div class='home-player'>
+
+  <!-- Current Race Card -->
+  <div class="currently-card">
+    <div class="stage-info-number">
+      <p><i class="fas fa-flag"></i> Etape <%= @stage.number %></p>
+    </div>
+    <h3>Tour de France</h3>
+    <h4>2022</h4>
+  </div>
+
+  <!-- Countdown -->
+  <div class="countdown">
+    <% if @stage.present? %>
+      <% if (Time.now < Time.now.middle_of_day) %>
+        <div class="text-countdown-card">
+          <strong>Fermeture des pronos à 12h00</strong><br>
+          <em>Ne loupe pas le départ!</em>
+        </div>
+        <div class="timer-card text-center">
+          <p><i class="fas fa-hourglass-half"></i></p>
+          <div class="timer-card-countdown pl-2 text-2xl" data-controller="countdown-stage" data-countdown-stage-date-value="<%= @date %> 12:00:00"></div>
+        </div>
+        <%= link_to "Je fais mon prono !", stage_path(@stage), class: "home-main-button" %>
+      <% else %>
+        <div class="text-countdown-card">
+          <p><strong>Les coureurs ont pris le départ !</strong></p>
+          <div class="bubble bubble-bottom-left" contenteditable>
+            <em>Alors, ça donne quoi les paris ?</em>
+          </div>
+        </div>
+        <%= link_to "Voir les pronos", stage_path(@stage), class: "home-main-button" %>
+      <% end %>
+    <% else %>
+      <div class="timer-card flex justify-center items-center">
+        <p><i class="fas fa-bell"></i></p>
+        <p>Prochain tour dans</p>
+        <div class="pl-2 text-2xl" data-controller="countdown-race" data-countdown-race-date-value="May 9, 2023 12:00:00"></div>
+      </div>
+      <p>Il n'y a pas de courses pour le moment mais on se tient au courant ! RDV en 2023...</p>
+    <% end %>
+  </div>
+
+  <!-- FAQ / Concept -->
+  <div>
+    <div class="sub-title">
+      <p>Si tu ne veux pas être largué</p>
+    </div>
+
+    <div class="concept">
+      <%= link_to info_rules_path do %>
+        <div class="concept-card">
+          <div><i class="fas fa-dice text-2xl"></i></div>
+          <div><p class="text-sm">Règlement officiel de l'épreuve</p></div>
+        </div>
+      <% end %>
+
+      <%= link_to info_faq_path do %>
+        <div class="concept-card">
+          <i class="fas fa-question text-2xl"></i>
+          <p class="text-sm">La Fringale en 2 coups de pédale!</p>
+        </div>
+      <% end %>
+
+      <%= link_to info_manifest_path do %>
+        <div class="concept-card">
+          <i class="fas fa-quote-right text-2xl"></i>
+          <p class="text-sm">Le mot du Commissaire de course</p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>

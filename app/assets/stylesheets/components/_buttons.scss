@@ -64,3 +64,20 @@
   padding-bottom: 5px;
   padding-right: 5px;
 }
+
+.home-main-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  background-color: $green;
+  color: white;
+  padding: 8px 5px;
+  font-size: 12px;
+  border-radius: 5px;
+  width: 90%;
+  border: 2px solid white;
+  font-family: $headers-font;
+  margin: 10px auto;
+  text-transform: uppercase;
+}
