@@ -3,25 +3,29 @@
 // Home visitor
 
 .home-visitor {
-  height: 95vh;
+  height: 92vh;
   background-color: $green;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   .img-logo {
-    background-color: white;
-    margin-bottom: 30px;
+    padding-bottom: 40px;
   }
 }
 
 .home-visitor-title {
-  padding: 30px;
+  padding: 50px 30px 20px 30px;
 }
 
 .home-visitor-text {
   padding-bottom: 15px;
   margin-bottom: 20px;
+  text-align: center;
+}
+
+.home-bottom {
+  width: 100%;
 }
 
 // Home Player

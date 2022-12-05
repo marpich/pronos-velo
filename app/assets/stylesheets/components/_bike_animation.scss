@@ -1,0 +1,230 @@
+.bike-riding {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 150px;
+  overflow: hidden;
+}
+
+.cyclist {
+  position: relative;
+  animation: ride 1s linear infinite;
+  top:-35px;
+}
+
+.bike {
+  position: relative;
+  background-color: $red;
+  width:90px;
+  height: 4px;
+  border-radius:10px;
+  box-shadow: inset 3px -3px rgba(0,0,0,0.1);
+}
+
+.bike:before, .bike:after {
+  content:"";
+  position: absolute;
+  background-color: $red;
+  width:4px;
+  height: 70px;
+  top:-4px;
+}
+
+.bike:before {
+  transform: rotate(35deg);
+  left:67px;
+  box-shadow: -70px 50px $red, 0px -30px $red;
+}
+
+.bike:after {
+  transform: rotate(-35deg);
+  left:20px;
+  box-shadow: 70px 50px $red, 0px -30px $red;
+}
+
+.leftTyre, .rightTyre {
+  width:80px;
+  height:80px;
+  position: absolute;
+  border: 5px solid #333;
+  border-radius:50%;
+  z-index:1;
+  top:20px;
+  animation: spin 1s linear infinite;
+}
+
+.leftTyre {
+  left:-76px;
+}
+
+.rightTyre {
+  left:88px;
+}
+
+.leftTyre:before, .rightTyre:before {
+  content:"";
+  position: absolute;
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  border: 4px solid #fcfffc;
+}
+
+.leftTyre:after, .rightTyre:after {
+  content:"";
+  position: absolute;
+  width:1px;
+  height: 70px;
+  left:33px;
+  top:0;
+  background-color: #fcfffc;
+}
+
+.spokes {
+  position: absolute;
+  width:68px;
+  height: 1px;
+  background-color: #fcfffc;
+  top:35px;
+}
+
+.spokes:before, .spokes:after {
+  content:"";
+  position: absolute;
+   width:68px;
+  height: 1px;
+  background-color: #fcfffc;
+  left:0px;
+}
+
+.spokes:before {
+  transform: rotate(45deg);
+}
+
+.spokes:after {
+  transform: rotate(-45deg);
+}
+
+.saddle {
+  z-index: 2;
+  position: absolute;
+  width: 40px;
+  height: 50px;
+  border-radius:10%;
+  border-top: 7px solid #333;
+  border-bottom: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 8px solid transparent;
+  // transform: rotate(5deg);
+  top:-28px;
+  left:-32px;
+}
+
+.wheel {
+  z-index:6;
+  position: absolute;
+  border-radius:50%;
+  background-color: $red;
+  width:10px;
+  height:10px;
+  top:55px;
+  left:-42px;
+  box-shadow: 83px 0 $red, 164px 0px $red;
+}
+
+.wheel:before {
+  content:"";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius:100%;
+  border-top: 7px solid #333;
+  border-left: 4px solid $red;
+  border-bottom: 8px solid transparent;
+  border-right: 8px solid transparent;
+  transform: rotate(80deg);
+  top:-82px;
+  left:136.2px;
+}
+
+.shadow {
+  position: absolute;
+  width:300px;
+  height:8px;
+  background-color: rgba(0,0,0,0.2);
+  top:135px;
+  border-radius:10px;
+  animation: scale 2s linear infinite;
+}
+
+.pedals {
+  position: relative;
+  z-index:7;
+  width:40px;
+  height:40px;
+  border: 3px solid $red;
+  border-radius:50%;
+  top:40px;
+  left:24px;
+  animation: spin 1s linear infinite;
+}
+
+.pedals:before {
+  content:"";
+  position: absolute;
+  border-radius: 10px;
+  background-color: #adb5bd;
+  height: 30px;
+  width:3px;
+  left:18px;
+  top:-12px;
+}
+
+.pedals:after {
+  content:"";
+  position: absolute;
+  border-radius: 3px;
+  background-color: black;
+  height: 5px;
+  width:12px;
+  left:10px;
+  top:-15px;
+}
+
+.chain {
+  position: absolute;
+  top:25px;
+}
+
+.chain:before, .chain:after {
+  content:"";
+  position: absolute;
+  background-color: #333;
+  width:80px;
+  height:2px;
+  left:-40px;
+}
+
+.chain:before {
+  top:25px;
+  transform: rotate(-12deg);
+}
+
+.chain:after {
+  top:44px;
+  transform: rotate(12deg);
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes scale {
+  0% {transform: scaleX(1);}
+  25% {transform: scaleX(0.9);}
+  50% {transform: scaleX(1);}
+  75% {transform: scaleX(0.9);}
+  100% {transform: scaleX(1);}
+}
