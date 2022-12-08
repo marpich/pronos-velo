@@ -1,17 +1,37 @@
-<div class="container-wrapper">
+<!-- Navbar top -->
+<div class="navbar-top sticky top-O">
+  <%= link_to root_path do %>
+    <%= image_tag "LA FRINGALE.png" %>
+  <% end %>
+  <div class="menu">
+    <p>Classement</p>
+  </div>
+</div>
+
+<div class="league-new">
   <div class="title">
     <h1>Nouveau Peloton</h1>
-    <p>Formulaire de création</p>
   </div>
 
   <!-- Formulaire de création de Peloton -->
-  <div class="px-3 py-3">
-    <%= simple_form_for (@league) do |f| %>
-      <%= f.input :name, label: "Nom du Peloton"%>
-      <%= f.input :logo, label: "Logo", as: :file %>
-      <button class="main-button" type="submit">
-        Ajouter
-      </button>
+
+  <div class="form-mon-prono">
+    <%= form_with url: new_league_path(@league), autocomplete: "on", method: :post do |f| %>
+      <div class="form-select">
+        <div class="form-input-league">
+          <div class="input-league">
+            <%= f.text_field :name, label: "Nom du Peloton"%>
+          </div>
+        </div>
+        <div class="form-input-league">
+          <div class="input-league">
+            <%= f.file_field :logo, label: "Logo", as: :file %>
+          </div>
+        </div>
+      </div>
+      <div class="form-button">
+        <%= f.submit "AJOUTER", class: "main-button" %>
+      </div>
     <% end %>
   </div>
 </div>
