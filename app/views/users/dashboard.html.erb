@@ -1,4 +1,14 @@
-<div class="container-wrapper">
+<!-- Navbar top -->
+<div class="navbar-top sticky top-O">
+  <%= link_to root_path do %>
+    <%= image_tag "LA FRINGALE.png" %>
+  <% end %>
+  <div class="menu">
+    <p>Compte</p>
+  </div>
+</div>
+
+<div class="dashboard">
 
   <!-- Sweet Alert 2 -->
   <% if params[:popup] %>
@@ -6,15 +16,6 @@
     </div>
   <% end %>
 
-  <!-- Navbar top -->
-  <div class="navbar-top sticky top-O">
-    <%= link_to root_path do %>
-      <%= image_tag "LA FRINGALE.png" %>
-    <% end %>
-    <div class="menu">
-      <p>Compte</p>
-    </div>
-  </div>
 
   <!-- Banner Profil -->
   <div class="banner">
@@ -104,4 +105,5 @@
   <div class="races-card border border-1 mx-3 my-3 pb-3 px-3">
     <p><%= link_to "Voir mes Pronos", bets_path(current_user) %></p>
   </div>
+
 </div>

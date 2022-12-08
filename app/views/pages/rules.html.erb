@@ -1,94 +1,91 @@
-<div class="container-wrapper">
+  <!-- Navbar top -->
+<div class="navbar-top sticky top-O">
+  <%= link_to root_path do %>
+    <%= image_tag "LA FRINGALE.png" %>
+  <% end %>
+  <div class="menu">
+    <p>Règlement</p>
+  </div>
+</div>
 
-   <!-- Navbar top -->
-  <div class="navbar-top sticky top-O">
-    <%= link_to root_path do %>
-      <%= image_tag "LA FRINGALE.png" %>
-    <% end %>
-    <div class="menu">
-      <p>Règlement</p>
+<!-- Card Règles du Jeu -->
+<div class='rules'>
+  <div class="sub-title">
+    <p>Règlement officiel de l'épreuve</p>
+  </div>
+
+  <p class='px-5 py-2'>Attribution des points :</p>
+
+  <ul class='px-6 pb-4'>
+    <li>• 5 points si tu as le bon vainqueur</li>
+    <li>• 5 points si tu as le podium dans le désordre</li>
+    <li>• 3 points si tu as le bon 2e</li>
+    <li>• 2 points si tu as le bon 3e</li>
+    <li>• 1 point si tu as un coureur sur le podium à une mauvaise place</li>
+  </ul>
+
+  <p class='px-3'>T’as bien calculé, <strong>ça fait 10 points pour le podium exact !</strong></p>
+
+  <p class='rules-notice'>A noter : les points marqués sur les étapes de montagne sont doublés !</p>
+
+  <p class='px-3'>T’as l’air largué comme Cavendish sur le Ventoux, alors voici deux petits exemples :</p>
+
+  <div class='rules-card-example'>
+    <div>
+      <p class='rules-card-title'>Résultat</p>
+      <div>
+        <p>1. Van Aert</p>
+        <p>2. Philipsen</p>
+        <p>3. Ewan</p>
+      </div>
+    </div>
+    <div>
+      <p class='rules-card-title'>Ton prono</p>
+      <div>
+        <p>1. Van Aert (5 pts)</p>
+        <p>2. Philipsen (3 pts)</p>
+        <p>3. Démare (0 pt)</p>
+      </div>
+    </div>
+    <div>
+      <p class='rules-card-title'>Total pts</p>
+      <div class='rules-card-total'>
+        <p>8 pts</p>
+        <p>(Bravo !)</p>
+      </div>
     </div>
   </div>
 
-  <!-- Card Règles du Jeu -->
-  <div class='rules'>
-    <div class="sub-title">
-      <p>Règlement officiel de l'épreuve</p>
-    </div>
-
-    <p class='px-5 py-2'>Attribution des points :</p>
-
-    <ul class='px-6 pb-4'>
-      <li>• 5 points si tu as le bon vainqueur</li>
-      <li>• 5 points si tu as le podium dans le désordre</li>
-      <li>• 3 points si tu as le bon 2e</li>
-      <li>• 2 points si tu as le bon 3e</li>
-      <li>• 1 point si tu as un coureur sur le podium à une mauvaise place</li>
-    </ul>
-
-    <p class='px-3'>T’as bien calculé, <strong>ça fait 10 points pour le podium exact !</strong></p>
-
-    <p class='rules-notice'>A noter : les points marqués sur les étapes de montagne sont doublés !</p>
-
-    <p class='px-3'>T’as l’air largué comme Cavendish sur le Ventoux, alors voici deux petits exemples :</p>
-
-    <div class='rules-card-example'>
+  <div class='rules-card-example'>
+    <div>
+      <p class='rules-card-title'>Résultat</p>
       <div>
-        <p class='rules-card-title'>Résultat</p>
-        <div>
-          <p>1. Van Aert</p>
-          <p>2. Philipsen</p>
-          <p>3. Ewan</p>
-        </div>
-      </div>
-      <div>
-        <p class='rules-card-title'>Ton prono</p>
-        <div>
-          <p>1. Van Aert (5 pts)</p>
-          <p>2. Philipsen (3 pts)</p>
-          <p>3. Démare (0 pt)</p>
-        </div>
-      </div>
-      <div>
-        <p class='rules-card-title'>Total pts</p>
-        <div class='rules-card-total'>
-          <p>8 pts</p>
-          <p>(Bravo !)</p>
-        </div>
+        <p>1. Pogacar</p>
+        <p>2. Gaudu</p>
+        <p>3. Bardet</p>
       </div>
     </div>
-
-    <div class='rules-card-example'>
+    <div>
+      <p class='rules-card-title'>Ton prono</p>
       <div>
-        <p class='rules-card-title'>Résultat</p>
-        <div>
-          <p>1. Pogacar</p>
-          <p>2. Gaudu</p>
-          <p>3. Bardet</p>
-        </div>
-      </div>
-      <div>
-        <p class='rules-card-title'>Ton prono</p>
-        <div>
-          <p>1. Gaudu (1 pt)</p>
-          <p>2. Ewan (0 pt)</p>
-          <p>3. Pogacar (1 pt)</p>
-        </div>
-      </div>
-      <div>
-        <p class='rules-card-title'>Total pts</p>
-        <div class='rules-card-total'>
-          <p>4 pts</p>
-          <p>(T'as déconné avec Ewan !)</p>
-        </div>
+        <p>1. Gaudu (1 pt)</p>
+        <p>2. Ewan (0 pt)</p>
+        <p>3. Pogacar (1 pt)</p>
       </div>
     </div>
-
-    <!-- Card Bonus -->
-    <div class='rules-bonus'>
-      <p><strong>Bonus Lanterne rouge</strong> : 20 points si tu trouves la lanterne rouge du classement général (faut aussi s’intéresser un peu à ce qui se passe à l’arrière du peloton) !</p>
-      <p><strong>Bonus Seringue</strong> : tu doubles tes points sur l'étape de ton choix (hors étapes de montagne). Bonus utilisable une seule fois.</p>
+    <div>
+      <p class='rules-card-title'>Total pts</p>
+      <div class='rules-card-total'>
+        <p>4 pts</p>
+        <p>(T'as déconné avec Ewan !)</p>
+      </div>
     </div>
-
   </div>
+
+  <!-- Card Bonus -->
+  <div class='rules-bonus'>
+    <p><strong>Bonus Lanterne rouge</strong> : 20 points si tu trouves la lanterne rouge du classement général (faut aussi s’intéresser un peu à ce qui se passe à l’arrière du peloton) !</p>
+    <p><strong>Bonus Seringue</strong> : tu doubles tes points sur l'étape de ton choix (hors étapes de montagne). Bonus utilisable une seule fois.</p>
+  </div>
+
 </div>

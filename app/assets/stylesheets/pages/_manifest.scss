@@ -1,8 +1,12 @@
 .manifest {
-  padding: 15px;
+  min-height: 86vh;
 }
 
 .manifest-text {
+  padding: 15px;
+}
+
+.manifest-sentence {
   font-size: 12px;
   line-height: 18px;
   font-style: italic;

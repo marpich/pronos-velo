@@ -3,7 +3,7 @@
 // Home visitor
 
 .home-visitor {
-  height: 92vh;
+  min-height: 92vh;
   background-color: $green;
   display: flex;
   flex-direction: column;
@@ -31,7 +31,7 @@
 // Home Player
 
 .home-player {
-  height: 85vh;
+  min-height: 86vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;

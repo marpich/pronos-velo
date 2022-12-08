@@ -1,19 +1,21 @@
-<div class="container-wrapper">
+<!-- Navbar top -->
+<div class="navbar-top sticky top-O">
+  <%= link_to root_path do %>
+    <%= image_tag "LA FRINGALE.png" %>
+  <% end %>
+  <div class="menu">
+    <p>Pronos</p>
+  </div>
+</div>
+
+
+<div class="stage-show">
   <!-- Sweet Alert 2 -->
   <% if params[:prono] %>
     <div data-controller="prono-popup">
     </div>
   <% end %>
 
-  <!-- Navbar top -->
-  <div class="navbar-top sticky top-O">
-    <%= link_to root_path do %>
-      <%= image_tag "LA FRINGALE.png" %>
-    <% end %>
-    <div class="menu">
-      <p>Pronos</p>
-    </div>
-  </div>
 
   <!-- Infos de la Stage -->
   <div class= "stage-info flex justify-center my-2">

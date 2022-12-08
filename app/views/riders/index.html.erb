@@ -1,14 +1,14 @@
-<div class="container-wrapper">
-
-  <!-- Navbar top -->
-  <div class="navbar-top sticky top-O">
-    <%= link_to root_path do %>
-      <%= image_tag "LA FRINGALE.png" %>
-    <% end %>
-    <div class="menu">
-      <p>Course</p>
-    </div>
+<!-- Navbar top -->
+<div class="navbar-top sticky top-O">
+  <%= link_to root_path do %>
+    <%= image_tag "LA FRINGALE.png" %>
+  <% end %>
+  <div class="menu">
+    <p>Course</p>
   </div>
+</div>
+
+<div class="riders">
 
   <!-- Menu Etapes/Coureurs/Resultats -->
   <div class="flex justify-around mt-1 mb-6">
@@ -21,20 +21,26 @@
   <% @riders.each do |team| %>
     <div class="teams-card border border-1 mx-3 my-5 pb-3 px-3 rounded-md relative">
       <div class="absolute w-full -top-4 -left-0 flex justify-center">
-        <div><h2 class="text-center bg-white px-3 py-1 border border-1 rounded-md text-sm"><%= team.first %></h2></div>
-      </div>
-        <div class="team-card grid grid-rows-4 grid-flow-col gap-2 pt-8">
-          <% team.second.each do |rider| %>
-            <div class="riders-info flex items-center">
-              <div class="flex justify-between items-center w-12">
-                <div><p class="text-xs"><%= rider.bib %></p></div>
-                <div><%= image_tag rider.nationality, class: "ml-2 object-cover w-5" %></div>
-              </div>
-              <p class="pl-2 text-xs"><%= rider.first_name %> <%= rider.last_name %></p>
-            </div>
-          <% end %>
+        <div>
+          <h2 class="text-center bg-white px-3 py-1 border border-1 rounded-md text-sm"><%= team.first %></h2>
         </div>
       </div>
+      <div class="team-card grid grid-cols-2 grid-flow-row gap-2 pt-8">
+        <% team.second.each do |rider| %>
+          <div class="riders-info flex items-center">
+            <div class="flex justify-between items-center w-12">
+              <div>
+                <p class="text-xs"><%= rider.bib %></p>
+              </div>
+              <div>
+                <%= image_tag rider.nationality, class: "ml-2 object-cover w-5" %>
+              </div>
+            </div>
+            <p class="pl-2 text-xs"><%= rider.first_name %> <%= rider.last_name %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 
 </div>

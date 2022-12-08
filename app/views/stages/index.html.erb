@@ -1,15 +1,15 @@
-<div class="container-wrapper">
-
-  <!-- Navbar top -->
-  <div class="navbar-top sticky top-O">
-    <%= link_to root_path do %>
-      <%= image_tag "LA FRINGALE.png" %>
-    <% end %>
-    <div class="menu">
-      <p>Course</p>
-    </div>
+<!-- Navbar top -->
+<div class="navbar-top sticky top-O">
+  <%= link_to root_path do %>
+    <%= image_tag "LA FRINGALE.png" %>
+  <% end %>
+  <div class="menu">
+    <p>Course</p>
   </div>
+</div>
 
+
+<div class="stages">
   <!-- Menu Etapes/Coureurs/Resultats -->
   <div class="flex justify-around mt-1 mb-6">
     <p><%= link_to 'ETAPES', stages_path, class: (controller_name == "stages" ? "menu-active" : "menu-disactive") %></p>
