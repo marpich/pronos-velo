@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[6.1].define(version: 2022_09_13_094836) do
-
+ActiveRecord::Schema[7.0].define(version: 2022_12_15_154424) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,7 +19,7 @@ ActiveRecord::Schema[6.1].define(version: 2022_09_13_094836) do
     t.string "record_type", null: false
     t.bigint "record_id", null: false
     t.bigint "blob_id", null: false
-    t.datetime "created_at", null: false
+    t.datetime "created_at", precision: nil, null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
@@ -32,8 +31,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_09_13_094836) do
     t.text "metadata"
     t.string "service_name", null: false
     t.bigint "byte_size", null: false
-    t.string "checksum", null: false
-    t.datetime "created_at", null: false
+    t.string "checksum"
+    t.datetime "created_at", precision: nil, null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
@@ -47,8 +46,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_09_13_094836) do
     t.string "status"
     t.bigint "user_id", null: false
     t.bigint "league_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["league_id"], name: "index_admissions_on_league_id"
     t.index ["user_id"], name: "index_admissions_on_user_id"
   end
@@ -58,8 +57,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_09_13_094836) do
     t.bigint "stage_id", null: false
     t.bigint "rider_id", null: false
     t.integer "position"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["rider_id"], name: "index_bets_on_rider_id"
     t.index ["stage_id"], name: "index_bets_on_stage_id"
     t.index ["user_id"], name: "index_bets_on_user_id"
@@ -68,8 +67,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_09_13_094836) do
   create_table "leagues", force: :cascade do |t|
     t.string "name"
     t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_leagues_on_user_id"
   end
 
@@ -78,16 +77,16 @@ ActiveRecord::Schema[6.1].define(version: 2022_09_13_094836) do
     t.integer "year"
     t.date "starting_date"
     t.date "ending_date"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "results", force: :cascade do |t|
     t.integer "result_position"
     t.bigint "rider_id", null: false
     t.bigint "stage_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["rider_id"], name: "index_results_on_rider_id"
     t.index ["stage_id"], name: "index_results_on_stage_id"
   end
@@ -98,8 +97,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_09_13_094836) do
     t.string "team"
     t.string "nationality"
     t.integer "bib"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "photo_url"
   end
 
@@ -107,8 +106,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_09_13_094836) do
     t.integer "points", default: 0
     t.bigint "stage_id", null: false
     t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["stage_id"], name: "index_scores_on_stage_id"
     t.index ["user_id"], name: "index_scores_on_user_id"
   end
@@ -120,8 +119,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_09_13_094836) do
     t.integer "number"
     t.string "departure"
     t.string "arrival"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "race_id", null: false
     t.index ["race_id"], name: "index_stages_on_race_id"
   end
@@ -129,8 +128,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_09_13_094836) do
   create_table "total_scores", force: :cascade do |t|
     t.bigint "race_id", null: false
     t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "yellow_jersey", default: 0
     t.integer "green_jersey", default: 0
     t.integer "polka_dot_jersey", default: 0
@@ -142,10 +141,10 @@ ActiveRecord::Schema[6.1].define(version: 2022_09_13_094836) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "reset_password_sent_at", precision: nil
+    t.datetime "remember_created_at", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
     t.string "username"
