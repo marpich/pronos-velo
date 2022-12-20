@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @stage = Stage.where(date: Date.current).first
-    @date = "#{@stage.date.strftime('%b')} #{@stage.date.strftime('%d')}, #{@stage.date.strftime('%Y')}"
+    @date = "#{@stage.date.strftime('%b')} #{@stage.date.strftime('%d')}, #{@stage.date.strftime('%Y')}" if @stage
   end
 
   def rules

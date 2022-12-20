@@ -3,3 +3,4 @@
 //= link application.css
 //= link_tree ../builds
 //= link tailwind.css
+//= link manifest.json

@@ -1,0 +1,17 @@
+{
+  "background_color": "white",
+  "description": "Défie tes potes sur le Tour de France en pronostiquant le podium de chaque étape ! Pas besoin d'argent, juste de ton talent !",
+  "display": "fullscreen",
+  "name": "La Fringale",
+  "icons": [
+    <% files = Dir.entries(Rails.root.join("app/assets/images/icons/")).select {|f| !File.directory? f} %>
+    <% files.each_with_index do |file, index| %>
+      <% match = file.match(/.+-(?<size>\d{2,3}x\d{2,3}).png/) %>
+      {
+        "src": "<%= image_path "icons/#{file}" %>",
+        "sizes": "<%= match && match[:size] %>",
+        "type": "image/png"
+      }<%= "," unless (files.size - 1) == index %>
+    <% end %>
+  ]
+}

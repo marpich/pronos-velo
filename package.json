@@ -2,12 +2,13 @@
   "name": "pronos-velo",
   "private": true,
   "dependencies": {
+    "@hotwired/stimulus": "^3.1.0",
+    "@hotwired/turbo-rails": "^7.2.2",
     "@popperjs/core": "^2.11.5",
     "@rails/actioncable": "^7.0.4",
     "@rails/activestorage": "^7.0.4",
     "@rails/webpacker": "5.4.3",
-    "@hotwired/stimulus": "^3.1.0",
-    "@hotwired/turbo-rails": "^7.2.2",
+    "localtunnel": "^2.0.2",
     "sweetalert2": "^11.4.33",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12"
