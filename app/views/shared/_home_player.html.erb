@@ -1,22 +1,43 @@
 <!-- Navbar top -->
-  <div class="navbar-top">
-    <%= link_to root_path do %>
-      <%= image_tag "LA FRINGALE.jpg" %>
-    <% end %>
-    <div class="menu">
-      <p>Accueil</p>
-    </div>
+<div class="navbar-top">
+  <%= link_to root_path do %>
+    <%= image_tag "LA FRINGALE.jpg" %>
+  <% end %>
+  <div class="menu">
+    <p>Accueil</p>
   </div>
+</div>
 
 <div class='home-player'>
 
   <!-- Current Race Card -->
-  <div class="currently-card">
-    <div class="stage-info-number">
-      <p><i class="fas fa-flag"></i> Etape <%= @stage.number if @stage %></p>
+  <% if @stage.present? %>
+    <div class="currently-card">
+      <div class="stage-info-number">
+        <p><i class="fas fa-flag"></i> Etape <%= @stage.number if @stage %></p>
+      </div>
+      <h3>Tour de France</h3>
+      <h4>2022</h4>
     </div>
-    <h3>Tour de France</h3>
-    <h4>2022</h4>
+  <% end %>
+
+  <div class="bike-riding">
+    <div class="clouds"></div>
+    <div class="shadow"></div>
+    <div class="cyclist">
+      <div class="bike">
+        <div class="leftTyre">
+          <div class="spokes"></div>
+        </div>
+        <div class="rightTyre">
+          <div class="spokes"></div>
+        </div>
+        <div class="saddle"></div>
+        <div class="wheel"></div>
+        <div class="pedals"></div>
+        <div class="chain"></div>
+      </div>
+    </div>
   </div>
 
   <!-- Countdown -->
@@ -47,7 +68,7 @@
         <p>Prochain tour dans</p>
         <div class="pl-2 text-2xl" data-controller="countdown-race" data-countdown-race-date-value="May 9, 2023 12:00:00"></div>
       </div>
-      <p>Il n'y a pas de courses pour le moment mais on se tient au courant ! RDV en 2023...</p>
+      <p class='text-center'>Il n'y a pas de courses pour le moment mais on se tient au courant ! RDV en 2023...</p>
     <% end %>
   </div>
 
