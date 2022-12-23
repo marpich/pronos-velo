@@ -24,7 +24,7 @@ user1 = User.new(
   password: 'margaux',
   admin: true
 )
-photomarpich = URI.open('https://res.cloudinary.com/dz21jxux5/image/upload/v1657199619/Photo_ID_Margaux_kv8adr.jpg')
+photomarpich = URI.open('https://res.cloudinary.com/dciokrtia/image/upload/v1653653443/photo-margaux_gr8cjn.jpg')
 user1.photo.attach(io: photomarpich, filename: 'marpich.png', content_type: 'image/png')
 user1.save!
 
@@ -35,7 +35,7 @@ user2 = User.new(
   email: 'cedric@gmail.com',
   password: 'cedric'
 )
-photocedleb = URI.open('https://res.cloudinary.com/dz21jxux5/image/upload/v1657201107/cedric_lebrun_photo_d1sw55.jpg')
+photocedleb = URI.open('https://res.cloudinary.com/dciokrtia/image/upload/v1653653052/photo-c%C3%A9dric_h6m7dd.jpg')
 user2.photo.attach(io: photocedleb, filename: 'cedleb.png', content_type: 'image/png')
 user2.save!
 
@@ -81,21 +81,21 @@ CSV.foreach(filepath_riders, headers: :first_row) do |row|
     bib: i
   )
   i += 1
-  url = URI("https://pro-cycling-stats.p.rapidapi.com/riders/#{row['first_name'].parameterize}-#{row['last_name'].parameterize}")
+  # url = URI("https://pro-cycling-stats.p.rapidapi.com/riders/#{row['first_name'].parameterize}-#{row['last_name'].parameterize}")
 
-  http = Net::HTTP.new(url.host, url.port)
-  http.use_ssl = true
-  http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+  # http = Net::HTTP.new(url.host, url.port)
+  # http.use_ssl = true
+  # http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
-  request = Net::HTTP::Get.new(url)
-  request["X-RapidAPI-Key"] = ENV['API_KEY']
-  request["X-RapidAPI-Host"] = 'pro-cycling-stats.p.rapidapi.com'
+  # request = Net::HTTP::Get.new(url)
+  # request["X-RapidAPI-Key"] = ENV['API_KEY']
+  # request["X-RapidAPI-Host"] = 'pro-cycling-stats.p.rapidapi.com'
 
-  response = http.request(request)
-  infos = response.read_body
-  rider.team = JSON.parse(infos).first["Main info"]["team"]
-  rider.nationality = JSON.parse(infos).first["Main info"]["countryFlag"]
-  rider.photo_url = JSON.parse(infos).first["Main info"]["riders photo url"]
+  # response = http.request(request)
+  # infos = response.read_body
+  # rider.team = JSON.parse(infos).first["Main info"]["team"]
+  # rider.nationality = JSON.parse(infos).first["Main info"]["countryFlag"]
+  # rider.photo_url = JSON.parse(infos).first["Main info"]["riders photo url"]
   rider.save!
 end
 

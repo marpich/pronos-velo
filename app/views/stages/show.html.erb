@@ -21,7 +21,7 @@
   <div class= "stage-info flex justify-center my-2">
     <div class="switch-stage">
       <% if @previous_stage.nil? %>
-        <i class="fas fa-angle-left"></i>
+        <%# <i class="fas fa-angle-left"></i> %>
       <% else %>
         <%= link_to stage_path(@previous_stage) do %>
           <i class="fas fa-angle-left"></i>
@@ -49,7 +49,7 @@
     </div>
     <div class="switch-stage">
       <% if @next_stage.nil? %>
-        <i class="fas fa-angle-left"></i>
+        <%# <i class="fas fa-angle-left"></i> %>
       <% else %>
         <%= link_to stage_path(@next_stage) do %>
           <i class="fas fa-angle-right"></i>
