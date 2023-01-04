@@ -36,7 +36,7 @@ user2 = User.new(
   password: 'cedric'
 )
 photocedleb = URI.open('https://res.cloudinary.com/dciokrtia/image/upload/v1653653052/photo-c%C3%A9dric_h6m7dd.jpg')
-user2.photo.attach(io: photocedleb, filename: 'cedleb.png', content_type: 'image/png')
+user2.photo.attach(io: photocedleb, filename: 'cedleb.jpg', content_type: 'image/jpg')
 user2.save!
 
 puts "Creating users done"
