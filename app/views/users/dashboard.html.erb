@@ -20,11 +20,13 @@
   <!-- Banner Profil -->
   <div class="banner">
     <div class="settings">
-        <%= link_to users_account_path do %>
-          <i class="fas fa-cog"></i>
-        <% end %>
-      </div>
-    <%= cl_image_tag current_user.photo.key, class: "logo-avatar" %>
+      <%= link_to users_account_path do %>
+        <i class="fas fa-cog"></i>
+      <% end %>
+    </div>
+    <% if current_user.photo.key? %>
+      <%= cl_image_tag current_user.photo.key, class: "logo-avatar" %>
+    <% end %>
     <p><%= current_user.username %></p>
   </div>
 

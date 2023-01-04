@@ -1,5 +1,5 @@
 .registration {
-  height: 92vh;
+  min-height: 92vh;
   background-color: $green;
   color: white;
   display: flex;
@@ -14,6 +14,6 @@
   padding: 4px;
 }
 
-.avatar-input {
+.photo-input {
   color: $light-gray;
 }
