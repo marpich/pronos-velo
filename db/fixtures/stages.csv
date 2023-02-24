@@ -1,22 +1,9 @@
 number,date,stage_type,length,departure,arrival,image_map
-1,28/11/2022,Chrono,13.2,Copenhague,Copenhague,https://res.cloudinary.com/dciokrtia/image/upload/v1655798287/Etape_1_mehflh.jpg
-2,29/11/2022,Plat,202.2,Roskilde,Nyborg,https://res.cloudinary.com/dciokrtia/image/upload/v1655798305/Etape_2_m5ztij.jpg
-3,30/11/2022,Plat,182,Vejle,Sonderborg,https://res.cloudinary.com/dciokrtia/image/upload/v1655798305/Etape_3_ubssqj.jpg
-4,01/12/2022,Accidentee,171.5,Dunkerque,Calais,https://res.cloudinary.com/dciokrtia/image/upload/v1655798305/Etape_4_lxe2em.jpg
-5,02/12/2022,Accidentee,153.7,Lille Metropole,Arenberg Porte du Hainaut,https://res.cloudinary.com/dciokrtia/image/upload/v1655798305/Etape_5_bhhhta.jpg
-6,03/12/2022,Accidentee,219.9,Binche,Longwy,https://res.cloudinary.com/dciokrtia/image/upload/v1655798306/Etape_6_f8xzu0.jpg
-7,04/12/2022,Montagne,176.3,Tomblaine,La Super Planche des Belles Filles,https://res.cloudinary.com/dciokrtia/image/upload/v1655798306/Etape_7_sihell.jpg
-8,05/12/2022,Accidentee,186.3,Dole,Lausannes,https://res.cloudinary.com/dciokrtia/image/upload/v1655798306/Etape_8_tnej9x.jpg
-9,06/12/2022,Montagne,192.9,Aigle,Chatel les Portes du Soleil,https://res.cloudinary.com/dciokrtia/image/upload/v1655798306/Etape_9_uy3jjm.jpg
-10,07/12/2022,Accidentee,148.1,Morzine les Portes du Soleil,Megeve,https://res.cloudinary.com/dciokrtia/image/upload/v1655798306/Etape_10_ui2l8s.jpg
-11,08/12/2022,Montagne,151.7,Albertville,Col du Granon Serre Chevalier,https://res.cloudinary.com/dciokrtia/image/upload/v1655798306/Etape_11_hzwf8f.jpg
-12,09/12/2022,Montagne,165.1,Briancon,Alpe d'Huez,https://res.cloudinary.com/dciokrtia/image/upload/v1655798306/Etape_12_iykcw1.jpg
-13,10/12/2022,Plat,192.6,Le Bourg d'Oisans,Saint-Etienne,https://res.cloudinary.com/dciokrtia/image/upload/v1655798306/Etape_13_cevbsv.jpg
-14,11/12/2022,Accidentee,192.5,Saint-Etienne,Mende,https://res.cloudinary.com/dciokrtia/image/upload/v1655798306/Etape_14_osqqaa.jpg
-15,12/12/2022,Plat,202.5,Rodez,Carcassonne,https://res.cloudinary.com/dciokrtia/image/upload/v1655798306/Etape_15_fi476f.jpg
-16,13/12/2022,Accidentee,178.5,Carcassonne,Foix,https://res.cloudinary.com/dciokrtia/image/upload/v1655798306/Etape_16_qkncxy.jpg
-17,14/12/2022,Montagne,129.7,Saint-Gaudens,Peyragudes,https://res.cloudinary.com/dciokrtia/image/upload/v1655798306/Etape_17_p6iclw.jpg
-18,15/12/2022,Montagne,143.2,Lourdes,Hautacam,https://res.cloudinary.com/dciokrtia/image/upload/v1655798307/Etape_18_nl6qwh.jpg
-19,16/12/2022,Plat,188.3,Castelnau-Magnoac,Cahors,https://res.cloudinary.com/dciokrtia/image/upload/v1655798306/Etape_19_ekughv.jpg
-20,17/12/2022,Chrono,40.7,Lacapelle-Marival,Rocamadour,https://res.cloudinary.com/dciokrtia/image/upload/v1655798307/Etape_20_isbr6b.jpg
-21,18/12/2022,Plat,115.6,Paris La Defense Arena,Paris Champs Elysees,https://res.cloudinary.com/dciokrtia/image/upload/v1655798307/Etape_21_ddshn6.jpg
+1,05/03/2023,Plat,169.4,La Verrière,La Verrière,https://res.cloudinary.com/dciokrtia/image/upload/v1677231646/Etape_1_mreqbg.jpg
+2,06/03/2023,Plat,163.7,Bazainville,Fontainebleau,https://res.cloudinary.com/dciokrtia/image/upload/v1677231646/Etape_2_gunrwb.jpg
+3,07/03/2023,C.l.m équipe,32.2,Dampierre-en-Burly,Dampierre-en-Burly,https://res.cloudinary.com/dciokrtia/image/upload/v1677231646/Etape_3_ncb0ym.jpg
+4,08/03/2023,Montagne,164.7,Saint-Amand-Montrond,La Loge des Gardes,https://res.cloudinary.com/dciokrtia/image/upload/v1677231647/Etape_4_czy0aq.jpg
+5,09/03/2023,Plat,212.4,Saint-Symphorien-sur-Coise,Saint-Paul-Trois-Châteaux,https://res.cloudinary.com/dciokrtia/image/upload/v1677231647/Etape_5_f3omyt.jpg
+6,10/03/2023,Accidentee,197.4,Tourves,La Colle-sur-Loup,https://res.cloudinary.com/dciokrtia/image/upload/v1677231647/Etape_6_w7wafg.jpg
+7,11/03/2023,Montagne,142.8,Nice,Col de la Couillole,https://res.cloudinary.com/dciokrtia/image/upload/v1677231647/Etape_7_lisevx.jpg
+8,12/03/2023,Montagne,118.4,Nice,Nice,https://res.cloudinary.com/dciokrtia/image/upload/v1677231647/Etape_8_zgivly.jpg

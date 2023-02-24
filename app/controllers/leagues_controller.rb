@@ -5,6 +5,10 @@ class LeaguesController < ApplicationController
     @accepted_admissions = Admission.includes(:league).where(status: "accepted")
   end
 
+  def index
+    @leagues = params[:query].present? ? League.where_name_or_username_is(params[:query]) : League.all
+  end
+
   def new
     @league = League.new
   end
@@ -12,7 +16,7 @@ class LeaguesController < ApplicationController
   def create
     @league = League.new(league_params)
     @league.user = current_user
-    if @league.save
+    if @league.save!
       redirect_to users_dashboard_path(popup: true, league: @league.name)
     else
       render :new
@@ -24,10 +28,6 @@ class LeaguesController < ApplicationController
     @my_leagues = League.where_am_i(current_user)
     @users = User.accepted_in_league(@league, params[:type])
     @admission = @league.admissions.where(user: current_user).first
-  end
-
-  def index
-    @leagues = params[:query].present? ? League.where_name_or_username_is(params[:query]) : League.all
   end
 
   def edit

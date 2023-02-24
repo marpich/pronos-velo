@@ -44,10 +44,10 @@ puts "Creating users done"
 puts "Creating the races"
 
 race1 = Race.new(
-  name: 'Tour de France',
-  year: 2022,
-  starting_date: '28/11/2022',
-  ending_date: '18/12/2022'
+  name: 'Paris Nice',
+  year: 2023,
+  starting_date: '05/03/2023',
+  ending_date: '12/03/2023'
 )
 race1.save!
 
@@ -175,77 +175,77 @@ puts "Creating the bets"
 # )
 # bet33.save!
 
-bet41 = Bet.new(
-  user: user2,
-  stage: Stage.first,
-  position: 1,
-  rider: Rider.third
-)
-bet41.save!
+# bet41 = Bet.new(
+#   user: user2,
+#   stage: Stage.first,
+#   position: 1,
+#   rider: Rider.third
+# )
+# bet41.save!
 
-bet42 = Bet.new(
-  user: user2,
-  stage: Stage.first,
-  position: 2,
-  rider: Rider.second
-)
-bet42.save!
+# bet42 = Bet.new(
+#   user: user2,
+#   stage: Stage.first,
+#   position: 2,
+#   rider: Rider.second
+# )
+# bet42.save!
 
-bet43 = Bet.new(
-  user: user2,
-  stage: Stage.first,
-  position: 3,
-  rider: Rider.first
-)
-bet43.save!
+# bet43 = Bet.new(
+#   user: user2,
+#   stage: Stage.first,
+#   position: 3,
+#   rider: Rider.first
+# )
+# bet43.save!
 
-bet51 = Bet.new(
-  user: user2,
-  stage: Stage.second,
-  position: 1,
-  rider: Rider.third
-)
-bet51.save!
+# bet51 = Bet.new(
+#   user: user2,
+#   stage: Stage.second,
+#   position: 1,
+#   rider: Rider.third
+# )
+# bet51.save!
 
-bet52 = Bet.new(
-  user: user2,
-  stage: Stage.second,
-  position: 2,
-  rider: Rider.second
-)
-bet52.save!
+# bet52 = Bet.new(
+#   user: user2,
+#   stage: Stage.second,
+#   position: 2,
+#   rider: Rider.second
+# )
+# bet52.save!
 
-bet53 = Bet.new(
-  user: user2,
-  stage: Stage.second,
-  position: 3,
-  rider: Rider.first
-)
-bet53.save!
+# bet53 = Bet.new(
+#   user: user2,
+#   stage: Stage.second,
+#   position: 3,
+#   rider: Rider.first
+# )
+# bet53.save!
 
-bet61 = Bet.new(
-  user: user2,
-  stage: Stage.third,
-  position: 1,
-  rider: Rider.third
-)
-bet61.save!
+# bet61 = Bet.new(
+#   user: user2,
+#   stage: Stage.third,
+#   position: 1,
+#   rider: Rider.third
+# )
+# bet61.save!
 
-bet62 = Bet.new(
-  user: user2,
-  stage: Stage.third,
-  position: 2,
-  rider: Rider.second
-)
-bet62.save!
+# bet62 = Bet.new(
+#   user: user2,
+#   stage: Stage.third,
+#   position: 2,
+#   rider: Rider.second
+# )
+# bet62.save!
 
-bet63 = Bet.new(
-  user: user2,
-  stage: Stage.third,
-  position: 3,
-  rider: Rider.first
-)
-bet63.save!
+# bet63 = Bet.new(
+#   user: user2,
+#   stage: Stage.third,
+#   position: 3,
+#   rider: Rider.first
+# )
+# bet63.save!
 
 puts "Creating bets done"
 

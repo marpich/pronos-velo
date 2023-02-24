@@ -16,16 +16,16 @@
   <!-- Formulaire de création de Peloton -->
 
   <div class="form-mon-prono">
-    <%= form_with url: new_league_path(@league), autocomplete: "on", method: :post do |f| %>
+    <%= simple_form_for(@league) do |f| %>
       <div class="form-select">
         <div class="form-input-league">
           <div class="input-league">
-            <%= f.text_field :name, label: "Nom du Peloton"%>
+            <%= f.input :name, label: "Nom du Peloton"%>
           </div>
         </div>
         <div class="form-input-league">
           <div class="input-league">
-            <%= f.file_field :logo, label: "Logo", as: :file %>
+            <%= f.input :logo, label: "Logo", as: :file %>
           </div>
         </div>
       </div>
