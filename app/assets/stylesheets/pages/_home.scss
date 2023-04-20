@@ -34,9 +34,9 @@
   min-height: 86vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   background-color: $light-gray;
+
 }
 
 .currently-card {
@@ -69,6 +69,7 @@
 }
 
 .countdown {
+  margin: auto;
   i {
     color: white;
     border: 2px solid white;
@@ -89,6 +90,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  width: 100%;
 }
 
 .timer-card-countdown {
@@ -145,4 +147,11 @@
   border-bottom: 20px solid transparent;
   right: 32px;
   bottom: -24px;
+}
+
+.race-title {
+  font-size: 48px;
+  font-weight: bolder;
+  font-style: italic;
+  color: $pink;
 }

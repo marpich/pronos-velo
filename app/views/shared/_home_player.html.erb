@@ -40,6 +40,10 @@
     </div>
   </div>
 
+  <div>
+    <p class="race-title">Giro d'Italia</p>
+  </div>
+
   <!-- Countdown -->
   <div class="countdown">
     <% if @stage.present? %>
@@ -63,12 +67,13 @@
         <%= link_to "Voir les pronos", stage_path(@stage), class: "home-main-button" %>
       <% end %>
     <% else %>
-      <div class="timer-card flex justify-center items-center">
-        <p><i class="fas fa-bell"></i></p>
+      <div class="timer-card">
+        <p class="pr-2"><i class="fas fa-bell"></i></p>
         <p>Prochain tour dans</p>
-        <div class="pl-2 text-2xl" data-controller="countdown-race" data-countdown-race-date-value="March 5, 2023 12:00:00"></div>
+        <div class="pl-2 text-xl" data-controller="countdown-race" data-countdown-race-date-value="May 6, 2023 12:00:00"></div>
       </div>
-      <p class='text-center'>Il n'y a pas de courses pour le moment mais on se tient au courant ! RDV en 2023...</p>
+      <p class='text-center'>Il n'y a pas de courses pour le moment...</p>
+      <p class='text-center'>Rendez-vous sur le GIRO le 6 Mai 2023 !</p>
     <% end %>
   </div>
 
