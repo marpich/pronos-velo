@@ -86,7 +86,7 @@
         </div>
         <div class="admissions-buttons flex justify-between">
           <div>
-            <%= link_to admission_accept_path(admission), method: :patch, class: "pr-2 btn-ok text-xl" do %>
+            <%= link_to admission_accept_path(admission), data: {turbo_method: :patch}, class: "pr-2 btn-ok text-xl" do %>
               <i class="fas fa-check-circle"></i>
             <% end %>
           </div>
