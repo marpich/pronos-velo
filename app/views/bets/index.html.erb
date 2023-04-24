@@ -1,8 +1,18 @@
-<div class="container-wrapper">
+<!-- Navbar top -->
+<div class="navbar-top sticky top-O">
+  <%= link_to root_path do %>
+    <%= image_tag "LA FRINGALE.jpg" %>
+  <% end %>
+</div>
+
+<div class="my-bets">
 
   <div class="title">
     <h1>Mes Pronos</h1>
-    <p>Tour de France 2022</p>
+  </div>
+
+  <div class="sub-title">
+    <p>Paris Nice 2023</p>
   </div>
 
   <% @bets.each do |bet| %>

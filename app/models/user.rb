@@ -9,6 +9,14 @@ class User < ApplicationRecord
   has_many :admissions, dependent: :destroy
   has_many :total_scores, dependent: :destroy
   has_one_attached :photo
+  after_create :total_score_initialization
+
+  def total_score_initialization
+    TotalScore.create!(
+      race: Race.first,
+      user: self
+    )
+  end
 
   def display_score(stage)
     self.scores.where(stage: stage).first.points unless self.scores.where(stage: stage).empty?
@@ -29,6 +37,6 @@ class User < ApplicationRecord
         players << [user, user.total_scores.first.polka_dot_jersey]
       end
     end
-    players
+    players.sort_by { |player| player[1] }.reverse
   end
 end
