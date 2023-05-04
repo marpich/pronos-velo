@@ -14,6 +14,18 @@ User.destroy_all
 Race.destroy_all
 Rider.destroy_all
 
+puts "Creating the races"
+
+race1 = Race.new(
+  name: 'Paris Nice',
+  year: 2023,
+  starting_date: '05/03/2023',
+  ending_date: '12/03/2023'
+)
+race1.save!
+
+puts "Creating races done"
+
 puts "Creating the users"
 
 user1 = User.new(
@@ -41,18 +53,6 @@ user2.save!
 
 puts "Creating users done"
 
-puts "Creating the races"
-
-race1 = Race.new(
-  name: 'Paris Nice',
-  year: 2023,
-  starting_date: '05/03/2023',
-  ending_date: '12/03/2023'
-)
-race1.save!
-
-puts "Creating races done"
-
 puts "Creating the stages"
 
 CSV.foreach(filepath, headers: :first_row) do |row|
@@ -78,6 +78,7 @@ CSV.foreach(filepath_riders, headers: :first_row) do |row|
   rider = Rider.new(
     last_name: row['last_name'],
     first_name: row['first_name'],
+    team: row['team'],
     bib: i
   )
   i += 1

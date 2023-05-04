@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   patch "admissions/:id/accept", to: "admissions#accept", as: "admission/accept"
   patch "admissions/:id/reject", to: "admissions#reject", as: "admission/reject"
 
-  resources :riders, only: [:index]
+  resources :riders, only: [:index] do
+    member do
+      patch :stop_racing
+    end
+  end
   resources :bets, only: [:index, :create, :new]
   resources :leagues do
     member do
