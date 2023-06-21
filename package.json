@@ -19,5 +19,8 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.js"
+  },
+  "engines": {
+    "yarn": "1.22.19"
   }
 }
