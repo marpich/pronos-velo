@@ -71,7 +71,6 @@
 .countdown {
   margin: auto;
   i {
-    color: white;
     border: 2px solid white;
     font-size: 30px;
   }
@@ -153,5 +152,6 @@
   font-size: 48px;
   font-weight: bolder;
   font-style: italic;
-  color: $pink;
+  background-color: $yellow;
+  padding: 15px;
 }
