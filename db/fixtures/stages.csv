@@ -1,22 +1,22 @@
 ﻿number,date,stage_type,length,departure,arrival,image_map
-1,06/05/2023,Chrono,19.6,Fossacesia Marina,Ortona,https://res.cloudinary.com/dciokrtia/image/upload/v1683292159/Giro_Etape_1_gipgqb.jpg
-2,07/05/2023,Plat,201,Teramo,San Salvo,https://res.cloudinary.com/dciokrtia/image/upload/v1683292159/Giro_Etape_2_nnware.jpg
-3,08/05/2023,Accidentee,216,Vasto,Melfi,https://res.cloudinary.com/dciokrtia/image/upload/v1683292159/Giro_Etape_3_efzumi.jpg
-4,09/05/2023,Accidentee,175,Venosa,Lago Laceno,https://res.cloudinary.com/dciokrtia/image/upload/v1683292159/Giro_Etape_4_eds05s.jpg
-5,10/05/2023,Plat,171,Atripalda,Salerno,https://res.cloudinary.com/dciokrtia/image/upload/v1683292159/Giro_Etape_5_v4ranw.jpg
-6,11/05/2023,Plat,162,Napoli,Napoli,https://res.cloudinary.com/dciokrtia/image/upload/v1683292159/Giro_Etape_6_nibtap.jpg
-7,12/05/2023,Montagne,218,Capua,Gran Sasso d'Italia,https://res.cloudinary.com/dciokrtia/image/upload/v1683292159/Giro_Etape_7_s9sevs.jpg
-8,13/05/2023,Accidentee,207,Terni,Fossombrone,https://res.cloudinary.com/dciokrtia/image/upload/v1683292159/Giro_Etape_8_dunj24.jpg
-9,14/05/2023,Chrono,35,Savignano sul Rubicone,Cesena,https://res.cloudinary.com/dciokrtia/image/upload/v1683292159/Giro_Etape_9_lgxsc2.jpg
-10,16/05/2023,Plat,196,Scandiano,Viareggio,https://res.cloudinary.com/dciokrtia/image/upload/v1683292159/Giro_Etape_10_s7qncd.jpg
-11,17/05/2023,Plat,219,Camaiore,Tortona,https://res.cloudinary.com/dciokrtia/image/upload/v1683292159/Giro_Etape_11_fcefon.jpg
-12,18/05/2023,Accidentee,179,Bra,Rivoli,https://res.cloudinary.com/dciokrtia/image/upload/v1683292160/Giro_Etape_12_gqd9z8.jpg
-13,19/05/2023,Montagne,207,Borgofranco d’Ivrea,Crans Montana,https://res.cloudinary.com/dciokrtia/image/upload/v1683292160/Giro_Etape_13_hps6lb.jpg
-14,20/05/2023,Plat,193,Sierre,Cassano Magnago,https://res.cloudinary.com/dciokrtia/image/upload/v1683292160/Giro_Etape_14_bp2jz0.jpg
-15,21/05/2023,Montagne,195,Seregno,Bergamo,https://res.cloudinary.com/dciokrtia/image/upload/v1683292160/Giro_Etape_15_wpye3o.jpg
-16,23/05/2023,Montagne,203,Sabbio Chiese,Monte Bondone,https://res.cloudinary.com/dciokrtia/image/upload/v1683292160/Giro_Etape_16_xeci4i.jpg
-17,24/05/2023,Plat,195,Pergine Valsugana,Caorle,https://res.cloudinary.com/dciokrtia/image/upload/v1683292160/Giro_Etape_17_w6si3b.jpg
-18,25/05/2023,Accidentee,161,Oderzo,Val di Zoldo,https://res.cloudinary.com/dciokrtia/image/upload/v1683292160/Giro_Etape_18_ypbmei.jpg
-19,26/05/2023,Montagne,183,Longarone,Tre Cime di Lavaredo,https://res.cloudinary.com/dciokrtia/image/upload/v1683292160/Giro_Etape_19_d3nwas.jpg
-20,27/05/2023,Chrono,18.6,Tarvisio ,Monte Lussari,https://res.cloudinary.com/dciokrtia/image/upload/v1683292160/Giro_Etape_20_dgk5d0.jpg
-21,28/05/2023,Plat,135,Roma,Roma,https://res.cloudinary.com/dciokrtia/image/upload/v1683292160/Giro_Etape_21_qz7uoq.jpg
+1,01/07/2023,Accidentee,182,Bilbao,Bilbao,https://res.cloudinary.com/dciokrtia/image/upload/v1687454019/Tour_Etape_1_oss4dm.jpg
+2,02/07/2023,Accidentee,209,Vitoria-Gasteiz,Saint-Sébastien,https://res.cloudinary.com/dciokrtia/image/upload/v1687454019/Tour_Etape_2_fwtq0s.jpg
+3,03/07/2023,Plat,187.5,Amorebieta-Etxano,Bayonne,https://res.cloudinary.com/dciokrtia/image/upload/v1687454019/Tour_Etape_3_uddmz4.jpg
+4,04/07/2023,Plat,182,Dax,Nogaro,https://res.cloudinary.com/dciokrtia/image/upload/v1687454019/Tour_Etape_4_dwdpcl.jpg
+5,05/07/2023,Montagne,163,Pau,Laruns,https://res.cloudinary.com/dciokrtia/image/upload/v1687454019/Tour_Etape_5_vmyz13.jpg
+6,06/07/2023,Montagne,145,Tarbes,Cauterets-Cambasque,https://res.cloudinary.com/dciokrtia/image/upload/v1687454019/Tour_Etape_6_vrfb6b.jpg
+7,07/07/2023,Plat,170,Mont-de-Marsan,Bordeaux,https://res.cloudinary.com/dciokrtia/image/upload/v1687454020/Tour_Etape_7_vs8nx7.jpg
+8,08/07/2023,Accidentee,201,Libourne,Limoges,https://res.cloudinary.com/dciokrtia/image/upload/v1687454020/Tour_Etape_8_sexitm.jpg
+9,09/07/2023,Montagne,182.5,Saint-Léonard-de-Noblat,Puy de dôme,https://res.cloudinary.com/dciokrtia/image/upload/v1687454020/Tour_Etape_9_qdf9eh.jpg
+10,11/07/2023,Accidentee,167.5,Vulcania,Issoire,https://res.cloudinary.com/dciokrtia/image/upload/v1687454020/Tour_Etape_10_aktotg.jpg
+11,12/07/2023,Plat,180,Clermont-Ferrand,Moulins,https://res.cloudinary.com/dciokrtia/image/upload/v1687454020/Tour_Etape_11_arsgqz.jpg
+12,13/07/2023,Accidentee,169,Roanne,Belleville-en-Beaujolais,https://res.cloudinary.com/dciokrtia/image/upload/v1687454020/Tour_Etape_12_jauxm8.jpg
+13,14/07/2023,Montagne,138,Châtillon-sur-Chalaronne,Grand Colombier,https://res.cloudinary.com/dciokrtia/image/upload/v1687454020/Tour_Etape_13_od8kr5.jpg
+14,15/07/2023,Montagne,152,Annemasse,Morzine Les Portes du Soleil,https://res.cloudinary.com/dciokrtia/image/upload/v1687454020/Tour_Etape_14_lpaqdn.jpg
+15,16/07/2023,Montagne,179,Les Gets Les Portes du Soleil,Saint-Gervais Mont-Blanc,https://res.cloudinary.com/dciokrtia/image/upload/v1687454021/Tour_Etape_15_ng6jcg.jpg
+16,18/07/2023,Chrono,22.4,Passy,Combloux,https://res.cloudinary.com/dciokrtia/image/upload/v1687454020/Tour_Etape_16_wxnwjg.jpg
+17,19/07/2023,Montagne,166,Saint-Gervais Mont-Blanc,Courchevel,https://res.cloudinary.com/dciokrtia/image/upload/v1687454021/Tour_Etape_17_miwrgv.jpg
+18,20/07/2023,Accidentee,185,Moûtiers,Bourg-en-Bresse,https://res.cloudinary.com/dciokrtia/image/upload/v1687454021/Tour_Etape_18_boynkp.jpg
+19,21/07/2023,Plat,173,Moirans-en-Montagne,Poligny,https://res.cloudinary.com/dciokrtia/image/upload/v1687454021/Tour_Etape_19_gfqxnm.jpg
+20,22/07/2023,Montagne,133.5,Belfort,Le Markstein Fellering,https://res.cloudinary.com/dciokrtia/image/upload/v1687454021/Tour_Etape_20_priow0.jpg
+21,23/07/2023,Plat,115.5,Saint-Quentin-en-Yvelines,Paris Champs-Elysées,https://res.cloudinary.com/dciokrtia/image/upload/v1687454021/Tour_Etape_21_tujh9h.jpg

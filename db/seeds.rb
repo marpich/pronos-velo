@@ -58,14 +58,14 @@ puts "Creating the stages"
 CSV.foreach(filepath, headers: :first_row) do |row|
   image_map = URI.open(row['image_map'])
   stage = Stage.new(
-    number: row['number'],
+    number: row[0],
     date: row['date'],
     stage_type: row['stage_type'],
     length: row['length'],
     departure: row['departure'],
     arrival: row['arrival']
   )
-  stage.image.attach(io: image_map, filename: "stage#{row['number']}.png", content_type: 'image/png')
+  stage.image.attach(io: image_map, filename: "stage#{row[0]}.png", content_type: 'image/png')
   stage.race = race1
   stage.save!
 end
