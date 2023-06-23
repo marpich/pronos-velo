@@ -3,6 +3,7 @@ class LeaguesController < ApplicationController
   def info
     @league = League.find(params[:id])
     @accepted_admissions = Admission.includes(:league).where(status: "accepted")
+    @my_admission = Admission.includes(:league).where(status: "accepted", user: current_user).first
   end
 
   def index

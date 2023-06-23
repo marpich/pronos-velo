@@ -32,3 +32,6 @@ application.register("prono-popup", PronoPopupController)
 
 import ShowLeagueButtonController from "./show_league_button_controller"
 application.register("show-league-button", ShowLeagueButtonController)
+
+import ClipboardController from "./clipboard_controller"
+application.register("clipboard", ClipboardController)

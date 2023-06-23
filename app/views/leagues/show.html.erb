@@ -20,18 +20,8 @@
     <p><%= @league.name %></p>
   </div>
 
-  <!-- Card league info -->
-  <div class="card-league-info flex justify-between items-center">
-    <%# <p class="w-40"><%= @league.number_of_players/20 joueurs</p> %>
-    <% if @admission && @admission.accepted? %>
-      <p class="w-40"><%= link_to "Quitter", league_admission_path(@league, @admission), method: :delete %></p>
-    <% else %>
-      <p class="w-40"></p>
-    <% end %>
-  </div>
-
   <!-- Link to different jerseys -->
-    <div class="flex justify-around mt-3 mb-5">
+    <div class="flex justify-around mt-5 mb-5">
     <%= link_to league_path(@league, type: "yellow_jersey"), class: (params[:type] == "yellow_jersey" ? "menu-active" : "menu-disactive") do %>
       <h3><i class="fas fa-tshirt pr-1" style="color: #FFF000"></i>INDIVIDUEL</h3>
     <% end %>
