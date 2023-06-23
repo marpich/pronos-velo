@@ -17,10 +17,10 @@ Rider.destroy_all
 puts "Creating the races"
 
 race1 = Race.new(
-  name: 'Paris Nice',
+  name: 'Tour de France 2023',
   year: 2023,
-  starting_date: '05/03/2023',
-  ending_date: '12/03/2023'
+  starting_date: '01/07/2023',
+  ending_date: '23/07/2023'
 )
 race1.save!
 

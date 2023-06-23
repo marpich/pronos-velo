@@ -16,7 +16,15 @@
       <div class="stage-info-number">
         <p><i class="fas fa-flag"></i> Etape <%= @stage.number if @stage %></p>
       </div>
-      <h3>Paris Nice</h3>
+      <h3>Tour de France</h3>
+      <h4>2023</h4>
+    </div>
+  <% elsif @rest_day.present? %>
+    <div class="currently-card">
+      <div class="stage-info-number">
+        <p><i class="fas fa-flag"></i> Jour de repos</p>
+      </div>
+      <h3>Tour de France</h3>
       <h4>2023</h4>
     </div>
   <% end %>
@@ -66,6 +74,14 @@
         </div>
         <%= link_to "Voir les pronos", stage_path(@stage), class: "home-main-button" %>
       <% end %>
+    <% elsif @rest_day.present? %>
+      <div class="text-countdown-card">
+        <p><strong>Les coureurs sont en récup !</strong></p>
+        <div class="bubble bubble-bottom-left" contenteditable>
+          <em>Alors, niveau classement, on est comment ?</em>
+        </div>
+      </div>
+      <%= link_to "Voir les classements", League.where_am_i(current_user).empty? ? users_dashboard_path : league_path(League.where_am_i(current_user).first, type: "yellow_jersey"), class: "home-main-button" %>
     <% else %>
       <div class="timer-card">
         <p class="pr-2"><i class="fas fa-bell"></i></p>
