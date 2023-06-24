@@ -32,7 +32,7 @@ class Score < ApplicationRecord
   end
 
   def double!(stage)
-    if (stage.stage_type == "Accidentee") || (stage.stage_type == "Montagne")
+    if (stage.stage_type == "Montagne")
       self.points *= 2
     end
     self.save!
