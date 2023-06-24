@@ -39,4 +39,9 @@ class User < ApplicationRecord
     end
     players.sort_by { |player| player[1] }.reverse
   end
+
+  def set_admin
+    self.admin = true
+    self.save!
+  end
 end
