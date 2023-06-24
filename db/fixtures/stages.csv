@@ -1,7 +1,7 @@
 ﻿number,date,stage_type,length,departure,arrival,image_map
-1,01/07/2023,Accidentee,182,Bilbao,Bilbao,https://res.cloudinary.com/dciokrtia/image/upload/v1687454019/Tour_Etape_1_oss4dm.jpg
-2,02/07/2023,Accidentee,209,Vitoria-Gasteiz,Saint-Sébastien,https://res.cloudinary.com/dciokrtia/image/upload/v1687454019/Tour_Etape_2_fwtq0s.jpg
-3,03/07/2023,Plat,187.5,Amorebieta-Etxano,Bayonne,https://res.cloudinary.com/dciokrtia/image/upload/v1687454019/Tour_Etape_3_uddmz4.jpg
+1,24/06/2023,Accidentee,182,Bilbao,Bilbao,https://res.cloudinary.com/dciokrtia/image/upload/v1687454019/Tour_Etape_1_oss4dm.jpg
+2,25/06/2023,Accidentee,209,Vitoria-Gasteiz,Saint-Sébastien,https://res.cloudinary.com/dciokrtia/image/upload/v1687454019/Tour_Etape_2_fwtq0s.jpg
+3,26/06/2023,Plat,187.5,Amorebieta-Etxano,Bayonne,https://res.cloudinary.com/dciokrtia/image/upload/v1687454019/Tour_Etape_3_uddmz4.jpg
 4,04/07/2023,Plat,182,Dax,Nogaro,https://res.cloudinary.com/dciokrtia/image/upload/v1687454019/Tour_Etape_4_dwdpcl.jpg
 5,05/07/2023,Montagne,163,Pau,Laruns,https://res.cloudinary.com/dciokrtia/image/upload/v1687454019/Tour_Etape_5_vmyz13.jpg
 6,06/07/2023,Montagne,145,Tarbes,Cauterets-Cambasque,https://res.cloudinary.com/dciokrtia/image/upload/v1687454019/Tour_Etape_6_vrfb6b.jpg
