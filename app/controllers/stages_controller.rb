@@ -11,7 +11,19 @@ class StagesController < ApplicationController
       @bet = Bet.new
     end
     @my_bets = Bet.where(user: current_user, stage: @stage)
-    @players = User.includes(:bets).where.not(id: current_user.id).where(bets: {stage: @stage}).order(position: :asc)
     @result = Result.where(stage: @stage)
+    @players = []
+    my_players = []
+    my_leagues = League.where_am_i(current_user)
+    my_leagues.each do |league|
+      players = User.accepted_in_league(league, "yellow_jersey")
+      players.each do |player|
+        my_players << player.first unless my_players.include?(player.first)
+      end
+    end
+    all_players = User.includes(:bets).where.not(id: current_user.id).where(bets: {stage: @stage}).order(position: :asc)
+    all_players.each do |player|
+      @players << player if my_players.include?(player)
+    end
   end
 end

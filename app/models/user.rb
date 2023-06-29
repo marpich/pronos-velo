@@ -1,3 +1,5 @@
+require "open-uri"
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -9,6 +11,7 @@ class User < ApplicationRecord
   has_many :admissions, dependent: :destroy
   has_many :total_scores, dependent: :destroy
   has_one_attached :photo
+  before_create :assign_photo
   after_create :total_score_initialization
 
   def total_score_initialization
@@ -43,5 +46,13 @@ class User < ApplicationRecord
   def set_admin
     self.admin = true
     self.save!
+  end
+
+  private
+  def assign_photo
+    return if photo.attached?
+
+    photoavatar = URI.open('https://res.cloudinary.com/dv67de4qe/image/upload/v1654783466/avatar_cwi0wm.jpg')
+    photo.attach(io: photoavatar, filename: 'avatar.png', content_type: 'image/png')
   end
 end
