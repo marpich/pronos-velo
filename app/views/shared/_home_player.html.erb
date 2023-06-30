@@ -74,7 +74,7 @@
         </div>
         <%= link_to "Voir les pronos", stage_path(@stage), class: "home-main-button" %>
       <% end %>
-    <% elsif @rest_day.present? %>
+    <% elsif @rest_day.present? && @race.starting_date <= Date.current %>
       <div class="text-countdown-card">
         <p><strong>Les coureurs sont en récup !</strong></p>
         <div class="bubble bubble-bottom-left" contenteditable>
