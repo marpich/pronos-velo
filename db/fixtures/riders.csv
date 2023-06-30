@@ -9,14 +9,14 @@
 8,VAN HOOYDONCK,Nathan,Jumbo-Visma
 11,POGAČAR,Tadej,UAE Team Emirates
 12,BJERG,Mikkel,UAE Team Emirates
-13,GROSSSCHARTNER,Felix,UAE Team Emirates
-14,LANGEN,Vegard Stake,UAE Team Emirates
+13,GROßSCHARTNER,Felix,UAE Team Emirates
+14,LAENGEN,Vegard Stake,UAE Team Emirates
 15,MAJKA,Rafal,UAE Team Emirates
 16,SOLER,Marc,UAE Team Emirates
 17,TRENTIN,Matteo,UAE Team Emirates
 18,YATES,Adam,UAE Team Emirates
 21,BERNAL,Egan,INEOS Grenadiers
-22,CASTROVIEJO NICOLAS,Jonathan,INEOS Grenadiers
+22,CASTROVIEJO,Jonathan,INEOS Grenadiers
 23,FRAILE MATARRANZ,Omar,INEOS Grenadiers
 24,KWIATKOWSKI,Michal,INEOS Grenadiers
 25,MARTINEZ POVEDA,Daniel Felipe,INEOS Grenadiers
@@ -47,14 +47,14 @@
 56,JAKOBSEN,Fabio,Soudal - Quick Step
 57,LAMPAERT,Yves,Soudal - Quick Step
 58,MORKOV,Michael,Soudal - Quick Step
-61,LANDA MEANA,Mikel,Bahrain - Victorious
-62,ARNDT,Nikias,Bahrain - Victorious
-63,BAUHAUS,Phil,Bahrain - Victorious
-64,BILBAO LOPEZ DE ARMENTIA,Pello,Bahrain - Victorious
-65,HAIG,Jack,Bahrain - Victorious
-66,MOHORIC,Matej,Bahrain - Victorious
-67,POELS,Wouter,Bahrain - Victorious
-68,WRIGHT,Fred,Bahrain - Victorious
+62,LANDA MEANA,Mikel,Bahrain - Victorious
+63,ARNDT,Nikias,Bahrain - Victorious
+64,BAUHAUS,Phil,Bahrain - Victorious
+65,BILBAO LOPEZ DE ARMENTIA,Pello,Bahrain - Victorious
+66,HAIG,Jack,Bahrain - Victorious
+67,MOHORIC,Matej,Bahrain - Victorious
+68,POELS,Wouter,Bahrain - Victorious
+69,WRIGHT,Fred,Bahrain - Victorious
 71,HINDLEY,Jai,BORA - Hansgrohe
 72,BUCHMANN,Emanuel,BORA - Hansgrohe
 73,HALLER,Marco,BORA - Hansgrohe
@@ -65,11 +65,11 @@
 78,VAN POPPEL,Danny,BORA - Hansgrohe
 81,CICCONE,Giulio,Lidl-Trek
 82,GALLOPIN,Tony,Lidl-Trek
-83,KIRSCH,Alex,Lidl-Trek
-84,PEDRO LOPEZ,Juan,Lidl-Trek
-85,PEDERSEN,Mads,Lidl-Trek
-86,SIMMONS,Quinn,Lidl-Trek
-87,SKJELMOSE,Mattias,Lidl-Trek
+83,SKJELMOSE JENSEN,Mattias,Lidl-Trek
+84,KIRSCH,Alex,Lidl-Trek
+85,LÓPEZ,Juan Pedro,Lidl-Trek
+86,PEDERSEN,Mads,Lidl-Trek
+87,SIMMONS,Quinn,Lidl-Trek
 88,STUYVEN,Jasper,Lidl-Trek
 91,O'CONNOR,Ben,AG2R Citroën Team
 92,BERTHET,Clément,AG2R Citroën Team
@@ -83,7 +83,7 @@
 102,DILLIER,Silvan,Alpecin-Deceuninck
 103,GOGL,Michael,Alpecin-Deceuninck
 104,HERMANS,Quinten,Alpecin-Deceuninck
-105,KRAGH ANDERSEN,Soren,Alpecin-Deceuninck
+105,KRAGH ANDERSEN,Søren,Alpecin-Deceuninck
 106,PHILIPSEN,Jasper,Alpecin-Deceuninck
 107,RICKAERT,Jonas,Alpecin-Deceuninck
 108,SINKELDAM,Ramon,Alpecin-Deceuninck
@@ -132,7 +132,7 @@
 163,DURBRIDGE,Luke,Team Jayco AlUla
 164,GROENEWEGEN,Dylan,Team Jayco AlUla
 165,HARPER,Chris,Team Jayco AlUla
-166,JENSEN,Juul Christopher,Team Jayco AlUla
+166,JUUL-JENSEN,Christopher,Team Jayco AlUla
 167,MEZGEC,Luka,Team Jayco AlUla
 168,REINDERS,Elmar,Team Jayco AlUla
 171,BARGUIL,Warren,Team Arkéa Samsic
@@ -154,7 +154,7 @@
 191,CAVENDISH,Mark,Astana Qazaqstan Team
 192,BOL,Cees,Astana Qazaqstan Team
 193,DE LA CRUZ,David,Astana Qazaqstan Team
-194,FEDEROV,Yevgeniy,Astana Qazaqstan Team
+194,FEDOROV,Yevgeniy,Astana Qazaqstan Team
 195,LUTSENKO,Alexey,Astana Qazaqstan Team
 196,MOSCON,Gianni,Astana Qazaqstan Team
 197,LEON SANCHEZ,Luis,Astana Qazaqstan Team
@@ -165,8 +165,8 @@
 204,JOHANNESSEN,Tobias Halland,Uno-X Pro Cycling Team
 205,TILLER,Rasmus,Uno-X Pro Cycling Team
 206,TRÆEN,Torstein,Uno-X Pro Cycling Team
-207,WILSLY,Gregaard Jonas,Uno-X Pro Cycling Team
-208,WÆRENSKJOLD,Soren,Uno-X Pro Cycling Team
+207,WÆRENSKJOLD,Søren,Uno-X Pro Cycling Team
+208,GREGAARD WILSLY,Jonas,Uno-X Pro Cycling Team
 211,SAGAN,Peter,TotalEnergies
 212,BOASSON HAGEN,Edvald,TotalEnergies
 213,BURGAUDEAU,Mathieu,TotalEnergies
