@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :riders, only: [:index] do
     member do
       patch :stop_racing
+      patch :still_racing
     end
   end
   resources :bets, only: [:index, :create, :new]

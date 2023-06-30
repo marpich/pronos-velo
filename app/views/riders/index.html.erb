@@ -44,6 +44,9 @@
               <% end %>
             <% else %>
               <p class="pl-2 text-xs line-through"><%= rider.first_name %> <%= rider.last_name %></p>
+              <% if current_user.admin? %>
+                <p><%= link_to "✔️", still_racing_rider_path(rider), data: {turbo_method: :patch}%></p>
+              <% end %>
             <% end %>
           </div>
         <% end %>

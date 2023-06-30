@@ -21,7 +21,7 @@ class League < ApplicationRecord
 
   def self.where_am_i(user)
     leagues = League.where(user: user)
-    leagues_requested = League.includes(:admissions).where(admissions: {user: user})
+    leagues_requested = League.includes(:admissions).where(admissions: {user: user}).where.not(admissions: {status: 'rejected'})
     leagues + leagues_requested
   end
 
