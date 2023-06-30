@@ -33,7 +33,7 @@
   <% end %>
 
     <!-- Bouton Admin Only - Résultat de l'Etape -->
-  <% if current_user.admin? && !@result.present? %>
+  <% if current_user.admin? && !@result.present? && @stage %>
     <%= link_to "Résultat de l'étape", new_stage_result_path(@stage), class: "main-button" %>
   <% end %>
 
