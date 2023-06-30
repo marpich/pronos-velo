@@ -37,7 +37,11 @@ export default class extends Controller {
       let minutes = Math.floor((difference % (1000 * 60 * 60) )/ (1000 * 60))
       let secondes = Math.floor((difference % (1000 * 60) )/ 1000)
 
-      this.element.textContent = `${days}j ${hours}h ${minutes}m ${secondes}s`
+      if (days > 0) {
+        this.element.textContent = `${days}J ${hours}h ${minutes}m ${secondes}s`
+      } else {
+        this.element.textContent = `${hours}h ${minutes}m ${secondes}s`
+      }
 
     }
   }

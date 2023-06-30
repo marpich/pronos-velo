@@ -19,7 +19,7 @@
       <h3>Tour de France</h3>
       <h4>2023</h4>
     </div>
-  <% elsif @rest_day.present? %>
+  <% elsif @rest_day.present? && @race.starting_date <= Date.current %>
     <div class="currently-card">
       <div class="stage-info-number">
         <p><i class="fas fa-flag"></i> Jour de repos</p>
