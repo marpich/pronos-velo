@@ -55,7 +55,7 @@
   <!-- Countdown -->
   <div class="countdown">
     <% if @stage.present? %>
-      <% if (Time.now < Time.now.middle_of_day) %>
+      <% if (Time.zone.now < Time.zone.now.middle_of_day) %>
         <div class="text-countdown-card">
           <strong>Fermeture des pronos à 12h00</strong><br>
           <em>Ne loupe pas le départ!</em>
