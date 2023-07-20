@@ -111,15 +111,21 @@
         <div class="form-select">
           <div class="form-input">
             <div class="number"><p>1</p></div>
-            <div class="rider-select"><%= f.select :rider_1, Rider::RIDERS, prompt: 'Vainqueur' %></div>
+            <div class="rider-select"><%= f.select :rider_1,
+            Rider.where(still_racing: true).sort_by(&:last_name).map {|rider| "#{rider.bib} - #{rider.last_name} #{rider.first_name}"},
+            prompt: 'Vainqueur' %></div>
           </div>
           <div class="form-input">
             <div class="number"><p>2</p></div>
-            <div class="rider-select"><%= f.select :rider_2, Rider::RIDERS, prompt: 'Deuxième' %></div>
+            <div class="rider-select"><%= f.select :rider_2,
+            Rider.where(still_racing: true).sort_by(&:last_name).map {|rider| "#{rider.bib} - #{rider.last_name} #{rider.first_name}"},
+            prompt: 'Deuxième' %></div>
           </div>
           <div class="form-input">
             <div class="number"><p>3</p></div>
-            <div class="rider-select"><%= f.select :rider_3, Rider::RIDERS, prompt: 'Troisième' %></div>
+            <div class="rider-select"><%= f.select :rider_3,
+            Rider.where(still_racing: true).sort_by(&:last_name).map {|rider| "#{rider.bib} - #{rider.last_name} #{rider.first_name}"},
+            prompt: 'Troisième' %></div>
           </div>
         </div>
         <div class="form-button">
