@@ -84,11 +84,15 @@
       <%= link_to "Voir les classements", League.where_am_i(current_user).empty? ? users_dashboard_path : league_path(League.where_am_i(current_user).first, type: "yellow_jersey"), class: "home-main-button" %>
     <% else %>
       <div class="timer-card">
-        <p class="pr-2"><i class="fas fa-bell"></i></p>
-        <p>Début dans</p>
-        <div class="pl-2 text-xl" data-controller="countdown-race" data-countdown-race-date-value="July 1, 2023 00:00:00"></div>
+        <p class="pr-2"><i class="fas fa-sad-tear"></i></p>
+        <p>Les coureurs sont arrivés sur les champs !<br>Le Tour 2023 est terminé...</p>
+        <%# <div class="pl-2 text-xl" data-controller="countdown-race" data-countdown-race-date-value="July 1, 2023 00:00:00"></div> %>
       </div>
-      <p class='text-center'>Rendez-vous le 1er Juillet 2023 !</p>
+      <div class="bubble bubble-bottom-left" contenteditable>
+        <em>Un petit récap du classement ?</em>
+      </div>
+      <%= link_to "Voir les classements", League.where_am_i(current_user).empty? ? users_dashboard_path : league_path(League.where_am_i(current_user).first, type: "yellow_jersey"), class: "home-main-button" %>
+      <p class='text-center'>Rendez-vous en 2024 !</p>
     <% end %>
   </div>
 
