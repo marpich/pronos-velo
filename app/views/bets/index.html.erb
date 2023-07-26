@@ -11,29 +11,32 @@
     <h1>Mes Pronos</h1>
   </div>
 
-  <div class="sub-title">
-    <p>Paris Nice 2023</p>
-  </div>
-
-  <% @bets.each do |bet| %>
-    <div class="bet-card flex justify-between items-center">
-      <div class="bet-card-stage flex flex-col items-center">
-        <p>Etape</p>
-        <p><%= bet.first.number %></p>
-      </div>
-      <div class="bet-card-riders">
-        <% bet.last.each do |bet| %>
-          <p><%= bet.position %>. <%= bet.rider.first_name %> <%= bet.rider.last_name %></p>
-        <% end %>
-      </div>
-      <div class="bet-card-points flex flex-col items-center">
-        <% bet.first.scores.each do |score| %>
-          <% if score.user == current_user %>
-            <p class="score"><%= score.points %></p>
-            <p>pts</p>
-          <% end %>
-        <% end %>
-      </div>
+  <% @all_bets.each do |race, bets_by_stage| %>
+    <div class="sub-title">
+      <p><%= race.name %></p>
     </div>
+    <% bets_by_stage.each do |stage, bets| %>
+      <div class="bet-card flex justify-between items-center">
+        <div class="bet-card-stage flex flex-col items-center">
+          <p>Etape</p>
+          <p><%= stage.number %></p>
+        </div>
+        <div class="bet-card-riders">
+          <% bets.each do |bet| %>
+            <p><%= bet.position %>. <%= bet.rider.first_name %> <%= bet.rider.last_name %></p>
+          <% end %>
+        </div>
+        <div class="bet-card-points flex flex-col items-center">
+          <% stage.scores.each do |score| %>
+            <% if score.user == current_user %>
+              <p class="score"><%= score.points %></p>
+            <% else %>
+              <p>?</p>
+            <% end %>
+              <p>pts</p>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
   <% end %>
 </div>

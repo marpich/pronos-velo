@@ -1,6 +1,6 @@
 class BetsController < ApplicationController
   def index
-    @bets = Bet.where(user: current_user).group_by(&:stage)
+    @all_bets = Bet.joins(:stage).where(user: current_user).order(number: :asc, position: :asc).group_by(&:stage).group_by { |stage, _bets| stage.race }
   end
 
   def create
