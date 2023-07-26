@@ -30,10 +30,8 @@
           <% stage.scores.each do |score| %>
             <% if score.user == current_user %>
               <p class="score"><%= score.points %></p>
-            <% else %>
-              <p>?</p>
-            <% end %>
               <p>pts</p>
+            <% end %>
           <% end %>
         </div>
       </div>
