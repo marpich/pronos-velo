@@ -35,3 +35,6 @@ application.register("show-league-button", ShowLeagueButtonController)
 
 import ClipboardController from "./clipboard_controller"
 application.register("clipboard", ClipboardController)
+
+import HideBetsController from "./hide_bets_controller"
+application.register("hide-bets", HideBetsController)
