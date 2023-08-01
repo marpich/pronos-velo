@@ -16,7 +16,7 @@ class User < ApplicationRecord
 
   def total_score_initialization
     TotalScore.create!(
-      race: Race.first,
+      race: Race.last,
       user: self
     )
   end

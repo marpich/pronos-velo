@@ -1,6 +1,6 @@
 class RidersController < ApplicationController
   def index
-    @riders = Rider.all.order(:bib).group_by(&:team)
+    @riders = Rider.where(race: Race.last).order(:bib).group_by(&:team)
   end
 
   def stop_racing

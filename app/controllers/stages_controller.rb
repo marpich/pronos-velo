@@ -1,6 +1,6 @@
 class StagesController < ApplicationController
   def index
-    @stages = Stage.all
+    @stages = Stage.where(race: Race.last)
   end
 
   def show
