@@ -3,9 +3,15 @@ class Rider < ApplicationRecord
   has_many :results, dependent: :destroy
   belongs_to :race
 
-  riders = []
-  Rider.where(still_racing: true).sort_by(&:last_name).each do |rider|
-    riders << "#{rider.bib} - #{rider.last_name} #{rider.first_name}"
+  def self.get_all
+    Rider.where(still_racing: true, race: Race.first).sort_by(&:last_name).map {|rider| "#{rider.bib} - #{rider.last_name} #{rider.first_name}"}
   end
-  riders
+
+  def self.get_teams
+    teams = []
+    Rider.where(race: Race.first).map do |rider|
+      teams << "#{rider.team}" unless teams.include?(rider.team)
+    end
+    return teams.sort
+  end
 end

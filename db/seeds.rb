@@ -5,22 +5,16 @@ require 'net/http'
 require 'openssl'
 require 'active_support/inflector'
 
-filepath = "db/fixtures/stages.csv"
-filepath_riders = "db/fixtures/riders.csv"
-
-puts "Cleaning the database"
-
-User.destroy_all
-Race.destroy_all
-Rider.destroy_all
+filepath = "db/fixtures/vuelta_stages.csv"
+# filepath_riders = "db/fixtures/riders.csv"
 
 puts "Creating the races"
 
 race1 = Race.new(
-  name: 'Tour de France 2023',
+  name: 'Vuelta 2023',
   year: 2023,
-  starting_date: '01/07/2023',
-  ending_date: '23/07/2023'
+  starting_date: '26/08/2023',
+  ending_date: '17/09/2023'
 )
 race1.save!
 
@@ -45,30 +39,31 @@ end
 
 puts "Creating stages done"
 
-puts "Creating the riders"
-CSV.foreach(filepath_riders, headers: :first_row) do |row|
-  rider = Rider.new(
-    last_name: row['last_name'],
-    first_name: row['first_name'],
-    team: row['team'],
-    bib: row[0]
-  )
-  # url = URI("https://pro-cycling-stats.p.rapidapi.com/riders/#{row['first_name'].parameterize}-#{row['last_name'].parameterize}")
+# puts "Creating the riders"
+# CSV.foreach(filepath_riders, headers: :first_row) do |row|
+#   rider = Rider.new(
+#     last_name: row['last_name'],
+#     first_name: row['first_name'],
+#     team: row['team'],
+#     bib: row[0]
+#   )
+#   # url = URI("https://pro-cycling-stats.p.rapidapi.com/riders/#{row['first_name'].parameterize}-#{row['last_name'].parameterize}")
 
-  # http = Net::HTTP.new(url.host, url.port)
-  # http.use_ssl = true
-  # http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+#   # http = Net::HTTP.new(url.host, url.port)
+#   # http.use_ssl = true
+#   # http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
-  # request = Net::HTTP::Get.new(url)
-  # request["X-RapidAPI-Key"] = ENV['API_KEY']
-  # request["X-RapidAPI-Host"] = 'pro-cycling-stats.p.rapidapi.com'
+#   # request = Net::HTTP::Get.new(url)
+#   # request["X-RapidAPI-Key"] = ENV['API_KEY']
+#   # request["X-RapidAPI-Host"] = 'pro-cycling-stats.p.rapidapi.com'
 
-  # response = http.request(request)
-  # infos = response.read_body
-  # rider.team = JSON.parse(infos).first["Main info"]["team"]
-  # rider.nationality = JSON.parse(infos).first["Main info"]["countryFlag"]
-  # rider.photo_url = JSON.parse(infos).first["Main info"]["riders photo url"]
-  rider.save!
-end
+#   # response = http.request(request)
+#   # infos = response.read_body
+#   # rider.team = JSON.parse(infos).first["Main info"]["team"]
+#   # rider.nationality = JSON.parse(infos).first["Main info"]["countryFlag"]
+#   # rider.photo_url = JSON.parse(infos).first["Main info"]["riders photo url"]
+#   rider.race = race1
+#   rider.save!
+# end
 
-puts "Creating riders done"
+# puts "Creating riders done"
