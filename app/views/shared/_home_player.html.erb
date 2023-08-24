@@ -16,7 +16,7 @@
       <div class="stage-info-number">
         <p><i class="fas fa-flag"></i> Etape <%= @stage.number if @stage %></p>
       </div>
-      <h3>Tour de France</h3>
+      <h3>Vuelta</h3>
       <h4>2023</h4>
     </div>
   <% elsif @rest_day.present? && @race.starting_date <= Date.current %>
@@ -24,7 +24,7 @@
       <div class="stage-info-number">
         <p><i class="fas fa-flag"></i> Jour de repos</p>
       </div>
-      <h3>Tour de France</h3>
+      <h3>Vuelta</h3>
       <h4>2023</h4>
     </div>
   <% end %>
@@ -49,7 +49,7 @@
   </div>
 
   <div>
-    <p class="race-title">Tour de France</p>
+    <p class="race-title">Vuelta</p>
   </div>
 
   <!-- Countdown -->
@@ -84,15 +84,11 @@
       <%= link_to "Voir les classements", League.where_am_i(current_user).empty? ? users_dashboard_path : league_path(League.where_am_i(current_user).first, type: "yellow_jersey"), class: "home-main-button" %>
     <% else %>
       <div class="timer-card">
-        <p class="pr-2"><i class="fas fa-sad-tear"></i></p>
-        <p>Les coureurs sont arrivés sur les champs !<br>Le Tour 2023 est terminé...</p>
-        <%# <div class="pl-2 text-xl" data-controller="countdown-race" data-countdown-race-date-value="July 1, 2023 00:00:00"></div> %>
+        <p class="pr-2"><i class="fas fa-bell"></i></p>
+        <p>Début dans</p>
+        <div class="pl-2 text-xl" data-controller="countdown-race" data-countdown-race-date-value="August 26, 2023 00:00:00"></div>
       </div>
-      <div class="bubble bubble-bottom-left" contenteditable>
-        <em>Un petit récap du classement ?</em>
-      </div>
-      <%= link_to "Voir les classements", League.where_am_i(current_user).empty? ? users_dashboard_path : league_path(League.where_am_i(current_user).first, type: "yellow_jersey"), class: "home-main-button" %>
-      <p class='text-center'>Rendez-vous en 2024 !</p>
+      <p class='text-center'>Rendez-vous le 26 Août 2023 !</p>
     <% end %>
   </div>
 

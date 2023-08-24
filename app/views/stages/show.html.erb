@@ -73,7 +73,11 @@
         </div>
         <div class="bet-card-riders flex flex-col items-center w-full">
           <% @result.each do |result| %>
-            <p><%= result.result_position %>. <%= result.rider.first_name %> <%= result.rider.last_name %></p>
+            <% if @stage.stage_type == "Chrono equipe" %>
+              <p><%= result.position %>. <%= result.rider.team %></p>
+            <% else %>
+              <p><%= result.position %>. <%= result.rider.first_name %> <%= result.rider.last_name %></p>
+            <% end %>
           <% end %>
         </div>
     </div>
@@ -91,7 +95,11 @@
       </div>
       <div class="bet-card-riders">
         <% @my_bets.each do |bet| %>
-          <p><%= bet.position %>. <%= bet.rider.first_name %> <%= bet.rider.last_name %></p>
+          <% if @stage.stage_type == "Chrono equipe" %>
+            <p><%= bet.position %>. <%= bet.rider.team %></p>
+          <% else %>
+            <p><%= bet.position %>. <%= bet.rider.first_name %> <%= bet.rider.last_name %></p>
+          <% end %>
         <% end %>
       </div>
       <div class="bet-card-points flex flex-col items-center">
@@ -106,33 +114,11 @@
 
   <!-- 'pari ouvert pour l'étape du jour < 12h' : affichage formulaire -->
   <% elsif @bet.present? %>
-    <div class="form-mon-prono">
-      <%= form_with url: stage_bets_path(@stage), autocomplete: "on", method: :post do |f| %>
-        <div class="form-select">
-          <div class="form-input">
-            <div class="number"><p>1</p></div>
-            <div class="rider-select"><%= f.select :rider_1,
-            Rider.where(still_racing: true).sort_by(&:last_name).map {|rider| "#{rider.bib} - #{rider.last_name} #{rider.first_name}"},
-            prompt: 'Vainqueur' %></div>
-          </div>
-          <div class="form-input">
-            <div class="number"><p>2</p></div>
-            <div class="rider-select"><%= f.select :rider_2,
-            Rider.where(still_racing: true).sort_by(&:last_name).map {|rider| "#{rider.bib} - #{rider.last_name} #{rider.first_name}"},
-            prompt: 'Deuxième' %></div>
-          </div>
-          <div class="form-input">
-            <div class="number"><p>3</p></div>
-            <div class="rider-select"><%= f.select :rider_3,
-            Rider.where(still_racing: true).sort_by(&:last_name).map {|rider| "#{rider.bib} - #{rider.last_name} #{rider.first_name}"},
-            prompt: 'Troisième' %></div>
-          </div>
-        </div>
-        <div class="form-button">
-          <%= f.submit "Ca part !", class: "main-button" %>
-        </div>
-      <% end %>
-    </div>
+    <% if @stage.stage_type == "Chrono equipe" %>
+      <%= render 'shared/prono_team', stage: @stage %>
+    <% else %>
+      <%= render 'shared/prono_individual', stage: @stage %>
+    <% end %>
 
   <!-- 'date du jour >= date de l'étape' : affichage trop tard pour parier ajd -->
   <% elsif @stage.date <= Date.current %>
@@ -160,7 +146,11 @@
           </div>
           <div class="bet-card-riders">
             <% player.bets.each do |bet| %>
-              <p><%= bet.position %>. <%= bet.rider.first_name %> <%= bet.rider.last_name %></p>
+              <% if @stage.stage_type == "Chrono equipe" %>
+                <p><%= bet.position %>. <%= bet.rider.team %></p>
+              <% else %>
+                <p><%= bet.position %>. <%= bet.rider.first_name %> <%= bet.rider.last_name %></p>
+              <% end %>
             <% end %>
           </div>
           <div class="bet-card-points flex flex-col items-center">
