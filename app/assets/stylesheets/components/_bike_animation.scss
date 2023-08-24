@@ -17,7 +17,7 @@
 
 .bike {
   position: relative;
-  background-color: $yellow;
+  background-color: $red;
   width:90px;
   height: 4px;
   border-radius:10px;
@@ -27,7 +27,7 @@
 .bike:before, .bike:after {
   content:"";
   position: absolute;
-  background-color: $yellow;
+  background-color: $red;
   width:4px;
   height: 70px;
   top:-4px;
@@ -36,13 +36,13 @@
 .bike:before {
   transform: rotate(35deg);
   left:67px;
-  box-shadow: -70px 50px $yellow, 0px -30px $yellow;
+  box-shadow: -70px 50px $red, 0px -30px $red;
 }
 
 .bike:after {
   transform: rotate(-35deg);
   left:20px;
-  box-shadow: 70px 50px $yellow, 0px -30px $yellow;
+  box-shadow: 70px 50px $red, 0px -30px $red;
 }
 
 .leftTyre, .rightTyre {
@@ -127,12 +127,12 @@
   z-index:6;
   position: absolute;
   border-radius:50%;
-  background-color: $yellow;
+  background-color: $red;
   width:10px;
   height:10px;
   top:55px;
   left:-42px;
-  box-shadow: 83px 0 $yellow, 164px 0px $yellow;
+  box-shadow: 83px 0 $red, 164px 0px $red;
 }
 
 .wheel:before {
@@ -142,7 +142,7 @@
   height: 50px;
   border-radius:100%;
   border-top: 7px solid #333;
-  border-left: 4px solid $yellow;
+  border-left: 4px solid $red;
   border-bottom: 8px solid transparent;
   border-right: 8px solid transparent;
   transform: rotate(80deg);
@@ -165,7 +165,7 @@
   z-index:7;
   width:40px;
   height:40px;
-  border: 3px solid $yellow;
+  border: 3px solid $red;
   border-radius:50%;
   top:40px;
   left:24px;
