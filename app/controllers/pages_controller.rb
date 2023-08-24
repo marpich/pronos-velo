@@ -16,5 +16,4 @@ class PagesController < ApplicationController
 
   def manifest
   end
-
 end

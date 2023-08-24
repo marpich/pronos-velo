@@ -6,17 +6,31 @@ class BetsController < ApplicationController
   def create
     @stage = Stage.find(params[:stage_id])
 
-    # first bet
-    bib = bet_params["rider_1"].split.first.to_i
-    first_bet = create_bet(1, bib)
+    if @stage.stage_type == "Chrono equipe"
+      # first bet
+      team = bet_params["rider_1"]
+      first_bet = create_bet_team(1, team)
 
-    # second bet
-    bib = bet_params["rider_2"].split.first.to_i
-    second_bet = create_bet(2, bib)
+      # second bet
+      team = bet_params["rider_2"]
+      second_bet = create_bet_team(2, team)
 
-    # third bet
-    bib = bet_params["rider_3"].split.first.to_i
-    third_bet = create_bet(3, bib)
+      # third bet
+      team = bet_params["rider_3"]
+      third_bet = create_bet_team(3, team)
+    else
+      # first bet
+      bib = bet_params["rider_1"].split.first.to_i
+      first_bet = create_bet(1, bib)
+
+      # second bet
+      bib = bet_params["rider_2"].split.first.to_i
+      second_bet = create_bet(2, bib)
+
+      # third bet
+      bib = bet_params["rider_3"].split.first.to_i
+      third_bet = create_bet(3, bib)
+    end
 
     if first_bet && second_bet && third_bet
       redirect_to stage_path(@stage, prono: true)
@@ -39,6 +53,15 @@ class BetsController < ApplicationController
     bet.user = current_user
     bet.stage = @stage
     bet.rider = Rider.where(bib: bib).first
+    bet.save!
+  end
+
+  def create_bet_team(position, team)
+    bet = Bet.new
+    bet.position = position
+    bet.user = current_user
+    bet.stage = @stage
+    bet.rider = Rider.where(team: team).first
     bet.save!
   end
 end

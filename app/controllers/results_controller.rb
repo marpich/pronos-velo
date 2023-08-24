@@ -17,17 +17,31 @@ before_action :authenticate_admin, only: [:new, :create]
       flash[:alert] = "Le résultat doit contenir trois coureurs"
       render 'stages/show'
     else
-      # first result
-      bib = result_params["rider_1"].split.first.to_i
-      first_result = create_result(1, bib)
+      #Team Stage
+      if @stage.stage_type == "Chrono equipe"
+        # first result
+        team = result_params["rider_1"]
+        first_result = create_result_team(1, team)
 
-      # second result
-      bib = result_params["rider_2"].split.first.to_i
-      second_result = create_result(2, bib)
+        # second result
+        team = result_params["rider_2"].split.first.to_i
+        second_result = create_result_team(2, team)
 
-      # third result
-      bib = result_params["rider_3"].split.first.to_i
-      third_result = create_result(3, bib)
+        # third result
+        team = result_params["rider_3"].split.first.to_i
+        third_result = create_result_team(3, team)
+      else
+        bib = result_params["rider_1"].split.first.to_i
+        first_result = create_result(1, bib)
+
+        # second result
+        bib = result_params["rider_2"].split.first.to_i
+        second_result = create_result(2, bib)
+
+        # third result
+        bib = result_params["rider_3"].split.first.to_i
+        third_result = create_result(3, bib)
+      end
 
       if first_result && second_result && third_result
         score_calculation
@@ -56,6 +70,14 @@ before_action :authenticate_admin, only: [:new, :create]
     result.result_position = position
     result.stage = @stage
     result.rider = Rider.where(bib: bib).first
+    result.save!
+  end
+
+  def create_result_team(position, team)
+    result = Result.new
+    result.result_position = position
+    result.stage = @stage
+    result.rider = Rider.where(team: team).first
     result.save!
   end
 

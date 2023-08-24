@@ -26,7 +26,11 @@
               </div>
               <div class="bet-card-riders">
                 <% bets.each do |bet| %>
-                  <p><%= bet.position %>. <%= bet.rider.first_name %> <%= bet.rider.last_name %></p>
+                  <% if stage.stage_type == "Chrono equipe" %>
+                    <p><%= bet.position %>. <%= bet.rider.team %></p>
+                  <% else %>
+                    <p><%= bet.position %>. <%= bet.rider.first_name %> <%= bet.rider.last_name %></p>
+                  <% end %>
                 <% end %>
               </div>
               <div class="bet-card-points flex flex-col items-center">

@@ -20,32 +20,10 @@
   <!-- Formulaire Admin pour compléter le résultat de l'étape -->
   <p class="text-center my-2 mx-2 text-sm">L'étape du jour est terminée ! C'est l'heure de compléter le résultat réel des coureurs pour que les calculs automatiques des scores se fassent... 🤓 </p>
 
-  <div class="form-mon-prono">
-    <%= form_with url: stage_results_path(@stage), method: :post do |f| %>
-      <div class="form-select">
-        <div class="form-input">
-          <div class="number"><p>1</p></div>
-          <div class="rider-select"><%= f.select :rider_1,
-          Rider.where(still_racing: true).sort_by(&:last_name).map {|rider| "#{rider.bib} - #{rider.last_name} #{rider.first_name}"},
-          prompt: 'Vainqueur' %></div>
-        </div>
-        <div class="form-input">
-          <div class="number"><p>2</p></div>
-          <div class="rider-select"><%= f.select :rider_2,
-          Rider.where(still_racing: true).sort_by(&:last_name).map {|rider| "#{rider.bib} - #{rider.last_name} #{rider.first_name}"},
-          prompt: 'Deuxième' %></div>
-        </div>
-        <div class="form-input">
-          <div class="number"><p>3</p></div>
-          <div class="rider-select"><%= f.select :rider_3,
-          Rider.where(still_racing: true).sort_by(&:last_name).map {|rider| "#{rider.bib} - #{rider.last_name} #{rider.first_name}"},
-          prompt: 'Troisième' %></div>
-        </div>
-      </div>
-      <div class="form-button">
-        <%= f.submit "Ajouter", class: "main-button" %>
-      </div>
-    <% end %>
-  </div>
+  <% if @stage.stage_type == "Chrono equipe" %>
+    <%= render 'shared/prono_team', stage: @stage %>
+  <% else %>
+    <%= render 'shared/prono_individual', stage: @stage %>
+  <% end %>
 
 </div>
