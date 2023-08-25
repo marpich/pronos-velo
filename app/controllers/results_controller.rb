@@ -24,11 +24,11 @@ before_action :authenticate_admin, only: [:new, :create]
         first_result = create_result_team(1, team)
 
         # second result
-        team = result_params["rider_2"].split.first.to_i
+        team = result_params["rider_2"]
         second_result = create_result_team(2, team)
 
         # third result
-        team = result_params["rider_3"].split.first.to_i
+        team = result_params["rider_3"]
         third_result = create_result_team(3, team)
       else
         bib = result_params["rider_1"].split.first.to_i
@@ -77,7 +77,7 @@ before_action :authenticate_admin, only: [:new, :create]
     result = Result.new
     result.result_position = position
     result.stage = @stage
-    result.rider = Rider.where(team: team).first
+    result.rider = Rider.where(team: team, race: Race.last).first
     result.save!
   end
 

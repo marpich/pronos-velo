@@ -74,9 +74,9 @@
         <div class="bet-card-riders flex flex-col items-center w-full">
           <% @result.each do |result| %>
             <% if @stage.stage_type == "Chrono equipe" %>
-              <p><%= result.position %>. <%= result.rider.team %></p>
+              <p><%= result.result_position %>. <%= result.rider.team %></p>
             <% else %>
-              <p><%= result.position %>. <%= result.rider.first_name %> <%= result.rider.last_name %></p>
+              <p><%= result.result_position %>. <%= result.rider.first_name %> <%= result.rider.last_name %></p>
             <% end %>
           <% end %>
         </div>

@@ -9,7 +9,7 @@
 
   <div class="title">
     <h1>Le Podium de l'Etape du jour</h1>
-    <p class="text-center">Tour de France 2023 - <strong>Etape <%= @stage.number %></strong></p>
+    <p class="text-center"><strong><%= @stage.race.name %> - Etape <%= @stage.number %></strong></p>
   </div>
 
   <!-- Map de la Stage -->
@@ -21,9 +21,9 @@
   <p class="text-center my-2 mx-2 text-sm">L'étape du jour est terminée ! C'est l'heure de compléter le résultat réel des coureurs pour que les calculs automatiques des scores se fassent... 🤓 </p>
 
   <% if @stage.stage_type == "Chrono equipe" %>
-    <%= render 'shared/prono_team', stage: @stage %>
+    <%= render 'shared/result_team', stage: @stage %>
   <% else %>
-    <%= render 'shared/prono_individual', stage: @stage %>
+    <%= render 'shared/result_individual', stage: @stage %>
   <% end %>
 
 </div>

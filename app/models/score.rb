@@ -2,6 +2,9 @@ class Score < ApplicationRecord
   belongs_to :stage
   belongs_to :user
 
+  validates :user_id, uniqueness: { scope: [:stage_id],
+    message: "Un seul score par étape pour chaque participant" }
+
   def compute!(first_bet_rider, second_bet_rider, third_bet_rider, first_result_rider, second_result_rider, third_result_rider)
     # On vérifie le premier bet et on incrémente le score
     if (first_bet_rider == first_result_rider)

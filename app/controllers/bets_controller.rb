@@ -61,7 +61,7 @@ class BetsController < ApplicationController
     bet.position = position
     bet.user = current_user
     bet.stage = @stage
-    bet.rider = Rider.where(team: team).first
+    bet.rider = Rider.where(team: team, race: Race.last).first
     bet.save!
   end
 end
