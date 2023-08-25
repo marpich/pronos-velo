@@ -21,17 +21,22 @@
   </div>
 
   <!-- Link to different jerseys -->
-    <div class="flex justify-around mt-5 mb-5">
-    <%= link_to league_path(@league, type: "yellow_jersey"), class: (params[:type] == "yellow_jersey" ? "menu-active" : "menu-disactive") do %>
-      <h3><i class="fas fa-tshirt pr-1" style="color: #FFF000"></i>INDIVIDUEL</h3>
-    <% end %>
-    <%= link_to league_path(@league, type: "green_jersey"), class: (params[:type] == "green_jersey" ? "menu-active" : "menu-disactive") do %>
-      <h3><i class="fas fa-tshirt pr-1" style="color: #38a849"></i>POINTS</h3>
-    <% end %>
-    <%= link_to league_path(@league, type: "polka_dot_jersey"), class: (params[:type] == "polka_dot_jersey" ? "menu-active" : "menu-disactive") do %>
-      <h3><i class="fas fa-tshirt pr-1" style="color: #D9291C"></i>GRIMPEUR</h3>
-    <% end %>
-  </div>
+    <div class="flex justify-around mt-5 mb-3">
+      <%= link_to league_path(@league, type: "yellow_jersey"), class: (params[:type] == "yellow_jersey" ? "menu-active" : "menu-disactive") do %>
+        <h3><i class="fas fa-tshirt pr-1" style="color: #FFF000"></i>INDIVIDUEL</h3>
+      <% end %>
+      <%= link_to league_path(@league, type: "green_jersey"), class: (params[:type] == "green_jersey" ? "menu-active" : "menu-disactive") do %>
+        <h3><i class="fas fa-tshirt pr-1" style="color: #38a849"></i>POINTS</h3>
+      <% end %>
+      <%= link_to league_path(@league, type: "polka_dot_jersey"), class: (params[:type] == "polka_dot_jersey" ? "menu-active" : "menu-disactive") do %>
+        <h3><i class="fas fa-tshirt pr-1" style="color: #D9291C"></i>GRIMPEUR</h3>
+      <% end %>
+    </div>
+
+  <!-- Current race -->
+    <div class="flex justify-around">
+      <h2><%= Race.last.name %></h2>
+    </div>
 
    <!-- Ranking -->
     <% @users.each_with_index do |user, index| %>

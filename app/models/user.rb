@@ -33,11 +33,11 @@ class User < ApplicationRecord
     all_users.each do |user|
       case type
       when "yellow_jersey"
-        players << [user, user.total_scores.first.yellow_jersey]
+        players << [user, user.total_scores.last.yellow_jersey]
       when "green_jersey"
-        players << [user, user.total_scores.first.green_jersey]
+        players << [user, user.total_scores.last.green_jersey]
       when "polka_dot_jersey"
-        players << [user, user.total_scores.first.polka_dot_jersey]
+        players << [user, user.total_scores.last.polka_dot_jersey]
       end
     end
     players.sort_by { |player| player[1] }.reverse
