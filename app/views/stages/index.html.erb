@@ -29,13 +29,15 @@
         </div>
         <div class="stage-info-profile">
           <% case stage.stage_type %>
-            <% when 'Montagne' %>
+          <% when 'Montagne' %>
             <p><i class="fas fa-mountain"></i> Montagne</p>
-            <% when 'Accidentee' %>
+          <% when 'Accidentee' %>
             <p><i class="fas fa-exclamation-triangle"></i> Accidentée</p>
-            <% when 'Chrono' %>
+          <% when 'Chrono' %>
             <p><i class="fas fa-stopwatch"></i> Contre la Montre</p>
-            <% when 'Plat' %>
+          <% when 'Chrono equipe' %>
+            <p><i class="fas fa-stopwatch"></i> Contre la Montre par équipe</p>
+          <% when 'Plat' %>
             <p><i class="fas fa-road"></i> Plat</p>
           <% end %>
         </div>
