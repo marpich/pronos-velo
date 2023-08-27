@@ -55,14 +55,14 @@
   <!-- Countdown -->
   <div class="countdown">
     <% if @stage.present? %>
-      <% if (Time.zone.now < Time.zone.now.middle_of_day) %>
+      <% if (Time.zone.now < (Time.zone.now.middle_of_day + 2*60*60)) %>
         <div class="text-countdown-card">
           <strong>Fermeture des pronos à 18h00</strong><br>
           <em>Ne loupe pas le départ!</em>
         </div>
         <div class="timer-card text-center">
           <p><i class="fas fa-hourglass-half"></i></p>
-          <div class="timer-card-countdown pl-2 text-2xl" data-controller="countdown-stage" data-countdown-stage-date-value="<%= @date %> 12:00:00"></div>
+          <div class="timer-card-countdown pl-2 text-2xl" data-controller="countdown-stage" data-countdown-stage-date-value="<%= @date %> 14:00:00"></div>
         </div>
         <%= link_to "Je fais mon prono !", stage_path(@stage), class: "home-main-button" %>
       <% else %>
