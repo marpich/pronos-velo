@@ -69,7 +69,7 @@ before_action :authenticate_admin, only: [:new, :create]
     result = Result.new
     result.result_position = position
     result.stage = @stage
-    result.rider = Rider.where(bib: bib).first
+    result.rider = Rider.where(bib: bib, race: @stage.race).first
     result.save!
   end
 
@@ -77,7 +77,7 @@ before_action :authenticate_admin, only: [:new, :create]
     result = Result.new
     result.result_position = position
     result.stage = @stage
-    result.rider = Rider.where(team: team, race: Race.last).first
+    result.rider = Rider.where(team: team, race: @stage.race).first
     result.save!
   end
 
