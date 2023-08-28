@@ -7,7 +7,7 @@ class StagesController < ApplicationController
     @stage = Stage.find(params[:id])
     @previous_stage = Stage.where('id < ?', params[:id]).last if Stage.where('id < ?', params[:id]).last.race == Race.last
     @next_stage = Stage.where('id > ?', params[:id]).first
-    if @stage.date == Date.current && Time.zone.now < (Time.zone.now.middle_of_day + 3*60*60)
+    if @stage.date == Date.current && Time.zone.now < Time.zone.now.middle_of_day
       @bet = Bet.new
     end
     @my_bets = Bet.where(user: current_user, stage: @stage)

@@ -133,7 +133,7 @@
 
   <%# A revoir %>
   <!-- Affichage des pronos de tous une fois le résultat sorti -->
-  <% if @result.present? || (@stage.date == Date.current && Time.zone.now > (Time.zone.now.middle_of_day + 3*60*60))%>
+  <% if @result.present? || (@stage.date == Date.current && Time.zone.now > Time.zone.now.middle_of_day)%>
     <% unless @players.empty? %>
       <p class="sub-title">Les Pronos de l'étape</p>
       <% @players.each do |player| %>
