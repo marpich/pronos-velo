@@ -242,6 +242,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    select2-rails (4.0.13)
     selenium-webdriver (4.7.1)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -325,6 +326,7 @@ DEPENDENCIES
   rails (~> 7.0.4)
   redis (~> 4.0)
   sass-rails (>= 6)
+  select2-rails
   selenium-webdriver (>= 4.0.0.rc1)
   simple_form!
   simple_form-tailwind

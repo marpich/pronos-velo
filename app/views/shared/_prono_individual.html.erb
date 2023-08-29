@@ -1,17 +1,17 @@
 <div class="form-mon-prono">
   <%= form_with url: stage_bets_path(@stage), autocomplete: "on", method: :post do |f| %>
-    <div class="form-select">
+    <div class="form-select" data-controller="search">
       <div class="form-input">
         <div class="number"><p>1</p></div>
-        <div class="rider-select"><%= f.select :rider_1, Rider.get_all, prompt: 'Vainqueur' %></div>
+        <div class="mx-2" data-search-target="winner"><%= f.select :rider_1, Rider.get_all, prompt: 'Vainqueur'%></div>
       </div>
       <div class="form-input">
         <div class="number"><p>2</p></div>
-        <div class="rider-select"><%= f.select :rider_2, Rider.get_all, prompt: 'Deuxième' %></div>
+        <div class="mx-2" data-search-target="second"><%= f.select :rider_2, Rider.get_all, prompt: 'Deuxième'%></div>
       </div>
       <div class="form-input">
         <div class="number"><p>3</p></div>
-        <div class="rider-select"><%= f.select :rider_3, Rider.get_all, prompt: 'Troisième' %></div>
+        <div class="mx-2" data-search-target="third"><%= f.select :rider_3, Rider.get_all, prompt: 'Troisième'%></div>
       </div>
     </div>
     <div class="form-button">

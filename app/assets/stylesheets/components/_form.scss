@@ -75,3 +75,21 @@
     }
   }
 }
+
+.select2-container .select2-selection__placeholder {
+  color: $green !important; /* Changer la couleur en celle de votre choix */
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: $green !important;
+}
+
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+  background-color: $green !important;
+  font-size: 14px !important;
+}
+
+.select2-results__option {
+  font-size: 12px !important;
+  padding: 2px !important;
+}

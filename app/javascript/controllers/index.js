@@ -38,3 +38,6 @@ application.register("clipboard", ClipboardController)
 
 import HideBetsController from "./hide_bets_controller"
 application.register("hide-bets", HideBetsController)
+
+import SearchController from "./search_controller"
+application.register("search", SearchController)
