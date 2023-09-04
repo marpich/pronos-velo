@@ -11,8 +11,8 @@
     <h1>Mes Pronos</h1>
   </div>
 
-  <div data-controller="hide-bets">
-    <% @all_bets.each do |race, bets_by_stage| %>
+  <% @all_bets.each do |race, bets_by_stage| %>
+    <div data-controller="hide-bets">
       <div class="sub-title">
         <p data-action="click->hide-bets#hide"><%= race.name %> <i class="fas fa-chevron-down"></i></p>
       </div>
@@ -44,7 +44,7 @@
             </div>
           <% end %>
         <% end %>
+      </div>
     </div>
-    <% end %>
-  </div>
+  <% end %>
 </div>
