@@ -83,12 +83,22 @@
       </div>
       <%= link_to "Voir les classements", League.where_am_i(current_user).empty? ? users_dashboard_path : league_path(League.where_am_i(current_user).first, type: "yellow_jersey"), class: "home-main-button" %>
     <% else %>
-      <div class="timer-card">
+      <div class="text-countdown-card">
+        <p><strong>La Vuelta vient de se terminer...</strong></p>
+        <div class="bubble bubble-bottom-left" contenteditable>
+          <em>Un petit coup d'oeil sur le classement final ?</em>
+        </div>
+      </div>
+      <%= link_to "Voir les classements", League.where_am_i(current_user).empty? ? users_dashboard_path : league_path(League.where_am_i(current_user).first, type: "yellow_jersey"), class: "home-main-button" %>
+
+      <!--A remettre pour la prochaine course-->
+      <%# <div class="timer-card">
         <p class="pr-2"><i class="fas fa-bell"></i></p>
         <p>Début dans</p>
         <div class="pl-2 text-xl" data-controller="countdown-race" data-countdown-race-date-value="August 26, 2023 00:00:00"></div>
       </div>
-      <p class='text-center'>Rendez-vous le 26 Août 2023 !</p>
+      <p class='text-center'>Rendez-vous le 26 Août 2023 !</p> %>
+
     <% end %>
   </div>
 
