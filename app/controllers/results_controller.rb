@@ -3,7 +3,7 @@ before_action :authenticate_admin, only: [:new, :create]
 
   def index
     @results = Result.includes(:stage).where(stage: {race: Race.last}).group_by(&:stage)
-    @stage = Stage.where(date: Date.current - 2).first
+    @stage = Stage.where(date: Date.current).first
     @result = Result.where(stage: @stage)
   end
 
