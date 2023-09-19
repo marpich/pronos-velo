@@ -13,8 +13,14 @@
 
   <% @all_bets.each do |race, bets_by_stage| %>
     <div data-controller="hide-bets">
-      <div class="sub-title">
+      <div class="sub-title flex justify-between">
         <p data-action="click->hide-bets#hide"><%= race.name %> <i class="fas fa-chevron-down"></i></p>
+        <%= link_to league_race_path(@my_leagues.first, race, type: "yellow_jersey") do %>
+          <div class="flex">
+            <i class="fas fa-trophy"></i>
+            <p class="pl-2"><%= TotalScore.get_user_total_score_for_one_race(current_user, race) %> pts</p>
+          </div>
+        <% end %>
       </div>
       <div data-hide-bets-target="betsSection">
         <% bets_by_stage.each do |stage, bets| %>

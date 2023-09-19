@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       get :info
     end
     resources :admissions, only: [:create, :destroy, :new]
+    resources :races, only: [:show]
   end
 
   resources :results, only: [:index]

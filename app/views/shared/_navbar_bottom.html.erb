@@ -5,7 +5,7 @@
       <p>Accueil</p>
     </div>
   <% end %>
-  <%= link_to (League.where_am_i(current_user).empty? ? users_dashboard_path : league_path(League.where_am_i(current_user).first, type: "yellow_jersey")) do %>
+  <%= link_to (League.where_am_i(current_user).empty? ? users_dashboard_path : league_race_path(League.where_am_i(current_user).first, Race.last, type: "yellow_jersey")) do %>
     <div class="navbar-bottom-icon <%= 'active' if controller_name == 'leagues' %>">
       <i class="fas fa-trophy"></i>
       <p>Classement</p>

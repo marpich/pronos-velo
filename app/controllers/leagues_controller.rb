@@ -24,13 +24,6 @@ class LeaguesController < ApplicationController
     end
   end
 
-  def show
-    @league = League.find(params[:id])
-    @my_leagues = League.where_am_i(current_user)
-    @users = User.accepted_in_league(@league, params[:type])
-    @admission = @league.admissions.where(user: current_user).first
-  end
-
   def edit
     @league = League.find(params[:id])
   end

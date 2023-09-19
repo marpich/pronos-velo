@@ -25,7 +25,7 @@ class User < ApplicationRecord
     self.scores.where(stage: stage).first.points unless self.scores.where(stage: stage).empty?
   end
 
-  def self.accepted_in_league(league, type)
+  def self.accepted_in_league(league, type, race)
     owner = User.includes(:leagues).where(leagues: { id: league.id })
     accepted_users = User.includes(:admissions).where(admissions: { league: league, status: "accepted" })
     all_users = owner + accepted_users
@@ -33,11 +33,11 @@ class User < ApplicationRecord
     all_users.each do |user|
       case type
       when "yellow_jersey"
-        players << [user, user.total_scores.last.yellow_jersey]
+        players << [user, TotalScore.where(user: user, race: race).first.yellow_jersey]
       when "green_jersey"
-        players << [user, user.total_scores.last.green_jersey]
+        players << [user, TotalScore.where(user: user, race: race).first.green_jersey]
       when "polka_dot_jersey"
-        players << [user, user.total_scores.last.polka_dot_jersey]
+        players << [user, TotalScore.where(user: user, race: race).first.polka_dot_jersey]
       end
     end
     players.sort_by { |player| player[1] }.reverse
