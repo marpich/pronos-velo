@@ -39,7 +39,6 @@
     <div class="leagues-avatar grid grid-cols-4 gap-5">
       <% @my_leagues.each do |league| %>
         <% if league.user == current_user || league.admissions.where(user: current_user).first.status == "accepted" %>
-          <%# <%= link_to league_path(league, type: "yellow_jersey"), data: { turbolinks: false } do %>
           <%= link_to info_league_path(league) do %>
             <%= cl_image_tag league.logo.key, class: "border-solid border-2 rounded-full w-16 h-16 max-w-none object-cover m-auto" %>
           <% end %>

@@ -31,7 +31,7 @@ class LeaguesController < ApplicationController
   def update
     @league = League.find(params[:id])
     @league = League.update(league_params)
-    redirect_to league_path(@league)
+    redirect_to users_dashboard_path(popup: true, league: @league.name)
   end
 
   def destroy

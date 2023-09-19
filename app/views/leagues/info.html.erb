@@ -46,7 +46,7 @@
 
 
 
-  <%= link_to league_path(@league, type: "yellow_jersey"), data: { turbolinks: false }, class: "main-button" do %>
+  <%= link_to league_race_path(@league, Race.last, type: "yellow_jersey"), data: { turbolinks: false }, class: "main-button" do %>
     <p>Voir le classement</p>
   <% end %>
 
