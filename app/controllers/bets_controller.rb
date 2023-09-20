@@ -1,7 +1,6 @@
 class BetsController < ApplicationController
   def index
     @all_bets = Bet.joins(:stage).where(user: current_user).order(number: :asc, position: :asc).group_by(&:stage).group_by { |stage, _bets| stage.race }
-    @user_total_scores = TotalScore.where(user: current_user)
     @my_leagues = League.where_am_i(current_user)
   end
 
