@@ -110,12 +110,14 @@
   </div>
 
   <% @user_total_scores.each do |total_score| %>
-    <div class="flex justify-between mx-2 border-b border-gray-500">
+    <div class="flex justify-between mx-2 mb-1 border-b border-gray-500">
       <h3><em><%= total_score.race.name %></em></h3>
-      <div class="flex items-center">
-        <i class="fas fa-trophy"></i>
-        <p class="pl-2"><%= total_score.yellow_jersey %> pts</p>
-      </div>
+      <%= link_to league_race_path(@my_leagues.first, total_score.race, type: "yellow_jersey") do %>
+        <div class="flex items-center">
+          <i class="fas fa-trophy"></i>
+          <p class="pl-2"><%= total_score.yellow_jersey %> pts</p>
+        </div>
+      <% end %>
     </div>
   <% end %>
 

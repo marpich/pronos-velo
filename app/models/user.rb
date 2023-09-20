@@ -33,7 +33,7 @@ class User < ApplicationRecord
     all_users.each do |user|
       all_bets = user.bets
       all_bets.each do |bet|
-        if bet.stage.race == Race.last
+        if bet.stage.race == race
           case type
           when "yellow_jersey"
             players << [user, TotalScore.where(user: user, race: race).first.yellow_jersey]
