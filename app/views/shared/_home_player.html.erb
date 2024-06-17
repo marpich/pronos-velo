@@ -16,16 +16,16 @@
       <div class="stage-info-number">
         <p><i class="fas fa-flag"></i> Etape <%= @stage.number if @stage %></p>
       </div>
-      <h3>Vuelta</h3>
-      <h4>2023</h4>
+      <h3>Tour de France</h3>
+      <h4>2024</h4>
     </div>
   <% elsif @rest_day.present? && @race.starting_date <= Date.current %>
     <div class="currently-card">
       <div class="stage-info-number">
         <p><i class="fas fa-flag"></i> Jour de repos</p>
       </div>
-      <h3>Vuelta</h3>
-      <h4>2023</h4>
+      <h3>Tour de France</h3>
+      <h4>2024</h4>
     </div>
   <% end %>
 
@@ -49,7 +49,7 @@
   </div>
 
   <div>
-    <p class="race-title">Vuelta</p>
+    <p class="race-title">Tour de France</p>
   </div>
 
   <!-- Countdown -->
@@ -57,7 +57,7 @@
     <% if @stage.present? %>
       <% if (Time.zone.now < Time.zone.now.middle_of_day) %>
         <div class="text-countdown-card">
-          <strong>Fermeture des pronos à 18h00</strong><br>
+          <strong>Fermeture des pronos à 12h00</strong><br>
           <em>Ne loupe pas le départ!</em>
         </div>
         <div class="timer-card text-center">
@@ -84,20 +84,20 @@
       <%= link_to "Voir les classements", League.where_am_i(current_user).empty? ? users_dashboard_path : league_race_path(League.where_am_i(current_user).first, Race.last, type: "yellow_jersey"), class: "home-main-button" %>
     <% else %>
       <div class="text-countdown-card">
-        <p><strong>La Vuelta vient de se terminer...</strong></p>
+        <p><strong>Le Tour de France 2024 se rapproche...</strong></p>
         <div class="bubble bubble-bottom-left">
-          <em>Un petit coup d'oeil sur le classement final ?</em>
+          <em>Un petit coup d'oeil sur le Parcours pour préparer tes paris ?</em>
         </div>
       </div>
-      <%= link_to "Voir les classements", League.where_am_i(current_user).empty? ? users_dashboard_path : league_race_path(League.where_am_i(current_user).first, Race.last, type: "yellow_jersey"), class: "home-main-button" %>
+      <%= link_to "Voir les étapes", stages_path, class: "home-main-button" %>
 
       <!--A remettre pour la prochaine course-->
-      <%# <div class="timer-card">
+      <div class="timer-card">
         <p class="pr-2"><i class="fas fa-bell"></i></p>
         <p>Début dans</p>
-        <div class="pl-2 text-xl" data-controller="countdown-race" data-countdown-race-date-value="August 26, 2023 00:00:00"></div>
+        <div class="pl-2 text-xl" data-controller="countdown-race" data-countdown-race-date-value="June 29, 2024 00:00:00"></div>
       </div>
-      <p class='text-center'>Rendez-vous le 26 Août 2023 !</p> %>
+      <p class='text-center'>Rendez-vous le 29 Juin 2024 !</p>
 
     <% end %>
   </div>

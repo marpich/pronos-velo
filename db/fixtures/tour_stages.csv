@@ -1,0 +1,22 @@
+number,date,stage_type,length,departure,arrival,image_map
+1,29/06/2024,Accidentee,206,Florence,Rimini,https://res.cloudinary.com/dciokrtia/image/upload/v1718643191/Tour_Etape_1_odjsy1.jpg
+2,30/06/2024,Accidentee,198.7,Cesenatico,Bologne,https://res.cloudinary.com/dciokrtia/image/upload/v1718643191/Tour_Etape_2_q4uwna.jpg
+3,01/07/2024,Plat,230.5,Plaisance,Turin,https://res.cloudinary.com/dciokrtia/image/upload/v1718643191/Tour_Etape_3_sh8nil.jpg
+4,02/07/2024,Montagne,140,Pinerolo,Valloire,https://res.cloudinary.com/dciokrtia/image/upload/v1718643192/Tour_Etape_4_ti8yyk.jpg
+5,03/07/2024,Plat,177.4,Saint-Jean-de-Maurienne,Saint-Vulbas,https://res.cloudinary.com/dciokrtia/image/upload/v1718643191/Tour_Etape_5_ujwipl.jpg
+6,04/07/2024,Plat,163.5,Mâcon,Dijon,https://res.cloudinary.com/dciokrtia/image/upload/v1718643191/Tour_Etape_6_ebvmwl.jpg
+7,05/07/2024,Chrono,25.3,Nuits-Saint-Georges,Gevrey-Chambertin,https://res.cloudinary.com/dciokrtia/image/upload/v1718643191/Tour_Etape_7_fudbdd.jpg
+8,06/07/2024,Plat,183.4,Semur-en-Auxois,Colombey-les-Deux-Eglises,https://res.cloudinary.com/dciokrtia/image/upload/v1718643191/Tour_Etape_8_pfdccq.jpg
+9,07/07/2024,Accidentee,199,Troyes,Troyes,https://res.cloudinary.com/dciokrtia/image/upload/v1718643191/Tour_Etape_9_gmr6xh.jpg
+10,09/07/2024,Plat,187.3,Orléans,Saint-Amand-Montrond,https://res.cloudinary.com/dciokrtia/image/upload/v1718643191/Tour_Etape_10_z6jzmb.jpg
+11,10/07/2024,Montagne,211,Evaux-les-Bains, Le Lioran,https://res.cloudinary.com/dciokrtia/image/upload/v1718643191/Tour_Etape_11_cdfb8o.jpg
+12,11/07/2024,Plat,203.6,Aurillac,Villeneuve-sur-Lot,https://res.cloudinary.com/dciokrtia/image/upload/v1718643192/Tour_Etape_12_t3wdbz.jpg
+13,12/07/2024,Plat,165.3,Agen,Pau,https://res.cloudinary.com/dciokrtia/image/upload/v1718643192/Tour_Etape_13_v8dkwy.jpg
+14,13/07/2024,Montagne,151.9,Pau,Saint-Lary-Soulan Plat d'Adet,https://res.cloudinary.com/dciokrtia/image/upload/v1718643192/Tour_Etape_14_ranwuv.jpg
+15,14/07/2024,Montagne,197.7,Loudenvielle,Plateau de Beille,https://res.cloudinary.com/dciokrtia/image/upload/v1718643192/Tour_Etape_15_skrwfo.jpg
+16,16/07/2024,Plat,188.6,Gruissan,Nîmes,https://res.cloudinary.com/dciokrtia/image/upload/v1718643192/Tour_Etape_16_t44dbg.jpg
+17,17/07/2024,Montagne,177.8,Saint-Paul-Trois-Châteaux,Superdévoluy,https://res.cloudinary.com/dciokrtia/image/upload/v1718643192/Tour_Etape_17_ydispq.jpg
+18,18/07/2024,Accidentee,179.5,Gap,Barcelonette,https://res.cloudinary.com/dciokrtia/image/upload/v1718643192/Tour_Etape_18_wqdbtv.jpg
+19,19/07/2024,Montagne,144.6,Embrun,Isola 2000,https://res.cloudinary.com/dciokrtia/image/upload/v1718643192/Tour_Etape_19_xa1ttr.jpg
+20,20/07/2024,Montagne,132.8,Nice,Col de la Couillole,https://res.cloudinary.com/dciokrtia/image/upload/v1718643192/Tour_Etape_20_ddcmxa.jpg
+21,21/07/2024,Chrono,33.7,Monaco,Nice,https://res.cloudinary.com/dciokrtia/image/upload/v1718643192/Tour_Etape_21_wjxatt.jpg
